@@ -1,0 +1,6 @@
+{
+  "name": "DevVault - Open Lab & Temporary Database",
+  "description": "Secure database for Full Stack Development and Flutter lab experiments with temporary auto-disappearing text files, custom expiration timers, 1-click code copying, and speech-to-text voice integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

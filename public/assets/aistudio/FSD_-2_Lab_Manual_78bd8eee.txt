@@ -1,0 +1,4204 @@
+﻿Full stack development 2
+Course Objectives:
+The main objectives of the course are to:
+->Implement router, template engine and authentication using sessions to develop
+application in Express JS.
+->Build a single page application using RESTful APIs in Express JS
+->Apply router and hooks in designing React JS application
+-> Implement MongoDB queries to perform CRUD operations on document database
+Experiments covering the Topics:
+-> Express JS – Routing, HTTP Methods, Middleware, Templating, Form Data
+-> Express JS – Cookies, Sessions, Authentication, Database, RESTful APIs
+->React JS – Render HTML, JSX, Components – function &amp; Class, Props and States,
+Styles, Respond to Events
+-> React JS – Conditional Rendering, Rendering Lists, React Forms, React Router,
+Updating the Screen
+-> React JS – Hooks, Sharing data between Components, Applications – To-do list and
+Quiz
+-> MongoDB – Installation, Configuration, CRUD operations, Databases, Collections
+and Records
+Sample Experiments:
+1. Express JS – Routing, HTTP Methods, Middleware.
+a. Write a program to define a route, Handling Routes, Route Parameters, Query
+Parameters and URL building.
+b. Write a program to accept data, retrieve data and delete a specified resource using httpmethods.
+
+
+
+c. Write a program to show the working of middleware.
+2. Express JS – Templating, Form Data
+a. Write a program using templating engine.
+b. Write a program to work with form data.
+3. Express JS – Cookies, Sessions, Authentication
+a. Write a program for session management using cookies and sessions.
+b. Write a program for user authentication.
+4. Express JS – Database, RESTful APIs
+a. Write a program to connect MongoDB database using Mangoose and perform CRUD
+operations.
+b. Write a program to develop a single page application using RESTful APIs.
+5. ReactJS – Render HTML, JSX, Components – function &amp; Class
+a. Write a program to render HTML to a web page.
+b. Write a program for writing markup with JSX.
+c. Write a program for creating and nesting components (function and class).
+d.
+6. ReactJS – Props and States, Styles, Respond to Events
+a. Write a program to work with props and states.
+b. Write a program to add styles (CSS &amp; Sass Styling) and display data.
+c. Write a program for responding to events.
+7. ReactJS – Conditional Rendering, Rendering Lists, React Forms
+a. Write a program for conditional rendering.
+b. Write a program for rendering lists.
+c. Write a program for working with different form fields using react forms.
+8. ReactJS – React Router, Updating the Screen
+a. Write a program for routing to different pages using react router.
+b. Write a program for updating the screen.
+
+
+
+9. ReactJS – Hooks, Sharing data between Components
+a. Write a program to understand the importance of using hooks.
+b. Write a program for sharing data between components.
+10. MongoDB – Installation, Configuration, CRUD operations
+a. Install MongoDB and configure ATLAS
+b. Write MongoDB queries to perform CRUD operations on document using insert(),
+find(), update(), remove()
+11. MongoDB – Databases, Collections and Records
+a. Write MongoDB queries to Create and drop databases and collections.
+b. Write MongoDB queries to work with records using find(), limit(), sort(),
+createIndex(), aggregate().
+12. Augmented Programs: (Any 2 must be completed)
+a. Design a to-do list application using NodeJS and ExpressJS.
+b. Design a Quiz app using ReactJS.
+c. Complete the MongoDB certification from MongoDB University website.
+Text Books:
+1. Pro MERN Stack: Full Stack Web App Development with Mongo, Express, React, and
+Node, Vasan Subramanian, 2 nd edition, APress, O’Reilly.
+2. Node.Js in Action, Mike Cantelon, Mark Harter, T.J. Holowaychuk, Nathan
+Rajlich,Manning Publications. (Chapters 1-11)
+3. React Quickly, AzatMardan,Manning Publications(Chapters 1-8,12-14)
+Web Links:
+1. ExpressJS - https://www.tutorialspoint.com/expressjs
+2. ReactJS - https://www.w3schools.com/REACT (and) https://react.dev/learn#
+3. MongoDB - https://learn.mongodb.com/learning-paths/introduction-to-mongodb
+
+
+
+FULLSTACK DEVELOPMENT:
+Full-stack development refers to the practice of working on both the front-end
+and back-end of a web application or software. A full-stack developer is proficient
+in all layers of a software application, including the user interface (front-end),
+server-side logic (back-end), and database management. They can handle the
+entire development process, from the client-side interactions to the server-side
+operations and data storage.
+Front-end Development: This involves the user interface, which is what users
+interact with directly. This includes elements like the website's design, layout, and
+user experience. Common technologies used include HTML, CSS, JavaScript, and
+various JavaScript frameworks like React, Angular, or Vue.
+Back-end Development: This handles the server-side logic, databases, and
+application workflows that run behind the scenes. It manages data storage, user
+authentication, and other core functionalities. Popular technologies include
+Python, Java, Node.js, and databases like MySQL, PostgreSQL, or MongoDB.
+Full-stack development encompasses both these aspects, allowing developers to
+build complete web applications from start to finish.
+Front-end Technologies:
+HTML: HTML stands for Hyper Text Markup Language. It is used to design the
+front-end portion of web pages using markup language.
+CSS: Cascading Style Sheets
+CSS is used to define styles for your web pages, including the design, layout
+and variations in display for different devices and screen sizes.
+
+JAVA SCRIPT:
+JavaScript is the programming language of the web.
+
+It can update and change both HTML and CSS.
+
+It can calculate, manipulate and validate data.
+
+
+
+React is a front-end JavaScript library.
+
+REACT JS:
+React was developed by the Facebook Software Engineer Jordan Walke.
+
+React is also known as React.js or ReactJS.
+
+React is a tool for building UI components.
+
+Node js :
+Node.js is an open-source, cross-platform JavaScript runtime environment that
+allows developers to execute JavaScript code outside of a web browser. It is
+built on Chrome's V8 JavaScript engine and enables the use of JavaScript for
+server-side scripting, command-line tools, and other applications.
+
+V8 engine :
+The V8 engine is Google's open-source, high-performance JavaScript and
+WebAssembly engine, written in C++. It is the core component that enables
+Node.js to execute JavaScript code outside of a web browser environment.
+
+V8 parses and compiles JavaScript code into machine code, allowing the
+computer's processor to understand and execute it directly.
+
+Express js:
+Express.js is a minimal and flexible Node.js web application framework that
+provides a list of features for building web and mobile applications easily. It
+simplifies the development of server-side applications by offering an easy-to-
+use API for routing, middleware, and HTTP utilities.
+
+1)Built on Node.js for fast and scalable server-side development.
+
+2)Simplifies routing and middleware handling for web applications.
+
+3)Supports building REST APIs, real-time applications, and single-page
+applications.
+
+4)Provides a lightweight structure for flexible and efficient server-side
+development.
+
+
+
+RESTful API :
+A RESTful API, or REST API, is a way for computer systems to communicate
+over the internet using a set of architectural principles called Representational
+State Transfer (REST). It uses standard HTTP methods like GET, POST, PUT,
+and DELETE to access and manipulate resources, often formatted as JSON or
+XML.
+
+Here's a more detailed explanation:
+
+Key Concepts:
+-----------------------
+
+1)REST (Representational State Transfer):
+
+A set of architectural constraints that define how web services should be
+designed.
+
+2)API (Application Programming Interface):
+
+A set of rules and specifications that allow different software systems to
+communicate with each other.
+
+3)HTTP Methods:
+
+The standard methods used in RESTful APIs to interact with resources:
+
+->GET: Retrieves a representation of a resource.
+
+->POST: Creates a new resource.
+
+->PUT: Updates an existing resource.
+
+->DELETE: Deletes a resource.
+
+Routing :
+In Express.js, routing defines how an application responds to client requests at
+specific endpoints, which are combinations of a URI (or path) and an HTTP request
+
+
+
+Middleware:
+In the context of a client-server architecture, Express.js middleware functions as an intermediary layer
+that processes requests and responses as they flow between the client and the server.
+A client sends an HTTP request to the Express.js server.
+Middleware Interception:
+Before the request reaches its intended route handler, it passes through a series of middleware
+functions. Each middleware function has access to the request object (req), the response object (res),
+and a next() function.
+Ex: Authentication/Authorization: Verifying user credentials or permissions
+Sessions and cookies:
+Sessions and cookies are both mechanisms used by websites to store user information, but they differ in
+where the information is stored and how long it persists. Sessions store data on the server-side, while
+cookies store data on the user's browser (client-side).
+Sessions:
+Server-side storage:
+Session data is stored on the web server, making it more secure than cookies.
+Temporary storage:
+Sessions are typically used to store temporary information related to a user's visit, such as login
+credentials or items in a shopping cart, and they expire when the session ends (e.g., when the user
+closes the browser or logs out).
+
+Cookies:
+Client-side storage:
+Cookie data is stored on the user's computer in the form of small text files.
+Persistent or temporary:
+Cookies can be persistent (stored for a specified duration) or session-based (deleted when the browser
+is closed).
+
+
+
+Single-Page Application (SPA) :
+A single-page application (SPA) is a web application that interacts with the user by dynamically rewriting
+the current page instead of loading new pages from the server. A real-time example of an SPA is Gmail,
+where users can manage their inbox and emails without full page reloads as they navigate between
+emails or folders. Other examples include Google Maps, where users can zoom, search, and get
+directions without page refreshes, and Trello, where task management and updates happen in real-time
+without page reloads.
+
+________________________________________
+Installation process of node js:
+Step 1: Go to chrome and search nodejs
+
+Step 2: Click on nodejs
+
+
+
+Step 3: click on install node.js
+
+Step 4: click on Windows Installer(.msi)
+
+
+
+Step 5: After that go to downloads and open that downloaded node js file. click on
+Next
+
+
+
+Step 6: After that select checkbox and click Next
+
+Step 7: click on Next
+
+Step 8: click on Next
+
+
+
+Step 9: click on Next
+
+Step 10: click on Install
+
+
+
+Step 11: Allow changes.Click on Yes
+Step 12: Completed the Node.js setup wizard
+
+Click on Finish
+
+To check node js installed successfully or go to command
+prompt and give command node
+
+
+
+Therefore noje.js successfully installed
+----------------------------------------------------------------------------
+Installation process of vscode(visual studio code) :
+Step 1: Go to chrome and search vscode
+Step 2: Click on visual studio code (code.visualstudio.com)
+
+
+
+Step 3: Click on Download for Windows
+
+Step 4: After that open that downloaded file
+
+
+
+Step 5: Click on I ACCEPT and NEXT
+
+Step 6: Click on NEXT
+
+Step 7: Click on INSTALL
+
+
+
+Step 8: Click on FINISH
+
+
+
+NOW CREATE A FOLDER IN DESKTOP AND OPEN THAT FOLDER IN VS CODE
+OR
+
+GO TO VISUAL STUDIO AND THEN OPEN THAT FOLDER
+
+CLICK 0N TERMINAL AND COMMAND PROMPT ON VSCODE
+
+1)TO INITIALIZE FIRST GIVE THE COMMAND > npm init
+(cmd in vs code)
+
+
+
+NEXT CLICK ENTER
+ENTER
+
+UNTIL IT SHOW YES OR NO
+THEN WE WRITE YES
+
+WHEN WE GIVE YES HERE Package.json IS CREATED
+
+
+
+2) INSTALLATION OF EXPRESS:
+STEP 1: Go to chrome and Search express npm and click on NPM
+
+STEP 2: Copy npm I express to INSTALL
+
+
+
+STEP 3: Copy npm I express and paste in vscode cmd to install express
+
+3)INSTALLATION OF NODEMON :
+STEP 1 : Go to chrome and Search nodemon npm and click on NPM
+
+STEP 2: Copy npm I nodemon to INSTALL
+
+
+
+STEP 3: : Copy npm I nodemon and paste in vscode cmd to install nodemon
+
+-------------------------------------------------------------------------------------------------------------------------------
+Installation process of postman:
+STEP 1: Go to chrome and Search postman download and click on Postman
+
+Step2: click on download for Windows 64-bit
+
+
+
+STEP 3 : After that open that downloaded file
+
+STEP 4 : Then it will come working with API Simplified with Postman
+Enter your work Email and Continue with Google
+
+
+
+STEP 5 : It Ask Sign into Postman .. Then Click on CONTINUE
+
+Step 6 : After that Click on Both CheckBoxes and Click ALLOW ACCESS
+
+
+
+STEP 7 : Write your Name and Select the Role As FULLSTACK DEVELOPER
+
+STEP 8 : After that click on CONTINUE WITH FREEPLAN
+
+STEP 9 :Here Postman work environment is opened
+
+
+
+STEP 10 : Click on + symbol . After that getting started to run the program
+
+-------------------------------------------------------------------------------------------------------------------------------
+PROGRAMS:
+1. Express JS – Routing, HTTP Methods, Middleware.
+a. Write a program to define a route, Handling Routes, Route Parameters, Query
+Parameters and URL building.
+
+SOURCE CODE: WRITE IN VSCODEwith app.js run in postman
+
+
+
+constexpress=require('express');
+// before 2015, after 2015
+constapp=express();
+constport=3000;
+// javascript is a dynamic typed language
+// const, let
+// r
+// let a =10;
+// a+=10;
+// Basic route
+app.get('/', (req, res) => {
+res.send('Welcome to the Book API!');
+});
+// Route with route parameters
+app.get('/books/:bookId', (req, res) => {
+console.log(req.params);
+constbookId=req.params.bookId;
+res.send(`You requested details for book ID: ${bookId}`);
+});
+
+// Route with query parameters
+app.get('/search', (req, res) => {
+console.log(req.query);
+const{ title, author } =req.query;
+res.send(`Searching for books${title ? ` with title: ${title}` :''}${author ? ` by author:
+${author}` :''}`);
+});
+// Route that builds a dynamic URL
+app.get('/redirect-to-book/:bookId', (req, res) => {
+constbookId=req.params.bookId;
+consturl=`/books/${bookId}`;
+console.log(url);
+res.redirect(url);
+});
+app.listen(port, () => {
+console.log(`Server listening at http://localhost:${port}`);
+
+
+
+});
+// it will first create a server by using port
+// next it will start listening that port
+// string templating js
+OUTPUT:
+
+ Open Vscode and then on top of the taskbar beside Run
+there are three dots.
+
+ Click on that three dots and we have a terminal option
+and after in that terminal we have new terminal that click
+on that new terminal.
+
+ Then new terminal will open and after that we have
+downside arrow mark as shown in the screenshot click
+tPhraotmdpotwnside arrow then select option “Command
+
+”.
+
+1stenter vscode cmd
+>npm init
+>npm i express
+___________________________________________
+To run the program
+>node app.js
+To see output, go to postman
+
+
+
+Select GET method and give http://localhost:3000/ and click
+send button to see the output.
+
+
+
+_____________________________________________________________
+
+1(b). Write a program to accept data, retrieve data and delete a
+specified resource using http methods.
+Source code: Write Code in VS Code create folder crud.js
+AGnEdT,rPuOnStTh,DeEpLrEoTgEram in postman (For this program we have to select
+
+methods)
+constexpress=require('express');
+// before 2015, after 2015
+constapp=express();
+constport=3000;
+app.use(express.json());
+// inmemory (by using arrays)
+// persistance (using json file)
+letdata= [
+{
+userId:1,
+firstName:"vamsi",
+
+
+
+lastName:"Korrapolu",
+phoneNo:7123123872,
+email:"vamsi@gmail.com"
+
+},
+{
+userId:2,
+firstName:"kishore",
+lastName:"Raj",
+phoneNo:8787128311,
+email:"kishore@gmail.com"
+
+},
+{
+userId:3,
+firstName:"Ram",
+lastName:"Nandhan",
+phoneNo:8734128311,
+email:"ram@gmail.com"
+
+},
+]
+// read
+app.get("/users", (req, res) => {
+res.status(200).json(data);
+
+})
+app.get("/users/:userid", (req, res) => {
+constuserId=Number(req.params.userid);
+// == - Just it check values
+// === - It checks both value and type
+constuser=data.find((item) =>item.userId===userId);
+if(!user) returnres.status(404).json({ error:"User not found" });
+res.status(200).json(user);
+
+})
+constisAlreadyPresent= (id) => {
+constindex=data.findIndex((item) =>item.userId===id);
+// console.log(index);
+if (index===-1) returnfalse;
+returntrue;
+
+}
+// create
+app.post("/users/addUser", (req, res) => {
+constbody=req.body;
+// validation
+
+
+
+// check whether id is present in array or not
+if (isAlreadyPresent(body.userId)) returnres.status(400).json({ error:"User already exist" });
+data.push(body);
+res.status(201).json({ message:"Created successfully." });
+
+})
+// delete
+app.delete("/users/deleteUser/:userId",(req,res)=>{
+constuserId=Number(req.params.userId);
+// check this user already in array
+if(isAlreadyPresent(userId)){
+// [1,2,3,4,5]
+// [1,2,4,5]
+data=data.filter((item)=>item.userId!==userId);
+returnres.status(200).json({message:"User deleted"});
+
+}
+returnres.status(404).json({message:"Unable to delete user due to not found."});
+
+})
+app.listen(port, () => {
+console.log(`Server listening at http://localhost:${port}`);
+
+});
+
+
+
+
+
+
+
+
+
+1©. Write a program to show the working of middleware.
+SOURCE CODE:Write a program in VS Code and save middleware.js and run
+program in POSTMAN.
+constexpress=require('express');
+constapp=express();
+// simple authentication middleware
+functionauthenticate(req,res,next) {
+constauthHeader=req.headers['secret'];
+if(authHeader==='mysecretkey'){
+next(); // token is valid , proceed to the route
+
+} else {
+res.status(401).json({message :'Unauthorized'});
+
+}
+}
+// PROTECTED ROUTE
+app.get('/secure',authenticate,(req,res)=>{
+res.send('You have access to the secure route!');
+
+});
+// public route
+app.get('/',(req,res)=>{
+res.send('welcome to the public route!');
+
+});
+app.listen(3000,()=>{
+console.log('server running on port 3000');
+
+});
+
+
+
+
+
+
+TEMPLATE ENGINE:
+A template engine is a software that merges templates (files containing
+placeholders) with data to produce output, often HTML for web applications. It
+simplifies dynamic content generation by separating presentation logic from
+the underlying data.
+
+
+
+EJS: (Embedded JavaScript)
+EJS or Embedded JavaScript Templating is a templating engine used by
+Node.js. Template engine helps to create an HTML template with minimal
+code. Also, it can inject data into an HTML template on the client side and
+produce the final HTML. EJS is a simple templating language that is used to
+generate HTML markup with plain JavaScript. It also helps to embed
+JavaScript into HTML pages.
+I>nnspmtalinlisntagllEejJsS:
+
+2. Express JS – Templating, Form Data
+
+a. Write a program using templating engine.
+SOURCE CODE: write program in vs code
+
+ Create folder on desktop with name template
+enginewithoutany extension.
+
+ Open that template engine folder in VS Code.
+
+
+
+Create filetemplate.js and write program in that.
+
+Now create folder viewsinside that create new file index.ejs and write
+html program here.
+SOURCE CODE:
+template.js
+__________________________________________________
+const express = require('express');
+const app = express();
+const port = 3000;
+// Set the view engine to EJS
+app.set('view engine', 'ejs');
+// Define a route
+app.get('/', (req, res) => {
+
+const user = {
+name: "Iswarya",
+
+
+
+course: "Computer Science",
+college: "ABC University"
+
+};
+// Render index.ejs with user data
+
+res.render('index', { user: user });
+});
+// Start the server
+app.listen(port, () => {
+console.log(`Server is running on http://localhost:${port}`);
+});
+
+index.ejs
+__________________________________________________________
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome Page</title>
+</head>
+<body>
+<h1>Welcome <%= user.name %>!</h1>
+
+
+
+<p>You are studying <strong>
+<%= user.course %>
+</strong> at <strong>
+<%= user.college %>
+</strong>.</p>
+</body>
+</html>
+__________________________________________________________
+OUTPUT:
+>npm init
+>npm i express ejs
+>node template.js
+
+Go to Chrome or Postman and search http://localhost:3000/
+
+
+
+NOTE: If we get any errors change the port number for different
+programs.
+
+2b. Write a program to work with form data.
+
+Source code :
+Open folder templateengine folder in desktop
+
+ Create vtwieowBs.jfsoflidleerinside the templateenginneefofoldldeerrand outside the views folder
+ Create inside the templateengi
+ I1nside the views folder
+
+2)) CSurecacetessf.oerjms fsi.leejs file
+(or)
+
+Separately create folder in desktop and repeatthe process like previous program.
+Source code :
+twoB.js
+const express = require('express');
+const path = require('path');
+const bodyParser = require("body-parser")
+const twoB = express();
+// Set EJS as templating engine
+twoB.set('view engine', 'ejs');
+// to parse body data from html forms
+twoB.use(bodyParser.urlencoded({ extended: true }));
+// Routes
+twoB.get('/', (req, res) => {
+res.render('forms');
+});
+
+
+
+twoB.post('/submit', (req, res) => {
+const { name, email } = req.body;
+
+res.render('success', { name, email });
+});
+// Start server
+twoB.listen(4000, (err) => {
+console.log('Server running on http://localhost:4000');
+console.log(err);
+
+});
+-----------------------------------------------------------------
+views
+
+ forms.ejs
+ success.ejs
+
+forms.ejs
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Page</title>
+</head>
+<body>
+<h1>Submit Your Info</h1>
+<form action="/submit" method="POST">
+<label>Name: <input type="text" name="name" required></label><br>
+<label>Email: <input type="email" name="email" required></label><br>
+<button type="submit">Submit</button>
+</form>
+</body>
+
+
+
+</html>
+Success.ejs
+<!DOCTYPE html>
+<html>
+<head>
+<title>Success</title>
+</head>
+<body>
+<h2>Thanks, <%= name %>!</h2>
+<p>We've received your email: <%= email %></p>
+</body>
+</html>
+Output :
+
+
+
+3
+
+3. Express JS – Cookies, Sessions, Authentication
+3a)Write a program for session management using cookies and sessions.
+Program:
+app.js
+
+const express = require('express');
+const sessionrouter = require('./routes/sessionroutes');
+//const authrouter = require('authenticationroutes');
+
+
+
+//app initialization
+const app = express();
+app.use(express.json());
+app.use('/', [sessionrouter]);
+
+app.listen(3020, function () {
+console.log('Server is up and running in the port 3020...');
+});
+
+module.exports=app
+
+>routes (folder)
+>sessionroutes.js (file)
+
+---------------------------------------------------------------------------------------------------------------------
+sessionroute.js
+-------------------------------------
+const express = require('express');
+const session = require('express-session');
+const sessionrouterapp = express.Router();
+// Setup session middleware
+sessionrouterapp.use(session({
+secret: 'your-secret-key', //🔐 Used to sign the session ID cookie
+resave: false, // Don’t save session if unmodified
+saveUninitialized: true, // Save uninitialized sessions
+cookie: {
+maxAge: 1000 * 60 * 1, // Session cookie lifespan (15 mins) 1000 (ms) * 60 (sec) * 30 (min) =
+
+1,800,000 ms
+httpOnly: true, // Prevents client-side JS from accessing the cookie
+secure: false // Set to true if using HTTPS
+//Optional samesite: lax or none, strict
+
+// Value : Behavior
+// 'Strict' Cookie sent only for same-site navigation (no cross-site)
+// 'Lax' Cookie sent on top-level GET requests (default)
+// 'None' Cookie sent on all requests, even cross-site — must set secure: true
+}
+}));
+//The session is about tracking the state of the user who sent the request
+//So req.session is a per-user, per-session store
+// Route to create session
+sessionrouterapp.post('/login', (req, res) => {
+const username = req.body.username;
+if (username) {
+req.session.username = username; // Store user data in session
+
+
+
+res.send(`Session started for ${username}`);
+} else {
+res.status(400).send('Username required');
+}
+});
+// Route to access session
+sessionrouterapp.get('/dashboard', (req, res) => {
+if (req.session.username) {
+res.send(`Welcome back, ${req.session.username}`);
+} else {
+res.status(401).send('Please log in');
+}
+});
+// Route to destroy session (logout)
+sessionrouterapp.post('/logout', (req, res) => {
+req.session.destroy(err => {
+if (err) return res.status(500).send('Logout error');
+res.clearCookie('connect.sid'); // Remove cookie
+res.send('Logged out successfully');
+});
+});
+module.exports = sessionrouterapp
+
+create separate folder on desktop and open in vscode ad create file app.js in that folder
+and again create folder routes with in that folder create sessionroutes.js file
+
+npm init
+npm i express express-session
+node app.js
+
+
+
+
+
+
+
+
+
+3b)Write a program for user authentication.
+program:
+app.js
+
+const express = require('express');
+const sessionrouter = require('./routes/sessionroutes');
+const authrouter = require('./authrouter');
+//app initialization
+const app = express();
+app.use(express.json());
+app.use('/', [sessionrouter,authrouter]);
+
+app.listen(3020, function () {
+console.log('Server is up and running in the port 3020...');
+
+});
+module.exports=app
+-------------------------------------------------------------------------------------------------
+authrouter.js
+const express = require('express');
+
+
+
+const session = require('express-session');
+const bcrypt = require('bcrypt');
+var authrouter= express.Router();
+// Middleware
+// authrouter.use(express.json());
+authrouter.use(session({
+secret: 'super-secret-key',
+resave: false,
+saveUninitialized: false,
+cookie: { maxAge: 1000 * 60 * 30 } // 30 minutes
+
+}));
+// Fake "database"
+const users = []; // In real apps, use MongoDB/PostgreSQL
+// Registration nothing but sign up
+authrouter.post('/register', async (req, res) => {
+const { username, password } = req.body;
+const hashedPassword = await bcrypt.hash(password, 10);
+users.push({ username, password: hashedPassword });
+res.send('User registered');
+
+
+
+});
+// Login
+authrouter.post('/auth/login', async (req, res) => {
+const { username, password } = req.body;
+const user = users.find((u) => u.username === username);
+if (!user) return res.status(400).send('User not found');
+const isValid = await bcrypt.compare(password, user.password);
+if (!isValid) return res.status(401).send('Invalid credentials');
+req.session.user = user.username;
+res.send('Login successful');
+
+});
+// Protected route
+authrouter.get('/auth/dashboard', (req, res) => {
+if (!req.session.user) {
+return res.status(401).send('Unauthorized');
+
+}
+res.send(`Welcome, ${req.session.user}`);
+
+});
+
+
+
+// Logout
+authrouter.post('/auth/logout', (req, res) => {
+req.session.destroy(err => {
+if (err) return res.status(500).send('Error logging out');
+res.clearCookie('connect.sid');
+res.send('Logged out');
+
+});
+});
+module.exports = authrouter
+-------------------------------------------------------------------------------------------------------------
+create separate folder on desktop and open in vscode and create file app.js in that folder
+and create authrouter.js file
+
+npm init
+npm i express express-session bcrypt
+node app.js
+
+
+
+
+
+
+
+
+
+4a)Write a program to connect MongoDB database using Mongoose
+and perform CRUD operations.
+
+Step 1: Go to MongoDB Compass
+
+
+
+Step 2: click on Add new connection
+
+Step 3: In the place of Database Name write :
+dbconnect
+
+
+
+Step 4:Go to Authentication and click on save
+&connect
+
+
+
+Step 5: click on “+” beside of dbconnect
+
+Step 6: add Database Name is : dbconnect, Collection
+Name: users
+Step 7: Create Database
+
+
+
+Step 7: users is display and close the MongoDB
+compass.
+1. Open Visual Studio.
+2. Open the folder named "dbconnect":
+
+1. Go to File > Open > Folder...
+2. Browse to the location of the "dbconnect"
+
+folder.
+3. Select the folder and click Open.
+
+3. Open a new terminal in Visual Studio:
+12.. Create file name as app.js
+
+Second file name as .env
+3. Go to View > Terminal (or press Ctrl + `).
+4. In the terminal window that opens, click the
+
+dropdown arrow next to the plus sign (+) and
+select New Terminal.
+
+4. Switch to Command Prompt in the new terminal:
+1. By default, the terminal may open PowerShell
+
+or Bash.
+2. Click on the dropdown arrow next to the
+
+terminal tab.
+3. Select Command Prompt (if available).
+
+
+
+--------------------à npm init
+------------------- ànpm i express
+-------------------- ànpm i mongoose
+------------------ ànode app.js
+App.js:-------------------------------------------------------------
+// Import dependencies
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+// Initialize app
+const app = express();
+dotenv.config();
+// Middleware to parse JSON (optional, useful for POST
+requests)
+app.use(express.json());
+// Load environment variables
+
+
+
+const PORT = process.env.PORT || 7000;
+const MONGOURL = process.env.MONGO_URL;
+// Connect to MongoDB
+mongoose.connect(MONGOURL, {
+
+useNewUrlParser: true,
+useUnifiedTopology: true,
+
+})
+.then(() => {
+
+console.log("Database is connected successfully.");
+// Start the server after DB is connected
+app.listen(PORT, () => {
+
+console.log(`Server is running on port ${PORT}`);
+});
+
+})
+.catch((error) => {
+
+console.error("MongoDB connection error:", error);
+});
+
+
+
+// Define Mongoose Schema
+const userSchema = new mongoose.Schema({
+
+name: String,
+age: Number,
+
+});
+// Create Mongoose Model
+const UserModel = mongoose.model("users",
+userSchema);
+// Define route to get all users
+app.get("/getUsers", async (req, res) => {
+
+try {
+const users = await UserModel.find();
+res.json(users);
+
+} catch (err) {
+res.status(500).json({ error: "Failed to fetch
+
+users." });
+}
+
+});
+.env -------------------------------------------------------------------
+
+
+
+PORT=8000
+MONGO_URL="mongodb://localhost:27017/dbconnect
+"
+
+
+
+hOttutpp:/u/tlo: wcaelhwoisllt:g8e0t00server running at
+
+
+
+4b)write a program to develop a single page application using RESTfu APIs
+Create a folder on desktop and open that folder and
+Step 1:
+create a file app.js and
+Wterrmiteinparlo-g>rcammdin( rtuhnatthanatdassavbeactkheenpdropgroragmraman)d select terminal -> new
+5. n
+6 np
+
+premssineintter and give yes
+7.. npm i express
+8. nTopmruinctohres progr
+
+woedweiallpgpe.tjs
+am
+
+server running at http://localhost:3000
+app.js
+cconst express = require('express')
+co
+con
+ons
+
+nst
+st a
+t cpoporprs
+
+=
+t =e
+
+= r3e
+xp
+0q
+
+r
+0u
+
+e
+0ir
+
+ses(()"cors")
+co{ nst data = [
+
+""i
+"ndaga
+
+"
+em
+: 1e,": "John Doe",
+
+}"grad"e: "2:0",A"
+{,""i
+"nda"m: 2e,"
+
+}"agrg
+: "Jane Smith",
+
+aed"e: "2:1",B"
+{,"id": 3,
+
+
+
+""nagaem"e: ": "Bob Johnson",
+"grade"1:9",}, A"
+
+{""ind": 4,
+"agaem"e: "2:2"Alice Brown",
+
+},"grade": ",C"
+{""inda"m: 5,
+"
+
+}"age"e: "2:0",Mike Davis",
+, grade": "B"
+
+{""inda"m: 6e,
+"age": "2:1",Emily Taylor",
+
+}"grade": "A"
+]
+app.use(cors())
+app.get('/getStudentData', (req, res) => {
+})res.status(200).json(data);
+acpopn.listen(port, () => {
+}) sole.log(`Example app listening on port ${port}`)
+
+Step 2:
+select terminal -> new terminal -> cmd ( run that as frontend program)
+
+
+
+9. >npm create vite@latest
+apnrodjepcrtesnsaemnete(rvigtiev-epyroojuerctp)roject name other wise it will take default
+
+1101.. S│eRleecatcat framework:
+12. ◇ Select a variant:
+113. │ JavaScript
+14
+15.
+6. G
+. >>nonptpmo y
+
+m irn
+o
+usunt
+
+raf
+dl
+
+ol lder > cd vite-project
+ev
+
+here we get one url copy and paste in chrome we will get default which
+is given by vite
+now go
+
+17. Left we default folders in that we will see only src in that
+1. main.jsx ( no change)
+2. app.jsx (remove all)(and add program in it)
+3. app.css ( remove all)
+4. index.html (no change)
+5. index.css (remove all)
+app.jsx
+import { useEffect, useState } from 'react'
+import './App.css'
+import axios from 'axios';
+function App() {
+const [data, setData] = useState([])
+// const getData = async()=>{
+// const res = await axios.get("http://localhost:3000/getStudentData");
+// setData(res.data);
+// }
+const getData = ()=>{
+axios.get("http://localhost:3000/getStudentData")
+
+
+
+.then((res)=>{
+setData(res.data);
+
+})
+.catch((err)=>{
+console.log(err);
+
+});
+}
+useEffect(()=>{
+getData();
+
+},[])
+return (
+<>
+<table>
+<thead>
+<th>sno</th>
+<th>name</th>
+<th>age</th>
+<th>grade</th>
+
+</thead>
+<tbody>
+{
+data.map((item,index)=>{
+return <tr>
+
+<td>{index+1}</td>
+<td>{item.name}</td>
+
+
+
+<td>{item.age}</td>
+<td>{item.grade}</td>
+
+</tr>
+})
+
+}
+</tbody>
+</table>
+</>
+
+)
+}
+export default App
+save and refresh the brower then output wil appear
+output:
+
+
+
+
+
+
+React js
+5)ReactJs- Render HTML,JSX,Components-Function & class
+5a)Write a program to render HTML to a web page.
+
+ Create a folder on desktop reactjs and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1. main.jsx ( no change)
+2. app.jsx (remove all)
+3. app.css ( remove all)
+4. index.html (no change)
+5. index.css (remove all)
+
+ go to extensions and type react and install ES7+ React/Redux/React-Native
+snippets v4.4.3
+
+and do some changes according to over program
+mainly concentrate on
+
+
+
+ app.jsx (remove all code in app.jsx and type rfce and enter it will give you
+default program
+
+1. change or write program inside the div which is present in return
+2. import the app.css for adding styles
+
+ app.css (remove all code)
+write stylings in this and save the program
+
+ after saving go to chrome and refresh or again copy the link which is given
+by vite after running the command npm run dev ..
+
+ it will display output
+
+
+
+Copy that link and search in browser to see output
+
+Main.jsx (no change)
+--------------------------------------------------------------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+<StrictMode>
+<App />
+</StrictMode>,
+)
+App.jsx
+import React from 'react'
+
+
+
+import "./App.css"
+function App() {
+return (
+<div className="container">
+<header className='heading'> INTRODUCTION TO REACTJS </header>
+<br />first program
+<div>
+write a program to render html to webpage
+</div>
+
+</div>
+)
+}
+
+export default App
+
+app.css
+.container {
+background-color: brown;
+}
+.heading{
+color: bisque;
+}
+Index.html(no change)
+<!doctype html>
+
+
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vite + React</title>
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
+
+Output:
+
+
+
+5b)write a program for writing markup with JSX.
+ Create a folder on desktop react-jsx-example and open that in vscode
+ Open terminal select cmd and enter >npm create vite@latest
+
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1.main.jsx ( no change)
+2app.jsx (remove all)and (add a program here)
+3.app.css ( remove all) and (add a program here)
+4.index.html (no change)
+
+5.index.css (remove all) and (add a program here)
+App.jsx
+// App.js
+import React from 'react';
+import './App.css';
+function App() {
+
+
+
+const user = {
+name: 'Vamsi',
+role: 'Backend Architect',
+interests: ['Streaming', 'Benchmarking', 'Design Patterns']
+
+};
+
+return (
+<div className="container">
+<div className='card'>
+<h1>Hello, {user.name}👋</h1>
+
+<hr />
+
+<p>Your role: <strong>{user.role}</strong></p>
+
+<h2>Interests</h2>
+<ul>
+{user.interests.map((interest, index) => (
+<li key={index}>{interest}</li>
+
+))}
+</ul>
+
+
+
+<footer style={{ marginTop: '12px', fontSize: '0.9em', color: '#555' }}>
+<p>Built with ❤ u️sing JSX</p>
+
+</footer>
+</div>
+
+</div>
+);
+
+}
+
+export default App;
+
+app.css
+.container {
+
+width: 100%;
+height: 100vh;
+padding: 8px;
+background-color: rgb(213, 220, 226);
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.card {
+
+
+
+width: 320px;
+background-color: rgb(234, 234, 234);
+border-radius: 10px;
+padding: 20px;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+ul {
+padding-top: 5px;
+padding-left: 1.5rem;
+
+}
+
+hr {
+margin-top: 8px;
+margin-bottom: 8px;
+
+}
+Index.css
+* {
+
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+
+
+
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or again
+copy the link which is given by vite after running the command npm run
+dev ..
+
+ it will display output
+
+
+
+Copy that link and search in browser to see output
+
+
+
+5c)write a program for creating and nesting components (function and class).
+ Create a folder on desktop react-component-example and open that in
+
+vscode
+ Open terminal select cmd and enter >npm create vite@latest
+
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1.main.jsx ( no change)
+2app.jsx (remove all)and (add a program here)
+3.app.css ( remove all) and (add a program here)
+4.index.html (no change)
+5.index.css (remove all) and (add a program here)
+
+6) create a folder components inside the src
+ Inside components create a folder card
+
+Inside card folder create a file card.jsx and program in it
+ Inside components create a folder header
+
+Inside header folder create a file header.jsx and program in it
+ Inside components create a folder sidebar
+
+
+
+Inside sidebar folder create a file sidebar.jsx and program in it
+ Inside components create a folder search
+
+Inside search folder create a file search.jsx and program in it
+
+App.jsx
+import React from 'react'
+import Header from './components/Header/Header'
+import Sidebar from './components/sidebar/Sidebar'
+import Card from './components/card/Card'
+import './App.css'
+const App = () => {
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12];
+
+
+
+return (
+<div className="container">
+{/* header */}
+<Header />
+
+<div className="wrapper">
+{/* sidebar */}
+<Sidebar />
+{/* main / body */}
+<section className='main'>
+{
+arr.map((item, index) => {
+return <Card key={index} />
+
+})
+}
+
+</section>
+</div>
+
+</div>
+)
+
+}
+
+export default App
+
+
+
+app.css
+.container {
+
+width: 100vw;
+height: 100vh;
+display: flex;
+flex-direction: column;
+
+}
+
+.wrapper {
+display: flex;
+height: 100%;
+width: 100%;
+
+}
+
+.sidebar {
+width: 250px;
+/* background-color: white; */
+
+}
+
+.main {
+
+
+
+flex: 1;
+background-color: rgb(184, 184, 184);
+height: 100%;
+overflow-y: auto;
+overflow-x: hidden;
+
+}
+
+.header {
+background-color: rgb(94, 147, 15);
+padding: 16px;
+display: flex;
+justify-content: space-between;
+
+}
+Index.css
+* {
+
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+
+}
+
+body {
+background-color: rgb(36, 36, 36);
+
+
+
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+color: white;
+
+}
+Components
+Card.jsx
+import React from 'react'
+
+const Card = () => {
+return (
+
+<div style={{ backgroundColor:
+'gray',padding:24,margin:12,borderRadius:6 }}>Card</div>
+
+)
+}
+
+export default Card
+header.jsx
+import React from 'react'
+import Search from '../Search/Search'
+
+const Header = () => {
+return (
+
+
+
+<div className='header'>
+{/* logo */}
+<div>YouTube</div>
+{/* search */}
+<Search />
+{/* profile */}
+<div>Profile</div>
+
+</div>
+)
+
+}
+
+export default Header
+search.jsx
+import React from 'react'
+
+const Search = () => {
+return (
+<div>Search</div>
+
+)
+}
+
+export default Search
+
+
+
+sidebar.jsx
+import React from 'react'
+
+const Sidebar = () => {
+return (
+<div className='sidebar'>Sidebar</div>
+
+)
+}
+
+export default Sidebar
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or again
+
+copy the link which is given by vite after running the command npm run
+dev ..
+
+ it will display output
+
+
+
+Copy that link and search in browser to see output
+
+Shortcuts:
+1)window key + ; for getting emojis in windows os
+2) ctrl + spacebar to get suggestions
+
+3) ctrl + / for comments in vscode
+
+
+
+REACT JS
+6)ReactJS –Props and States,Styles,Respond to Events
+6A)WRITE A PROGRAM TOWORK WITH PROPS AND STATES.
+
+ Create a folder on desktopMoodSwitcherApp and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1. main.jsx ( no change)
+2. app.jsx (remove all)(and add program in it)
+3. app.css ( remove all)
+4. index.html (no change)
+5. index.css (remove all)
+6. CREATE a fileMoodDisplay.jsx inside src (and add program in it)
+
+
+
+App.jsx
+import React, { useState } from 'react';
+import MoodDisplay from './MoodDisplay';
+
+const moods = {
+happy: { emoji: '😊', label: 'Happy' },
+sad: { emoji: '😢', label: 'Sad' },
+excited: { emoji: '🤩', label: 'Excited' }
+};
+
+function App() {
+const [currentMood, setCurrentMood] = useState('happy');
+
+
+
+return (
+<div style={{ textAlign: 'center', marginTop: '50px' }}>
+<h1>Mood Switcher App</h1>
+<MoodDisplay mood={moods[currentMood]} />
+<div style={{ marginTop: '20px' }}>
+{Object.keys(moods).map((moodKey) => (
+<button
+key={moodKey}
+onClick={() => setCurrentMood(moodKey)}
+style={{
+margin: '10px',
+padding: '10px 20px',
+fontSize: '16px',
+cursor: 'pointer'
+}}
+>
+{moods[moodKey].label}
+</button>
+))}
+</div>
+</div>
+);
+
+
+
+}
+
+export default App;
+reference for app.jsx:
+https://copilot.microsoft.com/shares/JnCTvbfS41jcbonYsvTut
+MoodDisplay.jsx
+import React from 'react';
+function MoodDisplay({ mood }) {
+return (
+<div>
+<h2>Current Mood: {mood.label}</h2>
+<div style={{ fontSize: '80px' }}>{mood.emoji}</div>
+</div>
+);
+}
+
+export default MoodDisplay;
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or again
+
+copy the link which is given by vite after running the command npm run
+dev ..
+
+ it will display output
+
+
+
+Copy that link and search in browser to see output
+Output:
+
+
+
+6b)write a program to add styles(CSS &Saas Stying) and display data
+ Create a folder on desktop react saas and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm install sass
+ >npm run dev
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1.main.jsx ( no change)
+2.app.jsx (remove all)(and add program in it)
+3.app.css ( remove all)( and add program in it)
+4.index.html (no change)
+5.index.css (remove all)
+6.Add fileMyStyle.scss inside src ( add program in it)
+
+
+
+App.jsx
+import React from 'react'
+import "./MyStyle.scss"
+
+import "./app.css"
+function App() {
+return (
+<div className="container">
+<h1>My Header 1</h1>
+<h2>My Header 2</h2>
+<h3>My Header 3</h3>
+</div>
+)
+}
+
+export default App
+app.css
+.container
+{
+background-color: blue;
+}
+
+Mystyle.scss
+
+
+
+@use 'sass:color';
+$myColor: red;
+
+h1 {
+color: $myColor;
+}
+
+h2 {
+color: color.adjust($myColor, $lightness: -20%);
+}
+
+h3 {
+color: color.adjust($myColor, $lightness: 20%);
+}
+
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or again
+copy the link which is given by vite after running the command npm run
+dev ..
+
+ it will display output
+
+
+
+Output:
+
+6c) write a program for responding to events.
+ Create a folder on desktop eventhandling and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+
+
+
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1.main.jsx ( no change)
+2.app.jsx (remove all)(and add program in it)
+3.app.css ( remove all)
+4.index.html (no change)
+5.index.css (remove all)
+
+
+
+App.jsx
+import React, { useState } from "react";
+
+function App() {
+// state for input value
+const [inputValue, setInputValue] = useState("");
+// state for button click count
+const [clickCount, setClickCount] = useState(0);
+
+// handle input change
+const handleInputChange = (event) => {
+setInputValue(event.target.value);
+};
+
+// handle button click
+const handleButtonClick = () => {
+setClickCount(clickCount + 1);
+alert(`Button clicked ${clickCount + 1} times!`);
+};
+
+return (
+<div style={{ padding: "20px" }}>
+
+
+
+<h1>React Event Handling Example</h1>
+
+<div style={{ marginBottom: "20px" }}>
+<label>
+Type something:{" "}
+<input
+type="text"
+value={inputValue}
+onChange={handleInputChange} // input change event
+/>
+</label>
+<p>You typed: {inputValue}</p>
+</div>
+
+<div>
+<button onClick={handleButtonClick}>Click Me!</button> {/* click event */}
+</div>
+</div>
+);
+}
+
+export default App;
+
+
+
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or again
+copy the link which is given by vite after running the command npm run
+dev ..
+
+ it will display output
+
+Copy that link and search in browser to see output
+Output:
+
+
+
+
+
+
+
+
+
+REACT JS
+7)ReactJS –Conditional Rendering , Rendering Lists , React Forms
+7A)WRITE A PROGRAM FOR CONDITIONAL RENDERING.
+
+ Create a folder on desktop CONDITIONAL RENDERING and open that in
+vscode
+
+ Open terminal -> new terminal -> default it will be in powershell -> select
+cmd and enter >npm create vite@latest
+
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1. main.jsx ( no change)
+2. app.jsx (remove all)(and add program in it)
+3. app.css ( remove all)
+4. index.html (no change)
+5. index.css (remove all)
+
+
+
+app.jsx
+import React, { useState } from 'react';
+
+const FollowButton = ({ isInitiallyFollowing }) => {
+const [isFollowing, setIsFollowing] = useState(isInitiallyFollowing);
+
+const handleClick = () => {
+if (isFollowing) {
+// Call your unfollow API here
+console.log('Unfollowed');
+} else {
+// Call your follow API here
+console.log('Followed');
+}
+setIsFollowing(!isFollowing);
+};
+
+
+
+return (
+<button onClick={handleClick}>
+{isFollowing ? 'Unfollow' : 'Follow'}
+</button>
+);
+};
+
+export default FollowButton;
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or
+
+again copy the link which is given by vite after running the command
+npm run dev ..
+
+ it will display output
+
+Output:
+
+
+
+7B)WRITE A PROGRAM FOR RENDERING LISTS.
+ Create a folder on desktop RENDERING LIST and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1.main.jsx ( no change)
+2.app.jsx (remove all)(and add program in it)
+3.app.css ( remove all)
+4.index.html (no change)
+5.index.css (remove all)
+
+
+
+App.jsx
+import React from 'react';
+
+const students = [
+{ id: 1, name: 'Aarav', age: 16, grade: 'A' },
+{ id: 2, name: 'Diya', age: 17, grade: 'B+' },
+{ id: 3, name: 'Rohan', age: 15, grade: 'A-' },
+
+];
+
+const StudentTable = () => {
+return (
+<table border="1" cellPadding="10" style={{ borderCollapse: 'collapse', width:
+
+'100%' }}>
+<thead>
+<tr>
+
+
+
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Grade</th>
+
+</tr>
+</thead>
+<tbody>
+{students.map(student => (
+<tr key={student.id}>
+<td>{student.id}</td>
+<td>{student.name}</td>
+<td>{student.age}</td>
+<td>{student.grade}</td>
+
+</tr>
+))}
+
+</tbody>
+</table>
+
+);
+};
+
+export default StudentTable;
+
+
+
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or
+again copy the link which is given by vite after running the command
+npm run dev ..
+
+ it will display output
+
+Output:
+
+
+
+7B)WRITE A PROGRAM FOR WORKING WITH DIFFERENT FORM FIELDS USING
+REACT FORMS.
+
+ Create a folder on desktop REACT FORMS and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1.main.jsx ( no change)
+2.app.jsx (remove all)(and add program in it)
+3.app.css ( remove all)
+4.index.html (no change)
+5.index.css (remove all)
+
+
+
+App.jsx
+import React, { useState } from 'react';
+
+const SimpleForm = () => {
+const [formData, setFormData] = useState({
+name: '',
+email: ''
+
+});
+
+const [submitted, setSubmitted] = useState(false);
+
+const handleChange = (e) => {
+const { name, value } = e.target;
+setFormData(prev => ({
+...prev,
+
+
+
+[name]: value
+}));
+
+};
+
+const handleSubmit = (e) => {
+e.preventDefault();
+setSubmitted(true);
+console.log('Form submitted:', formData);
+
+};
+
+return (
+<div style={{ maxWidth: '400px', margin: 'auto' }}>
+<h2>React Form</h2>
+<form onSubmit={handleSubmit}>
+<div style={{ marginBottom: '10px' }}>
+<label>Name:</label><br />
+<input
+type="text"
+name="name"
+value={formData.name}
+onChange={handleChange}
+required
+
+
+
+/>
+</div>
+<div style={{ marginBottom: '10px' }}>
+<label>Email:</label><br />
+<input
+type="email"
+name="email"
+value={formData.email}
+onChange={handleChange}
+required
+
+/>
+</div>
+<button type="submit">Submit</button>
+
+</form>
+
+{submitted && (
+<div style={{ marginTop: '20px' }}>
+<h3>Submitted Data:</h3>
+<p><strong>Name:</strong> {formData.name}</p>
+<p><strong>Email:</strong> {formData.email}</p>
+
+</div>
+)}
+
+
+
+</div>
+);
+
+};
+
+export default SimpleForm;
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or
+
+again copy the link which is given by vite after running the command
+npm run dev ..
+
+ it will display output
+
+Output:
+
+
+
+
+
+
+8.ReactJS- React Router, Updating the Screen
+8a) write a program for routing to different pages using react router.
+
+ Create a folder on desktop react router and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ > npm install react-router-dom
+ >npm run dev
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1. main.jsx ( no change)
+2. app.jsx (remove all)(and add program in it)
+3. app.css ( remove all)
+4. index.html (no change)
+5. index.css (remove all)
+
+app.jsx
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-
+dom";
+
+// Home Page Component
+
+
+
+function Home() {
+return <h2 className="text-xl font-bold text-blue-600">Welcome to Home
+
+Page</h2>;
+}
+
+// About Page Component
+function About() {
+return <h2 className="text-xl font-bold text-green-600">This is the About
+
+Page</h2>;
+}
+
+// Contact Page Component
+function Contact() {
+return <h2 className="text-xl font-bold text-red-600">Contact us at
+
+contact@example.com</h2>;
+}
+
+export default function App() {
+return (
+<Router>
+<div className="p-4">
+<nav className="space-x-4 mb-6">
+<Link to="/" className="text-blue-500 hover:underline">Home</Link>
+
+
+
+<Link to="/about" className="text-green-500
+hover:underline">About</Link>
+
+<Link to="/contact" className="text-red-500
+hover:underline">Contact</Link>
+
+</nav>
+
+{/* Routing configuration */}
+<Routes>
+<Route path="/" element={<Home />} />
+<Route path="/about" element={<About />} />
+<Route path="/contact" element={<Contact />} />
+
+</Routes>
+</div>
+
+</Router>
+);
+
+}
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or
+
+again copy the link which is given by vite after running the command
+npm run dev ..
+
+ it will display output
+
+
+
+ Output:
+
+8B)Write a program for updating the screen .
+ Create a folder on desktop screen update and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+
+
+
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1.main.jsx ( no change)
+2.app.jsx (remove all)(and add program in it)
+3.app.css ( remove all)
+4.index.html (no change)
+5.index.css (remove all)
+
+App.jsx
+import React, { useState, useEffect } from "react";
+
+export default function App() {
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+// Update count every 1 second
+const interval = setInterval(() => {
+setCount(prevCount => prevCount + 1);
+
+}, 1000);
+
+
+
+// Cleanup interval when component unmounts
+return () => clearInterval(interval);
+
+}, []);
+
+return (
+<div style={{ textAlign: "center", marginTop: "50px" }}>
+<h1>Screen Updating Example</h1>
+<h2>Count: {count}</h2>
+
+</div>
+);
+
+}
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or
+
+again copy the link which is given by vite after running the command
+npm run dev ..
+
+ it will display output
+
+ Output:
+
+
+
+
+
+
+9.ReactJS – Hooks , Sharing data between components
+9a) write a program to understand the importance of using hooks
+
+ Create a folder on desktop hooks and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1.main.jsx ( no change)
+2.app.jsx (remove all)(and add program in it)
+3.app.css ( remove all)
+4.index.html (no change)
+5.index.css (remove all)
+
+App.jsx
+
+
+
+import React, { useState, useEffect } from 'react';
+
+function CounterWithHooks() {
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+console.log(Count updated to: ${count});
+
+}, [count]); // This runs only when count changes
+
+return (
+<div>
+<h2>Counter using Hooks</h2>
+<p>Count: {count}</p>
+<button onClick={() => setCount(count + 1)}>Increment</button>
+
+</div>
+);
+
+}
+
+export default CounterWithHooks;
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or
+
+again copy the link which is given by vite after running the command
+npm run dev ..
+
+
+
+ it will display output
+
+Output:
+
+9b) write a program for sharing data between components.
+ Create a folder on desktop sharing data and open that in vscode
+ Open terminal -> new terminal -> default it will be in powershell -> select
+
+cmd and enter >npm create vite@latest
+and press enter give your project name other wise it will take default
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+
+
+
+here we get one url copy and paste in chrome we will get default which is
+given by vite
+now go
+
+ Left we default folders in that we will see only src in that
+1.main.jsx ( no change)
+2.app.jsx (remove all)(and add program in it)
+3.app.css ( remove all)
+4.index.html (no change)
+5.index.css (remove all)
+6.create a new files inside src as 1. ComponentA.jsx
+
+2. ComponentB.jsx
+
+App.jsx
+// App.js
+
+
+
+import React, { useState } from 'react';
+import ComponentA from './ComponentA';
+import ComponentB from './ComponentB';
+
+const Parent = () => {
+const [sharedData, setSharedData] = useState('');
+
+return (
+<div style={{ padding: '20px' }}>
+<h1>React Data Sharing Example</h1>
+<ComponentA onDataChange={setSharedData} />
+<ComponentB data={sharedData} />
+
+</div>
+);
+
+};
+
+export default Parent;
+ComponentA.jsx
+// ComponentA.js
+import React from 'react';
+
+const ComponentA = ({ onDataChange }) => {
+
+
+
+const handleInputChange = (e) => {
+onDataChange(e.target.value);
+
+};
+
+return (
+<div>
+<h2>Component A</h2>
+<input
+type="text"
+placeholder="Type something..."
+onChange={handleInputChange}
+
+/>
+</div>
+
+);
+};
+
+export default ComponentA;
+ComponentB.jsx
+// ComponentB.js
+import React from 'react';
+
+const ComponentB = ({ data }) => {
+
+
+
+return (
+<div>
+<h2>Component B</h2>
+<p>Received Data: <strong>{data}</strong></p>
+
+</div>
+);
+
+};
+
+export default ComponentB;
+ (cntrl+s) for all programs ; after saving go to chrome and refresh or
+
+again copy the link which is given by vite after running the command
+npm run dev .. it will display output
+
+
+:
+
+Output:
+
+
+
+
+
+
+
+
+
+Mongodb compass : [It is GUI Application by using mongodb
+compass we will connect to local database [MongoDB Community
+Server] or cloud database [MongoDB Atlas] and perform operations in
+mongodb compass]
+Installation process of MongoDB Compass(GUI):
+Step 1: search mongodb compass download on browser
+
+Step 2: click on downoad
+
+
+
+
+
+
+Step 3: we will get this environment click on + to add new connection
+
+Step 4: we have to install either mongo community server [local database] or
+mongodb atlas [cloud server] databases for connection
+INSTALLATION PROCESS OF LOCAL DATABASE[MONGO COMMUNITY SERVER]
+STEP 1: SEARCH MONGODB COMMUNITY SERVER ON BROWSER
+
+
+
+STEP 2: DOWNLOAD
+
+
+
+
+
+
+
+
+
+
+
+
+(OR)
+10 A)INSTALL MONGODB AND CONFIGURE ATLAS
+INSTALLATION PROCESS OF MONGODB ATLAS
+STEP 1: SEARCH MONGO DB ATLAS IN CHROME BROWSER
+
+
+
+STEP 2:CLICK ON GET STARTED
+
+STEP 3 : SIGN IN WITH GOOGLE
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to mongoDB AND Click on skip personalisation
+
+
+
+Select on free and click on create Deployment
+
+
+
+Then we get user name and password copy and save some where for future
+connections
+Click on create a database user
+
+Click on choose a connection method
+
+
+
+Select on compass
+
+Select on I have mongoDB compass installed and copy the string given here and
+click on done
+
+
+
+Step 4: After that we get this environment click on ip address on top right side
+
+
+
+Select on connect
+
+INSTALLATION OF MONGO ATLAS IS DONE
+
+NOW GOMONGODB COMPASS TO PERFORM OPERATIONS
+10 B) WRITE MongoDB queries to perform CRUD operations on document using
+Insert(),find(),update(),remove()
+
+Click add on new connection
+
+
+
+We will get this
+Case 1 : if we having local mongo db installed and we want to connect then we
+click on add new connection and direct give name click on save and connect
+
+
+
+Or
+Case 2: if we want to connect cloud server atlas then we have to click on add new
+connection and we have give to remove give string and copy to atlas string which
+we have already copied and give name
+And go to advanced connection options in that authentication
+Give user name and password which is given by atlas and click on connect
+
+
+
+
+
+
+1d0o.cbu)mWernitteuMsinognignosDeBrt(q)u,efrinieds()t,ouppedraftoer(m), CreRmUoDvoep()e.rations on
+
+ClicIk on open MongoDB shell and enter c
+cnosertMany command- Insert multipleodmomcuamndes● nts at once into a
+-l-le--c-t--io--n--.--------------------------------------------------------------------------
+vvar today = new Date();
+marnyear = today.getFullYear()a;rvdaar= y
+tot
+o
+doad
+th
+ya=y
+
+=. o
+tg
+t
+oedt
+
+d
+aD
+a
+ya
+y
+.st
+.
+ee
+g
+t(
+e)U;
+tMonth(); v
+TCHours (0,0,0,0);
+
+
+
+● db.So[larheaterallocation.insertMany(
+D {solarHeaterId:2001,distributorName:'Suntek',purchaseDate:new
+Daattee((y
+D {y
+
+e
+se
+a
+oa
+r
+lr
+,
+a,
+m
+rm
+o
+
+Ho
+n
+en
+t
+at
+h
+th
++
+
+er+
+2
+I2
+,
+d,
+d
+:d
+a
+2a
+y
+0y
+)
+0+
+.
+23
+to
+,d).
+L
+it
+o
+so
+c
+trL
+a
+io
+l
+bc
+e
+ua
+D
+tloe
+aDteaStterSintrgin()g,i(n),sctuaslltaotmioenrDIda:t1e0:n0e2w},
+
+Daattee((yyeeaarr,,mmoonntthh++33,,ddaayy)+.7to).LtoocLaolceaD
+rName:'A4solar',purchaseDate:new
+
+leaDteaStterSintrgin()g,i(n),sctuaslltaotmioenrDIda:t1e0:n0e1w},
+D{sDa
+o
+at
+l
+te
+a
+e(
+r
+(y
+Heeaart,emroIdn:t2h0+013,,ddaisyt)r.itbouLtoocraNl ame:'Supremesolar',purchaseDate:new
+
+D {yseoalra,rmHoenatther+I1d,:d2a0y0+43,d).itsotrLiobc
+eDateString(),installationDate:new
+uatloerDateString(),customerId:1003},
+
+Daattee((y]y
+eeaarr,,mmoonntthh++22,,ddaayy++58))..ttooLLooccaalleeD
+
+N
+Da
+a
+at
+m
+teeS
+
+e
+St
+:
+tr
+'
+ri
+S
+in
+u
+ng
+n
+g(()
+t
+),
+e
+,icn
+k
+us
+',
+st
+p
+ta
+u
+olml
+ractheiro
+
+a
+In
+se
+dD
+D
+:1a
+
+a
+0t0e
+te
+4:n
+:n
+},e
+eww
+
+);
+
+
+
+● InosertOne command- insert a single document into a
+-c----ll-eb--
+
+c
+.-
+t
+S-
+i-oo--
+n.
+
+d la--r-h--e--a-t-e--r-a--l-lo--c-a--t-i-o--n-.-i-n--s-e--tri r-t-O--n--e--(-[-s-o--l-a-r-H---e-a--t-e--r-l-d-:-2--0--d 05,
+mis tbuto,r Name: 'A4solar', purchase Date:new Date(year,
+9)o.tnoLho+c3a,l
+
+d
+de
+a
+aD
+y
+ya
++
+
+month+3 +t1e2St).rtionLgo()c,ainlesDtaaltleaStitorninDg(a)t,ec:unsetwomDeartled(:y1e0a0r5,))
+
+●
+
+
+
+● After insert one command then enter find() command the
+-----d--a-t--a--c-a--n--b--e---d-i-s-p--l-a--y-e--d--------------------------------------------------------
+● db[“Solarheaterallocation”].find().pretty()
+
+
+
+●
+
+
+
+● fdibn[d“OSonlea(r)hceoamtemraalnlodc-ation”].findOne({disributorName:’A4sola r’})
+
+
+
+● Fdibn[d“SwoiltahrhDeoactuemraellnotcafiteioldnc”o].mfinmda({nddis--ributorName:’A4solar’})
+●
+
+●
+
+
+
+Udbp[d“aStoelaornheeactoemramlloan{$set:{customerId:1c0a
+d
+}t
+-
+
+, }ion”].updateOne({disributorName:’A4solar’}
+●
+
+●
+
+● After updating one-{A4solar} The all A4solar can be updated as
+
+●
+
+
+
+● Acoftmemr paenrdforming update commands then enter find()
+
+●
+
+
+
+●
+
+● Udbp[d“aStoe}la
+m
+,{r$h
+a
+se
+n
+ea
+y
+tt:{e
+co
+crua
+m
+sll
+m
+tooc
+a
+ma
+dt-4solar’ eiroInd”:1].0u0p1d0a}t}e)Many({disributorName:’A
+
+●
+
+
+
+● AbeftuerpdUaptdeadtiansg–Mdabn[“yS-o{lAar4hseoalater}ra,tol
+Tlohmc
+
+e
+ea
+a
+rtIi
+l
+do
+l A
+:n1”
+4
+0]
+s
+0.
+oul1p
+a
+0d
+r'
+}}a
+s
+)t
+ceoOunldbutorName:’A4solar’},{$set:{cus e({disri
+
+
+
+● Afinftde(r)PCeormfomrmanindg- udpbd[“aStoelaCrohmeamtearnadlsloacnadtiothne”]n.feinndte()r.pretty()
+
+
+
+●
+
+Delete one command-
+
+● ACfter paerformingtdeleteOne() Commoand and then enter find()
+reommamininndg,fHouerrewohueldfirbset odnisepldaayteadwasu–ld be deleted and
+
+
+
+
+
+
+● Delete many command
+
+● HAefrteeraplletrhfoerdmaitnagwdeelaerteeMinsaenryt(e)danwdouthldenbeendteelretfeindda()nCdommand.
+displayed as empty –
+
+● db[“Solarheaterallocation”].deleteMany({});
+
+----------------------------------------------------------------------------------------------
+
+
+
+Reference:
+
+
+
+C10RUbD. Operations:
+Insert•- Inse○rtInCsoellretcMtiaonnyQueries->§v Sruppoar
+
+-ting variables laration -
+vavar
+
+tyoedary==
+dec
+
+tondeawy Date();
+vatoa
+
+r
+dr
+m
+adya
+
+oyn==
+th
+totdo
+
+=
+ad
+t
+ya
+o
+.y
+d.
+se.g
+ag
+te
+ye
+Ut
+.gtF
+TD
+eullYear();
+Ca
+t
+Ht
+Meo(
+o
+u);
+nth();
+rs(0,0,0,0);
+
+d[ b.Solarheaterallocation.insertMany(
+DDaattee((yyeeaarr,,m
+
+{s
+moonlatrhH+e2a,dtearyI)d.t:o2L0o0c1a,dleisDtaritbeuSttorirnNga()m,ines:'tSaullnatteiokn',Dpuatrech: aseDate:new
+
+D {soonlatrhH+e2a,dtearyI+d3:2).0to0L2o,dciaslterDibautteoSrtNrianmg(e),:c'Au4stsoomlaer'r,pIdu:r1c0
+n
+h0
+e
+a2
+w
+s}e,Date:new
+
+Daattee((yyeeaarr,,mmoonntthh++33,,ddaayy)+.7to).LtoocLaolceaDleaDteaStterSintrgi(n)g,i(n)s,ctuaslltaotmionerDIdat:1e0:n0e1w},
+DDaattee((y
+
+{s
+ye
+o
+ea
+l
+ar
+a
+r,
+r
+,m
+H
+moeon
+
+a
+nt
+t
+th
+e
+h+
+rI
++1
+d
+1,
+:
+,d
+2
+da
+0
+ay
+0
+y)
+3
++.3t
+,od).L
+is
+to
+t
+oc
+r
+La
+ib
+olce
+u
+aD
+to
+lea
+r
+Dt
+NeaS
+a
+tt
+m
+erSi
+en:trg
+'S
+i(n)
+u
+g,i
+p
+(n
+r
+)s
+e
+,ct
+m
+uasll
+e
+ta
+s
+ot
+o
+mio
+lanrerD
+
+',
+Ida
+ptu:1e
+
+r
+0:
+cnhaseDate:new0e3w}
+
+DDa
+{solarHeaterId:2004,distributorName:'Suntek',purchase,Date:new
+
+attee((yyeeaarr,,mmonth+2,day+5).toLocaleDateString(),installationDate:new
+] onth+2,day+8).toLocaleDateString(),customerId:1004},
+)○;
+
+DDate(year,m
+{soo
+In
+nla
+s
+tr
+e
+hH
+rt
++e
+O
+3a
+n
+, te
+er-Idd:b2.0S0o5la,drhisetraitbeurtaollroNcaamtioen:'.Ain4sseorltaOr'n,peu(rchaseDate:new
+
+Fiantde(-year,month+3,ddaayy++91)2.)t.otoLoLocaclaelDeDataetSetSrtirning(g)(,)in,csutsatlolamtioenrIDda:1t0e0:n5e}w)
+• Find Collection Queries-
+
+
+
+○
+'A4solar'}) ○ FFiinnddO-ndeb[-"dSbo[la"Srhoelaartheeraaltleorcaaltloiocna"t]io.fnin"d].(f)i.npdrOetntey((){distributorName:
+db["Solarhe○aFteinradllwocitahtidoonc"uUpdat ].mfinedn(t{dfiiesltdi-butorName: 'A4solar'})
+
+•eU-
+r
+
+pdate Coll
+d{$bs[e"tS:o{cla
+
+○ UpdateecOtnioen-Queries -
+urshtoeamteerrIadll:o1c0a}tion"].updateOne({distributorName: 'A4solar'},
+
+d{$bs[e"tS:o{claurshtoe
+○aUteprdalalotecM
+
+}
+ata
+)
+ionny"-].updateMany({distributorName: 'A4solar'}
+
+d{ b["Solarhe
+○maR
+
+e
+tee
+r ,
+rp
+Id
+al
+:10010}})
+laloccea-tion"].replaceOne({distributorName: 'A4s
+
+2distributorName:'A1Solar',purchaseDate:'10/7/2025',insta olar'},
+R6e'm,coustomer llationDate:'11/7/20
+
+•veD-
+Id:1414})
+
+elete Collectio
+db["Solarhe○○a
+
+D
+Dte
+e
+er
+l
+la
+e
+el
+t
+tlo
+e
+ec
+O
+Ma
+n
+at
+enino
+-Queries -
+yn"-]e.dmeplettyeOne({distributorName:'Suntek'})
+
+
+
+
+
+
+
+
+
+1co1llae)cWtirointes MongoDB queries to create and drop database and
+ Ccorellaetcetioconm(amgraonudp-tohfisdcoocmummeanntds)iisnutsheeddtaotcarbeaastee a
+ db.createCollection(‘Solarheaterallocation’);
+ (Roigr)ht click on your db and click on create collection
+
+
+
+Give any collection name ( eg : Solarheaterallocation) and click on create
+collection then collection is created
+
+ Dthreopdactoambamsaen. d-this command is used to delete a collection in
+ db.Solarheaterallocation.drop();
+
+(or)
+
+
+
+Right click on your db and click on drop collection
+
+Give your collection name ( eg : Solarheaterallocation) and click on drop
+collection then collection will be removed
+
+
+
+1lim1 bit)()W,sorirtte()M,croenagtoeDinBdeqxu(e),raiegsgrteogwatoer(k).with records using find(),
+ Find()- Gets all records from a collection
+ db["Solarheaterallocation"].find().pretty()
+
+
+
+
+
+
+ Find() with args-
+ db.Solarheaterallocation.find({solarHeaterId: 2005})
+
+
+
+
+ findOne()-
+ db.Solarheaterallocation.findOne()
+
+
+
+
+ findOne() with args
+ db.Solarheaterallocation.findOne({distributorName:'Suntek'})
+
+
+
+ findOneAndDelete()
+ d10b0.S5o}la);rheaterallocation.findOneAndDelete({ customerId:
+
+
+
+
+
+ After deleting again find command-
+
+
+
+
+
+ findOneAndUpdate()
+ d20b0.S2o0la}r,{h$esaetet:ra{ ldloisctartiibount.ofirnNdaOmnee:A"nCdsoUlpadr"a,tpeu({rccuhsatsoemDaetreId: :
+
+
+
+"u0p2d/a0t1e/d2d0o2c6u"m} e},n{t)r;eturnDocument: "after" } // to return the
+
+• findOneAndReplace()
+d{ b.SolHarheaterallocatiosn.findOneAndReplace({solarHeaterId:2001},
+"s0o1l/a1r5/e2a0t2e6rI"d,:i2n0st0a1lldatii otrnibDuattoer:N"0am1/e2:0"/B2s0o2l6a"r",c,upsutorcmhaesrIedD:a2t0e0:20})
+
+• Limit():
+db.Solarheaterallocation.find().limit(2)
+
+
+
+• Sort() by ascending order
+db.Solarheaterallocation.find().sort({customerId:1})
+
+
+
+
+
+
+• Sort() by descending order
+• db.Solarheaterallocation.find().sort({customerId:-1})
+
+
+
+• createIndex():
+db.Solarheaterallocation.createIndex({ customerId: 1 });
+•mWaticthhionugtciunsdteoxm→erIMd.ongoDB scans every record to find the
+
+
+
+• With index → MongoDB can directly jump to that customerId.
+dtrbu.eSo})la; rheaterallocation.createIndex({ solarHeaterId: 1 }, { unique:
+
+• Ensures no duplicate solarHeaterId exists in the collection.
+•onUlyseofnucl ew.hen each heater device is unique and must be allocated
+•pudrbc.hSaosleaDrhaetaet:e-r1a}l)lo; cation.createIndex({ distributorName: 1,
+
+•puTrhcihsainsedDeaxtheeelpffiscMieonntlgyo. DB filter by distributorName and sort by
+•doWcsit.hout the index, sorting happens in memory after scanning all
+•"Adsbo.lSaorl"a}r)he.saotertr(a{lploucractihoanse.fiDnadte({:d-1is}t)ri.beuxtpolarNina(m"eex:ecutionStats");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+db.Solarheaterallocation.createIndex({ distributorName: "text" });
+
+
+
+• Great for text search on distributor names.
+•"Adsbo.lSaorl"a}rh})e.aetxeprlaalilno(c'eaxtieocnu.tifionndS({ta$ttse'x) t: { $search:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+• Aggregate():
+• Count number of solar heaters allocated per distributor
+d"$bd.SisotlraibrhuetaotreNraamlloec"a,ttiootna.lHagegarteegras:t{e$(s[u{ m$g:r1ou}p}:}{])_; id:
+
+
+
+• Find average customerId per distributor
+d"$bd.SisotlraibrhuetaotreNraamlloec"a,tiaovngC.augsgtroemgaetreId([:{{$$garvogu:p":${c_uisdt:omerId" } } }]);
+
+
+
+•diHstoriwbuctaonrIwchoeurnet tthheepnuurmchbaesreodfastoelaisr hoenaotreraftalelorcJaatinounasryfo1r, 2e0ac2h5?
+d{ b.Solarheaterallocation.aggregate([ { $match: { purchaseDate:
+co$ugntet:: {"0$1su/0m1:/120}2}]5)"; } } },{ $group: { _id: "$distributorName",
+
+
+
+• Find earliest installation per distributor
+d{ b_.dSoladrheaterallocation.,aegagrrleiegsattIen(s[t{a$llg:r{o$ump:
+"$iins:"ta$llaistitorinbDuatoterN" a}m} }e]"); in:
+
+
+
+•mHow can I retrieve all solar heater allocaltion records sorted by the
+ifines
+
+o
+lt
+s
+da
+t
+?ll
+raeticoenntdiantseta, lalantidodnisdtraitbeu,tsohronwaimnge,ownhyilteheexcculustdoinmgetrhIeD,other
+
+d1b
+di}
+
+.
+st}
+S
+r,
+o
+i{
+l
+b$
+a
+up
+rh
+troo
+
+e
+rj
+a
+Ne
+t
+ac
+etrm:
+
+a
+e{
+ll
+:_
+o
+1i
+cda}:
+
+ti
+}0
+o
+],
+
+n
+);cu
+
+.asgtogrmeegarItde:([1,{ i$nssotartl:la{tiinosntDaalltaeti:o1n,Date: -
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+Reference:
+
+
+
+11 a)Create -
+• Create Collection Query -
+
+db.createCollection('Solarheaterallocation');
+Drop -
+
+• Drop Collection Query- db.Solarheaterallocation.drop();
+----------------------------------------------------------------------------------------------
+11 b)
+
+• Find()
+Gets all records from a collection
+db["Solarheaterallocation"].find().pretty()
+• Find() with args
+db.Solarheaterallocation.find({solarHeaterId: 2005})
+• findOne()
+db.Solarheaterallocation.findOne()
+• findOne() with args
+db.Solarheaterallocation.findOne({distributorName:'Suntek'})
+• findOneAndDelete()
+
+1005 d})b; .Solarheaterallocation.findOneAndDelete({ customerId:
+• findOneAndUpdate()
+db.Solarheaterallocation.findOneAndUpdate(
+{ customerId: 20020 },
+
+"02/01{/$2s0e2t6:"{ }d}is,tributorName: "Csolar", purchaseDate:
+
+
+
+docum{ernetturnDocument: "after" } // to return the updated
+);
+• findOneAndReplace()
+
+erId:2d0b0.1S}o,{lasorhlaeraHteearatellorIcda:ti2o0n0.1fi,ndOneAndReplace({solarHeat
+distributorName: "Bsolar",
+purchaseDate: "01/15/2026",
+installationDate: "01/20/2026",
+customerId: 20020})
+
+• Limit():
+db.Solarheaterallocation.find().limit(2)
+• Sort() by ascending order
+db.Solarheaterallocation.find().sort({customerId:1})
+• Sort() by descending order
+• db.Solarheaterallocation.find().sort({customerId:-1})
+• createIndex():
+db.Solarheaterallocation.createIndex({ customerId: 1 });
+
+the matchin•gWcuitshtooumteinrIdde.x → MongoDB scans every record to find
+
+customerId•. With index → MongoDB can directly jump to that
+
+{ uniqdube.:Storluaerh}e);aterallocation.createIndex({ solarHeaterId: 1 },
+
+
+
+collection. • Ensures no duplicate solarHeaterId exists in the
+
+allocated o•nlUysoenfucel .when each heater device is unique and must be
+•
+
+purchdabse.SDoalaterh: e-1at}e);rallocation.createIndex({ distributorName: 1,
+
+and sort by•pTuhricshiansdeeDxahteelepffis Mcieonntgloy.DB filter by distributorName
+
+scanning al•l dWoictsh.out the index, sorting happens in memory after
+
+"Asolar" })• db.Solarheaterallocation.find({ distributorName:
+.sort({ purchaseDate: -1 })
+.explain("executionStats");
+
+"text"d}b).;Solarheaterallocation.createIndex({ distributorName:
+• Great for text search on distributor names.
+
+"Asolar" } }•).dexbp.Slaoilna(r'heexaetceurtiaollnoSctaatitos'n).find({ $text: { $search:
+
+• Aggregate():
+distributor• Count number of solar heaters allocated per
+
+db.Solarheaterallocation.aggregate([
+{ $sum: 1 } }{}$group: { _id: "$distributorName", totalHeaters:
+
+
+
+]);
+• Find average customerId per distributor
+db.Solarheaterallocation.aggregate([
+
+{ $avg: "$cus{t$ogmroeurIpd:"{}_}id}: "$distributorName", avgCustomerId:
+]);
+
+for each dis•trHibouwtocranwhI ceoreunthtethpeunrcuhmabseerdoaftesoislaornhoerataeftrearllJoacnautiao025? rnys
+1, 2
+
+db.Solarheaterallocation.aggregate([
+{ $match: { purchaseDate: { $gte: "01/01/2025" } } },
+
+1 } } } { $group: { _id: "$distributorName", count: { $sum:
+]);
+• Find earliest installation per distributor
+db.Solarheaterallocation.aggregate([
+
+{ $min: "$ins{t$agllraotiuopn:D{a_tied": "}$}d}istributorName", earliestInstall:
+]);
+
+s • Howsctan I retrieve all solar heater allocation records
+courstteodmb
+
+ne
+y
+gr IttD
+
+he
+h,ei
+
+mnosothtaelrla
+re
+fiti
+
+c
+eo
+e
+ldn
+nt
+?daintset,aallnadtiodnistdraibtue,toshr onwamineg,ownhlyilethe
+
+excludi
+db.Solarheaterallocation.aggregate([
+{ $sort: { installationDate: -1 } },
+
+
+
+distributorN{a$mper:o1je}ct}: { _id: 0, customerId: 1, installationDate: 1,
+]);
+
+
+
+
+
+
+12 a) Design a to-do list application using NodeJS and ExpressJS.
+App.js:
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
+const app = express();
+const PORT = 4000;
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
+// Set view engine and views directory
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+// Temporary task storage
+let tasks = [];
+// Routes
+app.get("/", (req, res) => {
+res.render("index", { tasks });
+});
+app.post("/add", (req, res) => {
+const newTask = req.body.task;
+if (newTask) tasks.push(newTask);
+res.redirect("/");
+});
+
+
+
+app.post("/delete", (req, res) => {
+const index = parseInt(req.body.index, 10);
+if (!isNaN(index) && index >= 0 && index < tasks.length) {
+tasks.splice(index, 1);
+}
+res.redirect("/");
+});
+// Start server
+app.listen(PORT, () =>
+console.log(`✅ Server running at http://localhost:${PORT}`)
+);
+
+Views/index.ejs---------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>To-Do List App</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+<h1>📝My To-Do List</h1>
+
+
+
+<form action="/add" method="POST" class="task-form">
+<input type="text" name="task" placeholder="Enter a new task"
+
+required>
+<button type="submit">Add</button>
+</form>
+<ul class="task-list">
+<% if (tasks.length === 0) { %>
+<p>No tasks yet! Add one above.</p>
+<% } %>
+<% tasks.forEach((task, index) => { %>
+<li>
+<span><%= task %></span>
+<form action="/delete" method="POST">
+<input type="hidden" name="index" value="<%= index %>">
+<button type="submit">❌</button>
+</form>
+</li>
+<% }) %>
+</ul>
+</div>
+</body>
+</html>
+
+
+
+public/style.css------------------------------------------------------------
+/* Reset default browser styling */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+}
+/* Overall page */
+body {
+background: linear-gradient(135deg, #74ebd5, #acb6e5);
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+/* Container for the app */
+.container {
+background: white;
+width: 400px;
+padding: 30px;
+
+
+
+border-radius: 15px;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+/* Title */
+h1 {
+text-align: center;
+color: #333;
+margin-bottom: 20px;
+}
+/* Task input area */
+form {
+display: flex;
+justify-content: space-between;
+margin-bottom: 20px;
+}
+input[type="text"] {
+flex: 1;
+padding: 10px;
+border: 2px solid #74ebd5;
+border-radius: 8px;
+font-size: 16px;
+
+
+
+}
+button {
+background-color: #74ebd5;
+color: #fff;
+border: none;
+padding: 10px 15px;
+margin-left: 10px;
+border-radius: 8px;
+cursor: pointer;
+transition: 0.3s;
+font-weight: bold;
+}
+button:hover {
+background-color: #57c3b1;
+}
+/* Task list */
+ul {
+list-style: none;
+max-height: 300px;
+overflow-y: auto;
+}
+
+
+
+li {
+background: #f5f5f5;
+padding: 10px;
+margin-bottom: 8px;
+border-radius: 8px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+transition: 0.3s;
+}
+li:hover {
+background: #e9f7f7;
+}
+/* Completed task */
+.completed {
+text-decoration: line-through;
+color: gray;
+}
+/* Delete button */
+.delete-btn {
+
+
+
+background-color: #ff6b6b;
+border: none;
+color: white;
+padding: 6px 10px;
+border-radius: 6px;
+cursor: pointer;
+transition: 0.3s;
+}
+.delete-btn:hover {
+background-color: #e63946;
+}
+
+Commands:
+npm init -y
+
+
+
+npm install express ejs body-parser
+node app.js
+
+
+
+Output:
+
+12b)Design a Quiz app using ReactJS.
+
+
+
+ Create a folder on desktop reactjs and open that in vscode
+ Opopwenertsehremllin->als-e>lencetwcmtedrmanidnaeln-t>edre>fnapumlt ictrweailtlebveitien@latest
+
+adnedfapurltess enter give your project name other wise it will take
+project name (vite-project)
+
+ Select a framework:
+ │ React
+ ◇ Select a variant:
+ │ JavaScript
+ Go to your folder > cd vite-project
+ >npm install
+ >npm run dev
+
+hwehriechwies ggievteonnbeyuvriltceopy and paste in chrome we will get default
+now go
+
+ Left we default folders in that we will see only src in that
+1. main.jsx ( no change)
+2. app.jsx (remove all)
+3. app.css ( remove all)
+4. index.html (no change)
+5. index.css (remove all)
+ gRoeatcot/eRxteednusxio/Rnesaacntd-Ntaytipveeresnaciptpaentds inv4st.4a.ll3ES7+
+
+and do some changes according to over program
+
+
+
+mainly concentrate on
+ awpilpl.gjsivxe(yreomu odveefaaullltcpordoegrinamapp.jsx and type rfce and enter it
+1. rcehtaunrgne or write program inside the div which is present in
+2. import the app.css for adding styles
+
+Icns c ,
+Tohm
+ide A yo m ort Re
+e mpoan
+
+p
+ine
+pn.fut
+js
+nfr
+x
+co
+,
+timont
+
+uhiAepc
+p
+po()mrpetoun
+
+a o SrS file, and your custom Quiz
+t a c renn
+
+t
+stas
+tfhe Csimldpele. structeur<eQ—uiza/h>eadingchFo psoanysen“Rt ebaelotwQuiti.z App” and then renders th
+
+thin
+mt
+eabllryo,wthseerc.omponent is exported so that React can render it in
+
+ app.css (remove all code)
+write stylings in this and save the program
+
+ awfther savingengobtyovcitheroamfteerarnudnnreinfrgetshheocroamgaminancdopnypmtherulinnkdevic.h. is giv
+ it will display output
+
+
+
+Copy that link and search in browser to see output
+
+
+
+App.js--------------------------------------------------------------------
+import React, { useState } from 'react';
+const Quiz = () => {
+const questions = [
+{
+question: "2 + 3 = ?",
+options: ["4", "5", "6", "7"],
+
+
+
+answer: "5",
+},
+{
+question: "Which side does the sunrise come from?",
+options: ["East", "West", "North", "South"],
+answer: "East",
+},
+];
+const [score, setScore] = useState(0);
+const [currentQuestion, setCurrentQuestion] = useState(0);
+const [showScore, setShowScore] = useState(false);
+const handleAnswerOptionClick = (selectedOption) => {
+if (selectedOption === questions[currentQuestion].answer) {
+setScore(score + 1);
+}
+const nextQuestion = currentQuestion + 1;
+if (nextQuestion < questions.length) {
+setCurrentQuestion(nextQuestion);
+} else {
+setShowScore(true);
+}
+
+
+
+};
+return (
+<div>
+{showScore ? (
+<div>
+<h2>Your Score: {score} / {questions.length}</h2>
+</div>
+) : (
+<div>
+<h3>{questions[currentQuestion].question}</h3>
+{questions[currentQuestion].options.map((option) => (
+<button
+key={option}
+onClick={() => handleAnswerOptionClick(option)}
+style={{ display: 'block', margin: '10px 0' }}
+>
+{option}
+</button>
+))}
+</div>
+)}
+</div>
+);
+
+
+
+};
+export default Quiz;
+i-ndex.html-------------------------------------------------------------------
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+<meta name="viewport" content="width=device-width, initial-
+
+scale=1.0" />
+<title>vite-project</title>
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
+Components/Quiz.js:-----------------------------------------------------
+import React, { useState } from "react";
+import "../App.css";
+const Quiz = () => {
+
+
+
+const questions = [
+{
+questionText: "What is the capital of France?",
+options: ["Berlin", "Madrid", "Paris", "Rome"],
+correctAnswer: "Paris",
+},
+{
+questionText: "Which language runs in a web browser?",
+options: ["Python", "C++", "Java", "JavaScript"],
+correctAnswer: "JavaScript",
+},
+{
+questionText: "What does CSS stand for?",
+options: [
+"Central Style Sheets",
+"Cascading Style Sheets",
+"Computer Style System",
+"Colorful Style Sheets",
+],
+correctAnswer: "Cascading Style Sheets",
+},
+{
+questionText: "Which HTML tag is used to define an internal style
+
+sheet?",
+
+
+
+options: ["<script>", "<style>", "<css>", "<link>"],
+correctAnswer: "<style>",
+},
+];
+const [currentQuestion, setCurrentQuestion] = useState(0);
+const [score, setScore] = useState(0);
+const [showScore, setShowScore] = useState(false);
+const handleAnswerClick = (selectedOption) => {
+if (selectedOption === questions[currentQuestion].correctAnswer)
+
+{
+setScore(score + 1);
+}
+const nextQuestion = currentQuestion + 1;
+if (nextQuestion < questions.length) {
+setCurrentQuestion(nextQuestion);
+} else {
+setShowScore(true);
+}
+};
+const restartQuiz = () => {
+
+
+
+setScore(0);
+setCurrentQuestion(0);
+setShowScore(false);
+};
+return (
+<div className="quiz-container">
+{showScore ? (
+<div className="score-section">
+<h2>
+You scored {score} out of {questions.length}
+</h2>
+<button onClick={restartQuiz}>Restart Quiz</button>
+</div>
+) : (
+<div className="question-section">
+<h2>
+Question {currentQuestion + 1}/{questions.length}
+</h2>
+<p>{questions[currentQuestion].questionText}</p>
+<div className="options-section">
+{questions[currentQuestion].options.map((option) => (
+<button key={option} onClick={() =>
+
+handleAnswerClick(option)}>
+
+
+
+{option}
+</button>
+))}
+</div>
+</div>
+)}
+</div>
+);
+};
+export default Quiz;
+output:

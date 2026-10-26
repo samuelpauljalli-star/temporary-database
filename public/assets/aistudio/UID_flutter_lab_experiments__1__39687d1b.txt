@@ -1,0 +1,2586 @@
+﻿
+USER INTERFACE DESIGN USING FLUTTER 
+
+Lab Session-1 
+
+1A) INSTALL FLUTTER AND DART SDK. 
+
+ 
+
+B) WRITE A SIMPLE DART PROGRAM TO UNDERSTAND THE LANGUAGE 
+BASICS. 
+// Define a main function, which is the entry point of a Dart program. 
+void main( ) 
+{ 
+  // Variables and data types 
+  int myNumber = 10; 
+  double myDouble = 3.14; 
+  String myString = 'Hello World'; 
+  bool myBool = true; 
+  // Printing variables 
+  print('My number is: $myNumber'); 
+  print('My double is: $myDouble'); 
+
+2 
+  print('My string is: $myString'); 
+  print('My boolean is: $myBool'); 
+ // Basic arithmetic operations 
+  int result = myNumber + 5; 
+  print('Result of addition: $result'); 
+  // Conditional statements 
+  if (myBool) { 
+    print('myBool is true'); 
+  } else { 
+    print('myBool is false'); 
+  } 
+  // Loops 
+  for (int i = 0; i < 5; i++) { 
+    print('Iteration $i'); 
+  } 
+// Lists 
+  List<int> numbers = [1, 2, 3, 4, 5]; 
+  print('First element of the list: ${numbers[0]}'); 
+  print('Length of the list: ${numbers.length}'); 
+  // Maps 
+  Map<String, int> ages = {'Kiran': 30, 'Raj': 25, 'Alekya': 35}; 
+  print('Kiran\'s age: ${ages['Kiran']}'); 
+} 
+
+
+Output: 
+My number is: 10 
+My double is: 3.14 
+My string is: Hello World 
+My boolean is: true 
+Result of addition: 15 
+myBool is true 
+Iteration 0 
+Iteration 1 
+Iteration 2 
+Iteration 3 
+Iteration 4 
+First element of the list: 1 
+Length of the list: 5 
+Kiran's age: 30 
+ 
+
+Lab Session -2 
+
+2A )EXPLORE VARIOUS FLUTTER WIDGET(TEXT,IMAGE,CONTAINER ETC) 
+
+Flutter provides a rich set of widgets to build user interfaces for mobile,web,and desktop 
+applications.These widgets help in creating visually appealing and interactive UIs. Here are 
+some of the commonly used Flutter widgets categorized by their functionalities: 
+Layout Widgets: 
+Container: A versatile widget that can contain other widgets and provides options for 
+alignment, padding,margin, and decoration.  
+Row and Column: Widgets that arrange their children in a horizontal or vertical line 
+respectively. 
+ Stack: Allows widgets to be stacked on top of each other, enabling complex layouts. 
+ListView and GridView: Widgets for displaying a scrollable list or grid of children, with 
+support for various layouts and scrolling directions. 
+
+3 
+ 
+Scaffold: Implements the basic material design layout structure, providing app bars, drawers, 
+and floating action buttons. 
+Text and Styling Widgets:  
+Text: Displays a string of text with options for styling such as font size, color, and alignment. 
+RichText: Allows for more complex text styling and formatting, including different styles 
+within the same text span. 
+TextStyle: A class for defining text styles that can be applied to Text widgets. 
+Input Widgets: 
+TextField: A widget for accepting user input as text, with options for customization and 
+validation. 
+Checkbox and Radio: Widgets for selecting from a list of options, either through 
+checkboxes or radio buttons. 
+DropdownButton: Provides a dropdown menu for selecting from a list of options. 
+Button Widgets: ElevatedButton and TextButton: Widgets for displaying buttons with 
+different styles and customization options 
+IconButton: A button widget that displays an icon and responds to user taps. 
+GestureDetector: A versatile widget that detects gestures such as taps, swipes, and drags, 
+allowing for custom interactions. 
+Image and Icon Widgets:  
+Image: Widget for displaying images from various sources, including assets, network URLs, 
+and memory. 
+Icon: Displays a Material Design icon. 
+Navigation Widgets:  
+Navigator: Manages a stack of route objects and transitions between different screens or 
+pages in the app.  
+PageRouteBuilder: A customizable widget for building page transitions and animations. 
+Animation Widgets: 
+AnimatedContainer: An animated version of the Container widget, with support for 
+transitioning properties over a specified duration. 
+AnimatedOpacity, AnimatedPositioned, AnimatedBuilder: Widgets for animating opacity, 
+position,and custom properties respectively 
+Material Design Widgets:  
+AppBar: A material design app bar that typically contains a title, leading and trailing 
+widgets, and actions. 
+BottomNavigationBar: Provides a navigation bar at the bottom of the screen for switching 
+between different screens or tabs. 
+Card: Displays content organized in a card-like structure with optional elevation and 
+padding. 
+Cupertino (iOS-style) Widgets:  
+CupertinoNavigationBar: A navigation bar in the iOS style. 
+ CupertinoButton: A button widget with the iOS style.  
+CupertinoTextField: A text field widget with the iOS style. 
+These are just a few examples of the many widgets available in Flutter. Each widget comes 
+with its set of properties and customization options, allowing developers to create highly 
+customizable and responsive user interfaces. 
+
+B) IMPLEMENT DIFFERENT LAYOUT STRUCTURES USING ROW, COLUMN, 
+AND STACK WIDGETS. 
+
+i)ROW Layout: 
+
+import 'package:flutter/material.dart' 
+void main() { 
+  runApp(MyApp()); 
+} 
+
+4
+ 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      home: Scaffold( 
+        appBar: AppBar(title: Text('Row Layout'), backgroundColor: Colors.blue), 
+        body: Row( 
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+          children: <Widget>[ 
+            Container(color: Colors.red, width: 100, height: 100), 
+            Container(color: Colors.green, width: 100, height: 100), 
+            Container(color: Colors.blue, width: 100, height: 100), 
+          ], 
+        ), 
+    ), 
+    ); 
+  } 
+} 
+
+
+Output: 
+
+
+ii)COLUMN Layout: 
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      home: Scaffold( 
+        appBar: AppBar( 
+          title: Text('Column Layout'), 
+          backgroundColor: Colors.blue, 
+        ), 
+         body: Column( 
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+          children: <Widget>[ 
+            Container(color: Colors.red, width: 100, height: 100), 
+            Container(color: Colors.green, width: 100, height: 100), 
+            Container(color: Colors.blue, width: 100, height: 100), 
+          ], 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+
+5 
+ 
+
+
+
+ 
+Output: 
+
+ 
+
+iii)STACK Layout: 
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      home: Scaffold( 
+        appBar: AppBar(title: Text('Stack Layout')), 
+        body: Stack( 
+          alignment: Alignment.center, 
+          children: <Widget>[ 
+            Container(color: Colors.red, width: 200, height: 200), 
+            Container(color: Colors.green, width: 150, height: 150), 
+            Container(color: Colors.blue, width: 100, height: 100), 
+          ], 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+OUTPUT: 
+
+6 
+ 
+
+
+
+ 
+
+Lab Session -3 
+
+3A) DESIGN A RESPONSIVE UI THAT ADAPTS TO DIFFERENT SCREEN SIZES. 
+
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      title: 'Responsive UI Demo', 
+      theme: ThemeData(primarySwatch: Colors.blue), 
+      home: ResponsiveHomePage(), 
+    ); 
+  } 
+} 
+class ResponsiveHomePage extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar(title: Text('Responsive UI Demo')), 
+      body: LayoutBuilder( 
+        builder: (BuildContext context, BoxConstraints constraints) { 
+          print("Current width: ${constraints.maxWidth}"); 
+          if (constraints.maxWidth < 600) { 
+            print("Rendering Narrow Layout"); 
+            return _buildNarrowLayout(); 
+          } else { 
+            print("Rendering Wide Layout"); 
+            return _buildWideLayout(); 
+          } 
+        }, 
+      ), 
+
+7 
+ 
+
+
+
+    ); 
+  } 
+  Widget _buildNarrowLayout() { 
+    return Container( 
+      color: Colors.amberAccent, // Add background color to see it clearly 
+      child: Center( 
+        child: Column( 
+          mainAxisAlignment: MainAxisAlignment.center, 
+          children: <Widget>[ 
+            FlutterLogo(size: 100), 
+            SizedBox(height: 20), 
+            Text('Narrow Layout', style: TextStyle(fontSize: 28)), 
+            SizedBox(height: 20), 
+            ElevatedButton(onPressed: () {}, child: Text('Button')), 
+          ], 
+        ), 
+      ), 
+    ); 
+  } 
+
+ 
+  Widget _buildWideLayout() { 
+    return Container( 
+      color: Colors.lightGreenAccent, // Different background color 
+      child: Center( 
+        child: Row( 
+          mainAxisAlignment: MainAxisAlignment.center, 
+          children: <Widget>[ 
+            FlutterLogo(size: 100), 
+            SizedBox(width: 20), 
+            Column( 
+              mainAxisAlignment: MainAxisAlignment.center, 
+              children: <Widget>[ 
+                Text(' Wide Layout', style: TextStyle(fontSize: 28)), 
+                SizedBox(height: 20), 
+                ElevatedButton(onPressed: () {}, child: Text('Button')), 
+              ], 
+            ), 
+          ], 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+
+ 
+OUTPUT: 
+
+ 
+Desktop View: 
+
+ 
+
+8 
+ 
+
+
+
+                                    
+ 
+
+Mobile View: 
+
+                                                                          
+B) IMPLEMENT MEDIA QUERIES AND BREAKPOINTS FOR RESPONSIVENESS. 
+import 'package:flutter/material.dart'; 
+void main(){ 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      title: 'MediaQuery Demo', 
+      theme: ThemeData(primarySwatch: Colors.teal), 
+      home: ResponsivePage(), 
+    ); 
+  } 
+} 
+
+9 
+ 
+
+
+
+class ResponsivePage extends StatelessWidget { 
+  final double mobileBreakpoint = 600; 
+  final double tabletBreakpoint = 1024; 
+  @override 
+  Widget build(BuildContext context) { 
+    double screenWidth = MediaQuery.of(context).size.width; 
+
+ 
+    if (screenWidth < mobileBreakpoint) { 
+      return _buildLayout(context, '📱 Mobile Layout', Colors.blue); 
+    } else if (screenWidth < tabletBreakpoint) { 
+      return _buildLayout(context, '📲 Tablet Layout', Colors.green); 
+    } else { 
+      return _buildLayout(context, '💻 Desktop Layout', Colors.red); 
+    } 
+  } 
+
+ 
+  Widget _buildLayout(BuildContext context, String label, Color color) { 
+    return Scaffold( 
+      appBar: AppBar(title: Text('Responsive Layout')), 
+      body: Container( 
+        color: color, 
+        child: Center( 
+          child: Text( 
+            label, 
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold), 
+          ), 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+
+ 
+Output: 
+
+ 
+
+ 
+ 
+
+10 
+ 
+
+
+
+ 
+ 
+
+ 
+ 
+Lab Session -4 
+ 
+4A) SET UP NAVIGATION BETWEEN DIFFERENT SCREENS USING 
+NAVIGATOR. 
+
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, 
+
+      title: 'Navigation Example', 
+      theme: ThemeData(primarySwatch: Colors.blue), 
+      home: FirstScreen(), 
+    ); 
+  } 
+
+11 
+ 
+
+
+
+} 
+class FirstScreen extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar(title: Text('First Screen'), backgroundColor: Colors.blue), 
+      body: Center( 
+        child: ElevatedButton( 
+          style: ElevatedButton.styleFrom( 
+            backgroundColor: Colors.green, // background color 
+            foregroundColor: Colors.white, // text (or icon) color 
+          ), 
+          onPressed: () { 
+            // Navigate to the second screen 
+            Navigator.push( 
+              context, 
+              MaterialPageRoute(builder: (context) {return SecondScreen(); }, ), 
+              //MaterialPageRoute(builder: (context) => SecondScreen()) 
+            ); 
+          }, 
+          child: Text('Go to Second Screen'), 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+
+ 
+class SecondScreen extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar( 
+        title: Text('Second Screen'), 
+        backgroundColor: Colors.blue, 
+      ), 
+      body: Center( 
+        child: ElevatedButton( 
+          style: ElevatedButton.styleFrom( 
+            backgroundColor: Colors.yellow, // background color 
+            foregroundColor: Colors.blue, // text (or icon) color 
+          ), 
+          onPressed: () { 
+            // Navigate back to the first screen 
+            Navigator.pop(context); 
+          }, 
+          child: Text('Go back to First Screen'), 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+Output: 
+
+12 
+ 
+
+
+
+ 
+
+ 
+ 
+
+ 
+ 
+
+ B) IMPLEMENT NAVIGATION WITH NAMED ROUTES. 
+ 
+
+import 'package:flutter/material.dart'; 
+void main() { 
+ runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+ @override 
+ Widget build(BuildContext context) { 
+ return MaterialApp( 
+ title: 'Named Routes Demo', 
+ initialRoute: '/', 
+ routes: { 
+ '/': (context) => HomeScreen(), 
+ '/second': (context) => SecondScreen(), 
+ '/third': (context) => ThirdScreen(), 
+ }, 
+ ); 
+ } 
+} 
+class HomeScreen extends StatelessWidget { 
+ @override 
+ Widget build(BuildContext context) { 
+ return Scaffold( 
+ appBar: AppBar( 
+ title: Text('Home Screen'), 
+ ), 
+ body: Center( 
+child: ElevatedButton( 
+ onPressed:(){ 
+Navigator.pushNamed(context, '/second'); 
+ }, 
+ child: Text('Go to Second Screen'), 
+ ), 
+
+13 
+ 
+
+
+
+ ), 
+ ); 
+ } 
+} 
+class SecondScreen extends StatelessWidget { 
+ @override 
+ Widget build(BuildContext context) { 
+ return Scaffold( 
+ appBar: AppBar( 
+ title: Text('Second Screen'), 
+ ), 
+ body: Center( 
+ child: ElevatedButton( 
+ onPressed: () { 
+Navigator.pushNamed(context, '/third'); 
+ }, 
+ child: Text('Go to Third Screen'), 
+ ), 
+ ), 
+ ); 
+ } 
+} 
+class ThirdScreen extends StatelessWidget { 
+ @override 
+ Widget build(BuildContext context) { 
+ return Scaffold( 
+ appBar: AppBar( 
+ title: Text('Third Screen'), 
+ ), 
+ body: Center( 
+ child: ElevatedButton( 
+ onPressed: () { 
+ Navigator.popUntil(context, ModalRoute.withName('/')); 
+ }, 
+ child: Text('Go Back to Home'), 
+ ), 
+ ), 
+ ); 
+ } 
+} 
+
+ 
+Output: 
+
+ 
+ 
+ 
+
+14 
+ 
+
+
+
+ 
+Lab Session -5 
+
+5. A) LEARN ABOUT STATEFUL AND STATELESS WIDGETS.  
+
+1. Stateless Widget  
+A Stateless Widget is a widget that does not change once it is built. ∙ Its UI stays the same 
+throughout the app’s lifetime.  
+∙ Useful when the widget’s data is fixed or comes only once.  
+Key Points:  
+∙ No internal state to update.  
+∙ The build() method is called only once unless external data (like from a parent  widget) 
+changes.  
+∙ Extends StatelessWidget.  
+Example:  
+import 'package:flutter/material.dart';  
+class MyStatelessWidget extends StatelessWidget {  
+ @override  
+ Widget build(BuildContext context) {  
+ return Scaffold(  
+ appBar: AppBar(title: Text("Stateless Example")),  
+ body: Center(child: Text("I never change!")),  
+ );  
+ }  
+}  
+
+15 
+ 
+
+
+
+Behavior: The text always remains the same.  
+2. Stateful Widget  
+A Stateful Widget is a widget that can change when something happens (e.g., user  input, 
+button press, API call).  
+∙ Has an internal State object that can be modified using setState(). ∙ When setState() is called, 
+Flutter rebuilds the widget to reflect the changes. Key Points:  
+∙ Stores data that might change during runtime.  
+∙ Requires two classes:  
+1. The widget class (extends StatefulWidget)  
+2. The state class (extends State<WidgetName>)  
+Example:  
+import 'package:flutter/material.dart';  
+class MyStatefulWidget extends StatefulWidget {  
+ @override  
+ _MyStatefulWidgetState createState() => _MyStatefulWidgetState(); }  
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {  int counter = 0;  
+ void _incrementCounter() {  
+ setState(() {  
+ counter++; // Rebuilds UI when counter changes  
+ });  
+ }  
+ @override  
+ Widget build(BuildContext context) {  
+ return Scaffold( 
+ appBar: AppBar(title: Text("Stateful Example")),  
+ body: Center(child: Text("Counter: $counter")),  
+ floatingActionButton: FloatingActionButton(  
+ onPressed: _incrementCounter,  
+ child: Icon(Icons.add),  
+ ),  
+ );  
+ }  
+}  
+Behavior: Each press of the button updates the counter because the widget rebuilds itself with 
+new data.  
+Example Program:  
+import 'package:flutter/material.dart';  
+void main() {  
+ runApp(MyApp());  
+}  
+class MyApp extends StatelessWidget {  
+ @override  
+ Widget build(BuildContext context) {  
+ return MaterialApp(  
+ home: Scaffold(  
+ appBar: AppBar(  
+ title: Text('Cards Example'),  
+ ),  
+ body: CardList(),  
+ ),  
+ );  
+ }  
+}  
+
+16 
+ 
+
+
+
+class CardList extends StatelessWidget {  
+ @override  
+ Widget build(BuildContext context) {  
+ return ListView.builder(  
+ itemCount: 10,  
+ itemBuilder: (context, index) {  
+ return CardItem(  
+ title: 'Card $index',  
+ subtitle: 'Subtitle $index',  
+ );  
+ },  
+ );  
+ }  
+}  
+class CardItem extends StatelessWidget {  
+ final String title; 
+ final String subtitle;  
+ const CardItem({  
+ Key? key,  
+ required this.title,  
+ required this.subtitle,  
+ }) : super(key: key);  
+ @override  
+ Widget build(BuildContext context) {  
+ return Card(  
+ margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),  child: ListTile(  
+ title: Text(title),  
+ subtitle: Text(subtitle),  
+ leading: CircleAvatar(  
+ child: Text(title.substring(0, 1)),  
+ ),  
+ onTap: () {  
+ // Handle card tap  
+ },  
+ ),  
+ );  
+ }  
+}  
+OUTPUT: 
+
+ 
+
+17 
+ 
+
+
+
+Example Program:  
+import 'package:flutter/material.dart';  
+void main() {  
+ runApp(MyApp());  
+}  
+// MyApp is Stateless because it doesn't change  
+class MyApp extends StatelessWidget {  
+ @override  
+ Widget build(BuildContext context) { 
+ return MaterialApp(  
+ debugShowCheckedModeBanner: false,  
+ title: 'Stateless & Stateful Example',  
+ theme: ThemeData(primarySwatch: Colors.blue),  home: FirstScreen(),  
+ );  
+ }  
+}  
+// FirstScreen is Stateless because it only displays a button class FirstScreen extends 
+StatelessWidget {  
+ @override  
+Widget build(BuildContext context) {  
+ return Scaffold(  
+ appBar: AppBar(title: Text("Stateless Widget")),  body: Center(  
+ child: ElevatedButton(  
+ onPressed: () {  
+ // Navigate to the stateful screen  
+ Navigator.push(  
+ context,  
+ MaterialPageRoute(builder: (context) => CounterScreen()),  );  
+ },  
+ child: Text("Go to Counter Screen"),  
+ ),  
+ ),  
+ );  
+ }  
+}  
+// CounterScreen is Stateful because the counter value changes class CounterScreen extends 
+StatefulWidget {  
+ @override  
+ _CounterScreenState createState() => _CounterScreenState(); }  
+class _CounterScreenState extends State<CounterScreen> {  int counter = 0;  
+ void _incrementCounter() {  
+ setState(() {  
+ counter++; // Updates the UI when counter changes  });  
+ }  
+ @override  
+ Widget build(BuildContext context) {  
+ return Scaffold(  
+ appBar: AppBar(title: Text("Stateful Widget")),  
+ body: Center( 
+ child: Text(  
+ "Counter: $counter",  
+ style: TextStyle(fontSize: 24),  
+ ),  
+
+18 
+ 
+
+
+
+ ),  
+ floatingActionButton: FloatingActionButton(  
+ onPressed: _incrementCounter,  
+ child: Icon(Icons.add),  
+ ),  
+ );  
+ }  
+}  
+Output: 
+
+ 
+
+5) b) Implement state management using set state and provider 
+
+Stateful Widgets: Definition: Stateful widgets are widgets that maintain state, allowing them 
+to change and update over time in response to user actions, network events, or other factors. 
+ Characteristics: 
+
+ They have an associated mutable state that can change during the widget's lifetime.  
+ The state is stored in a separate class that extends State and is associated with the 
+
+stateful widget. 
+ Changes to the state trigger a rebuild of the widget's UI, allowing dynamic updates.  
+ They are ideal for UI elements that need to change or react to user interactions, such 
+
+as input forms, animations, or scrollable lists. 
+Stateful widgets are composed of two classes: the stateful widget itself (which extends 
+StatefulWidget) and its corresponding state class (which extends State). The state class is 
+responsible for maintaining the widget's mutable state and updating the UI accordingly via 
+the setState() method.  
+stateless widgets are static and immutable, while stateful widgets are dynamic and can change 
+over time by managing their internal state. Understanding the difference between these two 
+types of widgets is essential for designing and building efficient and responsive Flutter UIs. 
+Program: 
+
+ Lib/main.dart 
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+
+19 
+ 
+
+
+
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, 
+      title: 'Login Example with setState', 
+      home: LoginScreen(), 
+    ); 
+  } 
+} 
+ 
+// login screen (Stateful) 
+class LoginScreen extends StatefulWidget { 
+  @override 
+  _LoginScreenState createState() => _LoginScreenState(); 
+} 
+class _LoginScreenState extends State<LoginScreen> { 
+  String username = ""; 
+  String password = ""; 
+  bool isLoggedIn = false; // State variable 
+  final TextEditingController usernameController = TextEditingController(); 
+  final TextEditingController passwordController = TextEditingController(); 
+  void _login() { 
+    setState(() { 
+      username = usernameController.text; 
+      password = passwordController.text; 
+      isLoggedIn = true; // Switch to welcome screen 
+    }); 
+  } 
+  void _logout() { 
+    setState(() { 
+      isLoggedIn = false; // Go back to login screen 
+      usernameController.clear(); 
+      passwordController.clear(); 
+    }); 
+  } 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar(title: Text("Login Example")), 
+      body: Center( 
+        child: isLoggedIn 
+            ? Column( 
+          mainAxisAlignment: MainAxisAlignment.center, 
+          children: [ 
+
+20 
+ 
+
+
+
+            Text( 
+
+              "Hai $username 👋", 
+
+              style: TextStyle(fontSize: 24), 
+            ), 
+            SizedBox(height: 20), 
+            ElevatedButton( 
+              onPressed: _logout, 
+              child: Text("Go Back"), 
+            ), 
+          ], 
+        ) 
+            : Padding( 
+          padding: const EdgeInsets.all(16.0), 
+          child: Column( 
+            mainAxisAlignment: MainAxisAlignment.center, 
+            children: [ 
+              TextField( 
+                controller: usernameController, 
+                decoration: InputDecoration(labelText: "Username"), 
+              ), 
+              TextField( 
+                controller: passwordController, 
+                obscureText: true, 
+                decoration: InputDecoration(labelText: "Password"), 
+              ), 
+              SizedBox(height: 20), 
+              ElevatedButton( 
+                onPressed: _login, 
+                child: Text("Sign In"), 
+              ), 
+            ], 
+          ), 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+
+Output: 
+
+ 
+
+21 
+ 
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+What is Provider? 
+
+22 
+ 
+
+
+
+Provider is a state management solution for Flutter. 
+It’s basically a way to store data in one place and let multiple widgets listen to changes in that 
+data automatically. 
+
+Why Provider is Useful 
+
+✅ Centralized State → You don’t pass variables through constructors over and over. 
+
+✅ Automatic UI Update → No manual setState() in every widget. 
+
+✅ Performance Friendly → Only widgets using the data rebuild. 
+
+✅ Scales Well → Works for small and large apps. 
+
+✅ Cleaner Code → Logic (data) and UI are separated. 
+
+Program: 
+
+Step 1 – pubspec.yaml 
+
+name: provider_cart_example 
+description: A simple cart example using Provider 
+publish_to: 'none' 
+version: 1.0.0+1 
+environment: 
+  sdk: ">=2.12.0 <3.0.0" 
+dependencies: 
+  flutter: 
+    sdk: flutter 
+  provider: ^5.0.0 
+  cupertino_icons: ^1.0.8 
+dev_dependencies: 
+  flutter_test: 
+    sdk: flutter 
+flutter: 
+  uses-material-design: true 
+Save and run: 
+flutter pub get 
+Step 2 – Create cart_provider.dart 
+
+ lib/cart_provider.dart 
+import 'package:flutter/foundation.dart'; 
+class CartProvider with ChangeNotifier { 
+  int _itemCount = 0; 
+  int get itemCount => _itemCount; 
+  void addItem() { 
+    _itemCount++; 
+    notifyListeners(); // Refresh UI 
+  } 
+  void removeItem() { 
+    if (_itemCount > 0) { 
+      _itemCount--; 
+      notifyListeners(); 
+    } 
+  } 
+  void clearCart() { 
+    _itemCount = 0; 
+    notifyListeners(); 
+
+23 
+ 
+
+
+
+  } 
+} 
+Step 3 – Main Program 
+
+ lib/main.dart 
+import 'package:flutter/material.dart'; 
+import 'package:provider/provider.dart'; 
+import 'cart_provider.dart'; 
+ 
+void main() { 
+  runApp( 
+    ChangeNotifierProvider( 
+      create: (_) => CartProvider(), 
+      child: MyApp(), 
+    ), 
+  ); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, 
+      title: 'Cart Example', 
+      theme: ThemeData(primarySwatch: Colors.blue), 
+      home: ProductListScreen(), 
+    ); 
+  } 
+} 
+class ProductListScreen extends StatelessWidget { 
+  final List<String> products = [ 
+    "Laptop", 
+    "Smartphone", 
+    "Headphones", 
+    "Keyboard", 
+    "Mouse" 
+  ]; 
+ 
+  @override 
+  Widget build(BuildContext context) { 
+    final cart = Provider.of<CartProvider>(context); 
+    return Scaffold( 
+      appBar: AppBar( 
+        title: Text("Products"), 
+        actions: [ 
+          Stack( 
+            alignment: Alignment.center, 
+            children: [ 
+              IconButton( 
+                icon: Icon(Icons.shopping_cart), 
+                onPressed: () { 
+                  Navigator.push( 
+                    context, 
+                    MaterialPageRoute(builder: (_) => CartScreen()), 
+                  ); 
+
+24 
+ 
+
+
+
+                }, 
+              ), 
+              Positioned( 
+                right: 6, 
+                top: 6, 
+                child: Container( 
+                  padding: EdgeInsets.all(5), 
+                  decoration: BoxDecoration( 
+                    color: Colors.red, 
+                    shape: BoxShape.circle, 
+                  ), 
+                  child: Text( 
+                    "${cart.itemCount}", 
+                    style: TextStyle(color: Colors.white, fontSize: 12), 
+                  ), 
+                ), 
+              ) 
+            ], 
+          ) 
+        ], 
+      ), 
+      body: ListView.builder( 
+        itemCount: products.length, 
+        itemBuilder: (_, index) { 
+          return ListTile( 
+            title: Text(products[index]), 
+            trailing: ElevatedButton( 
+              child: Text("Add to Cart"), 
+              onPressed: () { 
+                cart.addItem(); 
+              }, 
+            ), 
+          ); 
+        }, 
+      ), 
+    ); 
+  } 
+} 
+class CartScreen extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    final cart = Provider.of<CartProvider>(context); 
+    return Scaffold( 
+      appBar: AppBar(title: Text("Your Cart")), 
+      body: Center( 
+        child: Text( 
+          "Items in cart: ${cart.itemCount}", 
+          style: TextStyle(fontSize: 22), 
+        ), 
+      ), 
+      bottomNavigationBar: Padding( 
+        padding: EdgeInsets.all(10), 
+        child: ElevatedButton( 
+
+25 
+ 
+
+
+
+          style: ElevatedButton.styleFrom(padding: EdgeInsets.all(15)), 
+          onPressed: cart.clearCart, 
+          child: Text("Clear Cart"), 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Output: 
+
+ 
+
+ 
+
+ 
+
+26 
+ 
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+Lab Session -6 
+
+6a) Create custom widgets for specific UI elements 
+
+ import 'package:flutter/material.dart'; 
+void main() { 
+ runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+ @override 
+ Widget build(BuildContext context) { 
+ return MaterialApp( 
+
+27 
+ 
+
+
+
+ home: Scaffold( 
+ appBar: AppBar( 
+ title: Text('Custom Widget Example'), 
+ ), 
+ body: Column( 
+ mainAxisAlignment: MainAxisAlignment.center, 
+ children: <Widget>[ 
+ Padding( 
+ padding: const EdgeInsets.all(8.0), 
+ child: CustomTextField( 
+ hintText: 'Enter your name', 
+ onChanged: (value) { 
+ print('Name changed: $value'); 
+ }, 
+ ), 
+ ), 
+ SizedBox(height: 20), 
+ Padding( 
+ padding: const EdgeInsets.all(8.0), 
+ child: CustomTextField( 
+ hintText: 'Enter Email', 
+ onChanged: (value) { 
+ print('Name changed: $value'); 
+ }, 
+ ), 
+ ), 
+ SizedBox(height: 20), 
+ Padding( 
+ padding: const EdgeInsets.all(8.0), 
+ child: CustomTextField( 
+ hintText: 'Enter Roll Number', 
+ onChanged: (value) { 
+ print('Name changed: $value'); 
+ }, 
+ ), 
+ ), 
+ SizedBox(height: 20), 
+ CustomButton( 
+ text: 'Press Me', 
+ onPressed: () { 
+print('Button pressed!'); 
+ }, 
+ ), 
+ ], 
+ ), 
+ ), 
+ ); 
+ } 
+} 
+class CustomButton extends StatelessWidget { 
+ final String? text; 
+ final VoidCallback? onPressed; 
+ const CustomButton({ 
+
+28 
+ 
+
+
+
+ Key? key, 
+ @required this.text, 
+ @required this.onPressed, 
+ }) : super(key: key); 
+ @override 
+ Widget build(BuildContext context) { 
+ return ElevatedButton( 
+ onPressed: onPressed, 
+ child: Text(text!), 
+ ); 
+ } 
+} 
+class CustomTextField extends StatelessWidget { 
+ final String hintText; 
+ final ValueChanged<String> onChanged; 
+ const CustomTextField({ 
+ Key? key, 
+ required this.hintText, 
+ required this.onChanged, 
+ }) : super(key: key); 
+ @override 
+ Widget build(BuildContext context) { 
+ return TextField( 
+ onChanged: onChanged, 
+ decoration: InputDecoration( 
+ hintText: hintText, 
+ border: OutlineInputBorder(), 
+ ), 
+ ); 
+ } 
+} 
+Output: 
+
+ 
+
+6)b) Apply styling using themes and custom styles 
+
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+
+29 
+ 
+
+
+
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      theme: ThemeData( 
+        colorScheme: ColorScheme.fromSeed( 
+          seedColor: Colors.blue, 
+          primary: Colors.blue, 
+          secondary: Colors.orange, 
+        ), 
+        fontFamily: 'Roboto', 
+        textTheme: TextTheme( 
+          headlineLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), 
+          bodyLarge: TextStyle(fontSize: 16), 
+        ), 
+        elevatedButtonTheme: ElevatedButtonThemeData( 
+          style: ElevatedButton.styleFrom( 
+            backgroundColor: Colors.blue, 
+            foregroundColor: Colors.white, 
+            textStyle: TextStyle(fontSize: 18), 
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15), 
+            shape: RoundedRectangleBorder( 
+              borderRadius: BorderRadius.circular(10), 
+            ), 
+          ), 
+        ), 
+      ), 
+      home: HomePage(), 
+    ); 
+  } 
+} 
+class HomePage extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar( 
+        title: Text('Theme vs Custom Style'), 
+      ), 
+      body: Center( 
+        child: Column( 
+          mainAxisAlignment: MainAxisAlignment.center, 
+          children: <Widget>[ 
+            Text( 
+              'Welcome to MyApp', 
+              style: Theme.of(context).textTheme.headlineLarge, 
+            ), 
+            SizedBox(height: 20), 
+            // THEME Button (navigates to SecondPage) 
+            ElevatedButton( 
+              onPressed: () { 
+                Navigator.push( 
+                  context, 
+                  MaterialPageRoute(builder: (context) => SecondPage()), 
+                ); 
+              }, 
+
+30 
+ 
+
+
+
+              child: Text('Get Started (Theme Style)'), 
+            ), 
+            SizedBox(height: 20), 
+            // CUSTOM Style Button (also navigates) 
+            ElevatedButton( 
+              onPressed: () { 
+                Navigator.push( 
+                  context, 
+                  MaterialPageRoute(builder: (context) => SecondPage()), 
+                ); 
+              }, 
+              style: ElevatedButton.styleFrom( 
+                backgroundColor: Colors.red, 
+                foregroundColor: Colors.white, 
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20), 
+                shape: StadiumBorder(), 
+              ), 
+              child: Text('Special Button (Custom Style)'), 
+            ), 
+          ], 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+ 
+// 🔹 Second Page 
+class SecondPage extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar( 
+        title: Text('Second Page'), 
+      ), 
+      body: Center( 
+        child: ElevatedButton( 
+          onPressed: () { 
+            Navigator.pop(context); // Go back 
+          }, 
+          child: Text('Go Back'), 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+ 
+
+Output: 
+
+31 
+ 
+
+
+
+ 
+
+Lab Session -7 
+
+7a)Design a form with various input fields 
+
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      title: 'Form Example', 
+      debugShowCheckedModeBanner: false, 
+      theme: ThemeData(primarySwatch: Colors.blue), 
+      home: FormPage(), 
+    ); 
+  } 
+} 
+class FormPage extends StatefulWidget { 
+  @override 
+  _FormPageState createState() => _FormPageState(); 
+} 
+class _FormPageState extends State<FormPage> { 
+  final _formKey = GlobalKey<FormState>(); 
+  // State variables (initialized to safe defaults for null-safety) 
+  String _name = ''; 
+  String _email = ''; 
+  bool _subscribeToNewsletter = false; 
+  String _selectedCountry = 'India'; 
+  String _gender = 'Male'; 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar( 
+        title: Text('Form Example'), 
+      ), 
+      body: SingleChildScrollView( 
+
+32 
+ 
+
+
+
+        padding: EdgeInsets.all(20.0), 
+        child: Form( 
+          key: _formKey, 
+          child: Column( 
+            crossAxisAlignment: CrossAxisAlignment.start, 
+            children: <Widget>[ 
+              // Name field 
+              TextFormField( 
+                decoration: InputDecoration(labelText: 'Name'), 
+                validator: (value) { 
+                  if (value == null || value.trim().isEmpty) { 
+                    return 'Please enter your name'; 
+                  } 
+                  return null; 
+                }, 
+                onSaved: (value) { 
+                  _name = value?.trim() ?? ''; 
+                }, 
+              ), 
+              SizedBox(height: 20), 
+ 
+              // Email field 
+              TextFormField( 
+                decoration: InputDecoration(labelText: 'Email'), 
+                keyboardType: TextInputType.emailAddress, 
+                validator: (value) { 
+                  if (value == null || value.trim().isEmpty) { 
+                    return 'Please enter your email'; 
+                  } 
+                  // simple email check 
+                  if (!value.contains('@')) { 
+                    return 'Please enter a valid email'; 
+                  } 
+                  return null; 
+                }, 
+                onSaved: (value) { 
+                  _email = value?.trim() ?? ''; 
+                }, 
+              ), 
+              SizedBox(height: 20), 
+              // Subscribe checkbox 
+              Row( 
+                children: <Widget>[ 
+                  Checkbox( 
+                    value: _subscribeToNewsletter, 
+                    onChanged: (value) { 
+                      setState(() { 
+                        _subscribeToNewsletter = value ?? false; 
+                      }); 
+                    }, 
+                  ), 
+                  const SizedBox(width: 8), 
+                  Text('Subscribe to Newsletter'), 
+
+33 
+ 
+
+
+
+                ], 
+              ), 
+              SizedBox(height: 20), 
+ 
+              // Gender selection (radio buttons) 
+              Text('Gender:', style: TextStyle(fontWeight: FontWeight.w600)), 
+              Row( 
+                children: <Widget>[ 
+                  Expanded( 
+                    child: RadioListTile<String>( 
+                      title: Text('Male'), 
+                      value: 'Male', 
+                      groupValue: _gender, 
+                      onChanged: (value) { 
+                        setState(() { 
+                          _gender = value ?? 'Male'; 
+                        }); 
+                      }, 
+                    ), 
+                  ), 
+                  Expanded( 
+                    child: RadioListTile<String>( 
+                      title: Text('Female'), 
+                      value: 'Female', 
+                      groupValue: _gender, 
+                      onChanged: (value) { 
+                        setState(() { 
+                          _gender = value ?? 'Female'; 
+                        }); 
+                      }, 
+                    ), 
+                  ), 
+                ], 
+              ), 
+              SizedBox(height: 20), 
+              // Country dropdown 
+              Row( 
+                children: <Widget>[ 
+                  Text('Country: '), 
+                  SizedBox(width: 20), 
+                  DropdownButton<String>( 
+                    value: _selectedCountry, 
+                    onChanged: (value) { 
+                      setState(() { 
+                        _selectedCountry = value ?? _selectedCountry; 
+                      }); 
+                    }, 
+                    items: <String>['India','USA', 'Canada', 'UK', 'Australia'] 
+                        .map<DropdownMenuItem<String>>((String value) { 
+                      return DropdownMenuItem<String>( 
+                        value: value, 
+                        child: Text(value), 
+                      ); 
+
+34 
+ 
+
+
+
+                    }).toList(), 
+                  ), 
+                ], 
+              ), 
+              SizedBox(height: 30), 
+              // Submit button 
+              Center( 
+                child: ElevatedButton( 
+                  onPressed: () { 
+                    // validate then save 
+                    if (_formKey.currentState?.validate() ?? false) { 
+                      _formKey.currentState?.save(); 
+                      // Show results in a dialog (and print to console) 
+                      showDialog( 
+                        context: context, 
+                        builder: (_) => AlertDialog( 
+                          title: Text('Form Submitted'), 
+                          content: Text( 
+                            'Name: $_name\n' 
+                            'Email: $_email\n' 
+                            'Subscribed: ${_subscribeToNewsletter ? "Yes" : "No"}\n' 
+                            'Gender: $_gender\n' 
+                            'Country: $_selectedCountry', 
+                          ), 
+                          actions: [ 
+                            TextButton( 
+                              onPressed: () => Navigator.pop(context), 
+                              child: Text('OK'), 
+                            ) 
+                          ], 
+                        ), 
+                      ); 
+                      // Also print to console 
+                      print('Name: $_name'); 
+                      print('Email: $_email'); 
+                      print('Subscribe: $_subscribeToNewsletter'); 
+                      print('Gender: $_gender'); 
+                      print('Country: $_selectedCountry'); 
+                    } 
+                  }, 
+                  child: Text('Submit'), 
+                ), 
+              ), 
+            ], 
+          ), 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+ 
+
+Output: 
+
+35 
+ 
+
+
+
+ 
+
+ 
+ 
+
+                                          
+
+ 
+7b)Implement form validation and error handling 
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      home: Scaffold( 
+        appBar: AppBar( 
+          title: Text('Form Example'), 
+        ), 
+        body: SingleChildScrollView( 
+          padding: EdgeInsets.all(16), 
+          child: FormWidget(), 
+        ), 
+      ), 
+
+36 
+ 
+
+
+
+    ); 
+  } 
+} 
+class FormWidget extends StatefulWidget { 
+  @override 
+  _FormWidgetState createState() => _FormWidgetState(); 
+} 
+ 
+class _FormWidgetState extends State<FormWidget> { 
+  final _formKey = GlobalKey<FormState>(); 
+  // Make variables nullable for safety 
+  String? _name; 
+  String? _email; 
+  String? _password; 
+  String? _phone; 
+  String? _address; 
+  @override 
+  Widget build(BuildContext context) { 
+    return Form( 
+      key: _formKey, 
+      child: Column( 
+        crossAxisAlignment: CrossAxisAlignment.start, 
+        children: <Widget>[ 
+          TextFormField( 
+            decoration: InputDecoration(labelText: 'Name'), 
+            validator: (value) { 
+              if (value == null || value.isEmpty) { 
+                return 'Please enter your name'; 
+              } 
+              return null; 
+            }, 
+            onSaved: (value) => _name = value, 
+          ), 
+          SizedBox(height: 16), 
+          TextFormField( 
+            decoration: InputDecoration(labelText: 'Email'), 
+            keyboardType: TextInputType.emailAddress, 
+            validator: (value) { 
+              if (value == null || value.isEmpty) { 
+                return 'Please enter your email'; 
+              } 
+              // Example: simple check for '@' 
+              if (!value.contains('@')) { 
+                return 'Enter a valid email'; 
+              } 
+              return null; 
+            }, 
+            onSaved: (value) => _email = value, 
+          ), 
+          SizedBox(height: 16), 
+          TextFormField( 
+            decoration: InputDecoration(labelText: 'Password'), 
+            obscureText: true, 
+
+37 
+ 
+
+
+
+            validator: (value) { 
+              if (value == null || value.isEmpty) { 
+                return 'Please enter a password'; 
+              } 
+              if (value.length < 6) { 
+                return 'Password must be at least 6 characters'; 
+              } 
+              return null; 
+            }, 
+            onSaved: (value) => _password = value, 
+          ), 
+          SizedBox(height: 16), 
+          TextFormField( 
+            decoration: InputDecoration(labelText: 'Phone'), 
+            keyboardType: TextInputType.phone, 
+            validator: (value) { 
+              if (value == null || value.isEmpty) { 
+                return 'Please enter your phone number'; 
+              } 
+              if (value.length < 10) { 
+                return 'Enter a valid phone number'; 
+              } 
+              return null; 
+            }, 
+            onSaved: (value) => _phone = value, 
+          ), 
+          SizedBox(height: 16), 
+          TextFormField( 
+            decoration: InputDecoration(labelText: 'Address'), 
+            maxLines: 3, 
+            validator: (value) { 
+              if (value == null || value.isEmpty) { 
+                return 'Please enter your address'; 
+              } 
+              return null; 
+            }, 
+            onSaved: (value) => _address = value, 
+          ), 
+          SizedBox(height: 16), 
+          ElevatedButton( 
+            onPressed: _submitForm, 
+            child: Text('Submit'), 
+          ), 
+        ], 
+      ), 
+    ); 
+  } 
+  void _submitForm() { 
+    if (_formKey.currentState!.validate()) { 
+      _formKey.currentState!.save(); 
+      // Perform form submission with the saved form data 
+      print('Form submitted:'); 
+      print('Name: $_name'); 
+
+38 
+ 
+
+
+
+      print('Email: $_email'); 
+      print('Password: $_password'); 
+      print('Phone: $_phone'); 
+      print('Address: $_address'); 
+    } 
+  } 
+} 
+Output: 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Lab Session 8:  
+
+a) Add animations to UI elements using flutter's animation framework 
+
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+
+39 
+ 
+
+
+
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, 
+      home: Scaffold( 
+        appBar: AppBar( 
+          title: Text('Animation Example'), 
+        ), 
+        body: AnimationWidget(), 
+      ), 
+    ); 
+  } 
+} 
+class AnimationWidget extends StatefulWidget { 
+  @override 
+  _AnimationWidgetState createState() => _AnimationWidgetState(); 
+} 
+class _AnimationWidgetState extends State<AnimationWidget> 
+    with SingleTickerProviderStateMixin { 
+  late AnimationController _controller; // ✅ use late 
+  late Animation<double> _animation;    // ✅ use late 
+ 
+  @override 
+  void initState() { 
+    super.initState(); 
+    _controller = AnimationController( 
+      duration: Duration(seconds: 1), 
+      vsync: this, 
+    ); 
+    _animation = Tween<double>(begin: 0, end: 300).animate(_controller) 
+      ..addListener(() { 
+        setState(() {}); // Trigger rebuild when animation value changes 
+      }); 
+  } 
+  @override 
+  Widget build(BuildContext context) { 
+    return Center( 
+      child: Column( 
+        mainAxisAlignment: MainAxisAlignment.center, 
+        children: <Widget>[ 
+          Container( 
+            width: _animation.value, 
+            height: _animation.value, 
+            color: Colors.blue, 
+            child: FlutterLogo(size: 100), 
+          ), 
+          SizedBox(height: 20), 
+          ElevatedButton( 
+            onPressed: () { 
+
+40 
+ 
+
+
+
+              if (_controller.status == AnimationStatus.completed) { 
+                _controller.reverse(); 
+              } else { 
+                _controller.forward(); 
+              } 
+            }, 
+            child: Text( 
+              _controller.status == AnimationStatus.completed 
+                  ? 'Reverse Animation' 
+                  : 'Start Animation', 
+            ), 
+          ), 
+        ], 
+      ), 
+    ); 
+  } 
+  @override 
+  void dispose() { 
+    _controller.dispose(); 
+    super.dispose(); 
+  } 
+} 
+Output: 
+
+b) Experiment with different types of animations like fade,slide,etc. 
+
+Fade Animation: 
+
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, 
+      home: Scaffold( 
+
+41 
+ 
+
+
+
+        appBar: AppBar( 
+          title: Text('Fade Animation Example'), 
+        ), 
+        body: FadeAnimation(), 
+      ), 
+    ); 
+  } 
+} 
+class FadeAnimation extends StatefulWidget { 
+  @override 
+  _FadeAnimationState createState() => _FadeAnimationState(); 
+} 
+class _FadeAnimationState extends State<FadeAnimation> 
+    with SingleTickerProviderStateMixin { 
+  late AnimationController _controller; // ✅ late 
+  late Animation<double> _animation;    // ✅ late 
+  @override 
+  void initState() { 
+    super.initState(); 
+    _controller = AnimationController( 
+      vsync: this, 
+      duration: Duration(seconds: 2), 
+    ); 
+    _animation = Tween<double>( 
+      begin: 0.0, 
+      end: 1.0, 
+    ).animate(_controller); 
+ 
+    _controller.forward(); // start animation 
+  } 
+  @override 
+  Widget build(BuildContext context) { 
+    return Center( 
+      child: FadeTransition( 
+        opacity: _animation, 
+        child: Container( 
+          width: 200, 
+          height: 200, 
+          color: Colors.blue, 
+        ), 
+      ), 
+    ); 
+  } 
+ 
+  @override 
+  void dispose() { 
+    _controller.dispose(); 
+    super.dispose(); 
+  } 
+} 
+
+42 
+ 
+
+
+
+ 
+Slide Animation: 
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, 
+      home: Scaffold( 
+        appBar: AppBar( 
+          title: Text('Slide Animation Example'), 
+        ), 
+        body: SlideAnimation(), 
+      ), 
+    ); 
+  } 
+} 
+class SlideAnimation extends StatefulWidget { 
+  @override 
+  _SlideAnimationState createState() => _SlideAnimationState(); 
+} 
+class _SlideAnimationState extends State<SlideAnimation> 
+    with SingleTickerProviderStateMixin { 
+  late AnimationController _controller;   // ✅ late 
+  late Animation<Offset> _animation;      // ✅ late 
+  @override 
+  void initState() { 
+    super.initState(); 
+    _controller = AnimationController( 
+      vsync: this, 
+      duration: Duration(seconds: 2), 
+    ); 
+    _animation = Tween<Offset>( 
+
+43 
+ 
+
+
+
+      begin: Offset(-1.0, 0.0), 
+      end: Offset(0.0, 0.0), 
+    ).animate(_controller); 
+    _controller.forward(); // start 
+animation 
+  } 
+  @override 
+  Widget build(BuildContext context) { 
+    return Center( 
+      child: SlideTransition( 
+        position: _animation, 
+        child: Container( 
+          width: 200, 
+          height: 200, 
+          color: Colors.blue, 
+        ), 
+      ), 
+    ); 
+  } 
+  @override 
+  void dispose() { 
+    _controller.dispose(); 
+    super.dispose(); 
+  } 
+} 
+ 
+Scale Animation:  
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, 
+      home: Scaffold( 
+        appBar: AppBar( 
+          title: Text('Scale Animation Example'), 
+        ), 
+        body: ScaleAnimation(), 
+      ), 
+    ); 
+  } 
+} 
+class ScaleAnimation extends StatefulWidget { 
+  @override 
+  _ScaleAnimationState createState() => _ScaleAnimationState(); 
+} 
+class _ScaleAnimationState extends State<ScaleAnimation> 
+
+44 
+ 
+
+
+
+    with SingleTickerProviderStateMixin { 
+  late AnimationController _controller; // ✅ late 
+  late Animation<double> _animation;    // ✅ late 
+  @override 
+  void initState() { 
+    super.initState(); 
+    _controller = AnimationController( 
+      vsync: this, 
+      duration: Duration(seconds: 2), 
+    ); 
+    _animation = Tween<double>( 
+      begin: 0.0, 
+      end: 1.0, 
+    ).animate(_controller); 
+ 
+    _controller.forward(); // start animation 
+  } 
+  @override 
+  Widget build(BuildContext context) { 
+    return Center( 
+      child: ScaleTransition( 
+        scale: _animation, 
+        child: Container( 
+          width: 200, 
+          height: 200, 
+          color: Colors.blue, 
+        ), 
+      ), 
+    ); 
+  } 
+  @override 
+  void dispose() { 
+    _controller.dispose(); 
+    super.dispose(); 
+  } 
+} 
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+Lab Session 9:  
+
+a) Fetch data from REST API 
+
+pubspec.yaml (dependencies) 
+dependencies: 
+  flutter: 
+
+45 
+ 
+
+
+
+    sdk: flutter 
+  http: ^0.13.3 
+Android Permissions (AndroidManifest.xml) 
+Add inside <manifest>...</manifest>: 
+<uses-permission android:name="android.permission.INTERNET" /> 
+Program : 
+import 'dart:convert'; // For json decoding 
+import 'package:flutter/material.dart'; 
+import 'package:http/http.dart' as http; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, 
+      home: HomePage(), 
+    ); 
+  } 
+} 
+class HomePage extends StatefulWidget { 
+  @override 
+  _HomePageState createState() => _HomePageState(); 
+} 
+class _HomePageState extends State<HomePage> { 
+  List<dynamic> _data = []; 
+  @override 
+  void initState() { 
+    super.initState(); 
+    _fetchDataFromApi(); 
+  } 
+  Future<void> _fetchDataFromApi() async { 
+    final response = await http 
+        .get(Uri.parse('https://jsonplaceholder.typicode.com/posts')); 
+    if (response.statusCode == 200) { 
+      setState(() { 
+        _data = json.decode(response.body); 
+      }); 
+    } else { 
+      throw Exception('Failed to load data'); 
+    } 
+  } 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar( 
+        title: Text('API Data Example'), 
+      ), 
+      body: _data.isEmpty 
+
+46 
+ 
+
+
+
+          ? Center(child: CircularProgressIndicator()) // Show loader until data comes 
+          : ListView.builder( 
+              itemCount: _data.length, 
+              itemBuilder: (context, index) { 
+                return Card( 
+                  margin: EdgeInsets.all(8), 
+                  child: ListTile( 
+                    title: Text(_data[index]['title']), 
+                    subtitle: Text(_data[index]['body']), 
+                  ), 
+                ); 
+              }, 
+            ), 
+    ); 
+  } 
+} 
+Output: 
+
+ 
+
+b) Display the fetched data in a meaningful way in the UI 
+
+display the fetched data in a meaningful way in the UI, we can use a more structured layout 
+rather than just displaying the data in a list. We'll create a custom widget to represent each 
+post fetched from the API, and display them in a scrollable list. 
+import 'dart:convert'; 
+import 'package:flutter/material.dart'; 
+import 'package:http/http.dart' as http; 
+void main() { 
+  runApp(MyApp()); 
+} 
+class MyApp extends StatelessWidget { 
+
+47 
+ 
+
+
+
+  @override 
+  Widget build(BuildContext context) { 
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, // removes debug banner 
+      home: HomePage(), 
+    ); 
+  } 
+} 
+class HomePage extends StatefulWidget { 
+  @override 
+  _HomePageState createState() => _HomePageState(); 
+} 
+class _HomePageState extends State<HomePage> { 
+  List<dynamic> _data = []; 
+  bool _isLoading = false; 
+  @override 
+  void initState() { 
+    super.initState(); 
+    _fetchDataFromApi(); 
+  } 
+  Future<void> _fetchDataFromApi() async { 
+    setState(() { 
+      _isLoading = true; 
+    }); 
+    final response = await http 
+        .get(Uri.parse('https://jsonplaceholder.typicode.com/posts')); 
+    if (response.statusCode == 200) { 
+      setState(() { 
+        _data = json.decode(response.body); 
+        _isLoading = false; 
+      }); 
+    } else { 
+      setState(() { 
+        _isLoading = false; 
+      }); 
+      throw Exception('Failed to load data'); 
+    } 
+  } 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar( 
+        title: Text('API Data Example'), 
+      ), 
+      body: _isLoading 
+          ? Center(child: CircularProgressIndicator()) 
+          : ListView.builder( 
+              itemCount: _data.length, 
+              itemBuilder: (context, index) { 
+                return PostCard( 
+
+48 
+ 
+
+
+
+                  title: _data[index]['title'], 
+                  body: _data[index]['body'], 
+                ); 
+              }, 
+            ), 
+    ); 
+  } 
+} 
+class PostCard extends StatelessWidget { 
+  final String title; 
+  final String body; 
+  const PostCard({ 
+    Key? key, // fixed null safety 
+    required this.title, // required instead of @required 
+    required this.body, 
+  }) : super(key: key); 
+  @override 
+  Widget build(BuildContext context) { 
+    return Card( 
+      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8), 
+      child: Padding( 
+        padding: EdgeInsets.all(16), 
+        child: Column( 
+          crossAxisAlignment: CrossAxisAlignment.start, 
+          children: <Widget>[ 
+            Text( 
+              title, 
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold), 
+            ), 
+            SizedBox(height: 8), 
+            Text( 
+              body, 
+              style: TextStyle(fontSize: 16), 
+            ), 
+          ], 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+Output: 
+
+49 
+ 
+
+
+
+ 
+ 
+
+Lab Session 10:  
+
+a) Write unit tests for UI components 
+What is a Unit Test? 
+A unit test checks whether a small piece of code (usually one function or widget) 
+works as expected — without running the full app. 
+In Flutter, Widget Tests (Unit Tests for UI) check: 
+
+ If the widget displays the correct text or UI elements. 
+ If buttons or gestures work as expected. 
+ If the widget updates properly when interacted with. 
+
+These tests run without an emulator — they test widgets in isolation (very fast). 
+Step 1: Create the UI Component 
+post_card.dart 
+import 'package:flutter/material.dart'; 
+ 
+class PostCard extends StatelessWidget { 
+  final String title; 
+  final String body; 
+ 
+  const PostCard({ 
+    Key? key, 
+    required this.title, 
+    required this.body, 
+  }) : super(key: key); 
+ 
+  @override 
+
+50 
+ 
+
+
+
+  Widget build(BuildContext context) { 
+    return Card( 
+      margin: const EdgeInsets.all(16.0), 
+      child: Padding( 
+        padding: const EdgeInsets.all(16.0), 
+        child: Column( 
+          crossAxisAlignment: CrossAxisAlignment.start, 
+          children: [ 
+            Text( 
+              title, 
+              style: const TextStyle( 
+                fontSize: 18, 
+                fontWeight: FontWeight.bold, 
+              ), 
+            ), 
+            const SizedBox(height: 8), 
+            Text( 
+              body, 
+              style: const TextStyle( 
+                fontSize: 16, 
+              ), 
+            ), 
+          ], 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+Step 2: Write Unit Tests for the UI 
+//main.dart 
+import 'package:flutter/material.dart'; 
+import 'package:flutter_test/flutter_test.dart'; 
+import 'package:myapp/post_card.dart';  // replace with your actual project name 
+ 
+void main() { 
+  testWidgets('PostCard displays title and body', (WidgetTester tester) async { 
+    // Build the widget 
+    await tester.pumpWidget( 
+      MaterialApp( 
+        home: Scaffold( 
+          body: PostCard( 
+            title: 'Test Title', 
+            body: 'Test Body', 
+
+51 
+ 
+
+
+
+          ), 
+        ), 
+      ), 
+    ); 
+ 
+    // Verify that the title and body are shown 
+    expect(find.text('Test Title'), findsOneWidget); 
+    expect(find.text('Test Body'), findsOneWidget); 
+  }); 
+ 
+  testWidgets('PostCard has correct text styles', (WidgetTester tester) async { 
+    await tester.pumpWidget( 
+      MaterialApp( 
+        home: Scaffold( 
+          body: PostCard( 
+            title: 'Styled Title', 
+            body: 'Styled Body', 
+          ), 
+        ), 
+      ), 
+    ); 
+ 
+    // Check title style 
+    final titleText = tester.widget<Text>(find.text('Styled Title')); 
+    expect(titleText.style?.fontSize, 18); 
+    expect(titleText.style?.fontWeight, FontWeight.bold); 
+ 
+    // Check body style 
+    final bodyText = tester.widget<Text>(find.text('Styled Body')); 
+    expect(bodyText.style?.fontSize, 16); 
+  }); 
+} 
+ 
+Output: 
+ 
+
+ 
+ 
+
+52 
+ 
+
+
+
+ 
+ 
+
+b) Use flutter's debugging tools to identify and fix issues? 
+
+import 'package:flutter/material.dart'; 
+void main() { 
+  runApp(MaterialApp(home: LoginPage())); 
+} 
+class LoginPage extends StatefulWidget { 
+  @override 
+  _LoginPageState createState() => _LoginPageState(); 
+} 
+class _LoginPageState extends State<LoginPage> { 
+  final TextEditingController usernameController = TextEditingController(); 
+  final TextEditingController passwordController = TextEditingController(); 
+  void login() { 
+    String username = usernameController.text; 
+    String password = passwordController.text; 
+    // ❌ Bug: wrong logic (username should be 'admin', but used !=) 
+    if (username != 'admin' && password == '1234') { 
+      print('Login Successful'); 
+      ScaffoldMessenger.of(context) 
+          .showSnackBar(SnackBar(content: Text('Login Successful'))); 
+    } else { 
+      print('Login Failed'); 
+      ScaffoldMessenger.of(context) 
+          .showSnackBar(SnackBar(content: Text('Login Failed'))); 
+    } 
+    print('Username entered: $username'); 
+    print('Password entered: $password'); 
+  } 
+  @override 
+  Widget build(BuildContext context) { 
+    return Scaffold( 
+      appBar: AppBar(title: Text('Login Page Debug Example')), 
+      body: Padding( 
+        padding: const EdgeInsets.all(20.0), 
+        child: Column( 
+          mainAxisAlignment: MainAxisAlignment.center, 
+          children: [ 
+            TextField( 
+              controller: usernameController, 
+              decoration: InputDecoration(labelText: 'Username'), 
+            ), 
+            TextField( 
+
+53 
+ 
+
+
+
+              controller: passwordController, 
+              decoration: InputDecoration(labelText: 'Password'), 
+              obscureText: true, 
+            ), 
+            SizedBox(height: 20), 
+            ElevatedButton( 
+              onPressed: login, 
+              child: Text('Login'), 
+            ), 
+          ], 
+        ), 
+      ), 
+    ); 
+  } 
+} 
+ 
+Step 1: Run the App 
+
+ We created a simple Login Page with username and password fields. 
+ When we enter Username: admin and Password: 1234, the output shows “Login 
+
+Failed” even though the inputs are correct. 
+ This means there is a bug (logical error) in the code. 
+
+Step 2: Use Debugging Tools 
+ We used print() statements inside the login() method to check what values were 
+
+entered: 
+print('Username entered: $username'); 
+print('Password entered: $password'); 
+The Debug Console showed: 
+Username entered: admin 
+Password entered: 1234 
+Login Failed 
+This tells us the input is correct, so the problem is in the if condition. 
+Step 3: Identify the Bug 
+
+ The condition in the code was: 
+if (username != 'admin' && password == '1234') 
+
+ Here, != means “not equal,” so the condition is always false for admin. 
+ That’s why the app always displayed “Login Failed.” 
+
+Step 4: Fix the Bug 
+ We corrected the logic by replacing != with ==: 
+
+if (username == 'admin' && password == '1234') 
+ After fixing, the app shows ✅ “Login Successful” when correct credentials are 
+
+entered. 
+
+54 
+ 
+
+
+
+ 
+
+ 
+ 
+ 
+After fix the Bug the output was 
+ 
+
+55 
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+56
