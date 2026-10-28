@@ -1,13 +1,13 @@
 export interface CodeFile {
   filename: string;
-  language: 'javascript' | 'dart' | 'html' | 'css' | 'json' | 'shell' | 'yaml';
+  language: 'javascript' | 'dart' | 'html' | 'css' | 'json' | 'shell' | 'yaml' | 'c' | 'cpp';
   code: string;
   description?: string;
 }
 
 export interface Experiment {
   id: string;
-  subject: 'fsd' | 'flutter' | 'custom' | 'temporary';
+  subject: 'fsd' | 'flutter' | 'cn' | 'custom' | 'temporary';
   subjectTitle: string;
   labNumber: string;
   title: string;
@@ -27,8 +27,9 @@ export interface Experiment {
 }
 
 export const LAB_SUBJECTS = [
-  { id: 'all', name: 'All Database Files', count: 42 },
+  { id: 'all', name: 'All Database Files', count: 52 },
   { id: 'temporary', name: '⏳ Temporary Database', count: 0 },
+  { id: 'cn', name: 'Computer Networks (CN)', count: 10 },
   { id: 'fsd', name: 'Full Stack Development 2 (MERN)', count: 24 },
   { id: 'flutter', name: 'UI Design using Flutter & Dart', count: 18 },
   { id: 'custom', name: 'Custom Uploads', count: 0 },
@@ -3311,10 +3312,880 @@ class _LoginPageState extends State<LoginPage> {
     ],
     outputDescription: 'Entering username "admin" and password "1234" successfully triggers the green confirmation snackbar.',
     voiceExplanation: 'Console print logs and debugger breakpoints help inspect variables at runtime and pinpoint logical discrepancies.'
+  },
+
+  // ==================== COMPUTER NETWORKS (CN) EXPERIMENTS ====================
+  {
+    id: 'cn-exp3',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 3',
+    category: 'Framing & Error Detection',
+    title: 'Data Link Layer Framing Method – Checksum (Sender & Receiver Operations)',
+    description: "Write a program to implement the Data Link Layer framing method using Checksum (1's complement arithmetic) to demonstrate both sender and receiver operations.",
+    objectives: [
+      'Understand Data Link Layer framing principles',
+      "Implement 1's complement checksum generation at the sender",
+      'Simulate transmission frame including checksum',
+      'Verify received frame integrity and detect transmission errors'
+    ],
+    commands: [
+      'gcc checksum.c -o checksum',
+      './checksum'
+    ],
+    steps: [
+      'Sender inputs n data items and sums them',
+      "Generate checksum using 1's complement negation",
+      'Append checksum to data word and transmit',
+      'Receiver sums data items and received checksum',
+      'If total sum equals zero, accept frame without error; otherwise reject'
+    ],
+    files: [
+      {
+        filename: 'checksum.c',
+        language: 'c',
+        code: `#include <stdio.h>
+
+int main() {
+    int data[20], n, i;
+    int checksum = 0, received_checksum, total = 0;
+
+    printf("Enter the number of data items: ");
+    scanf("%d", &n);
+
+    printf("Enter the data items:\\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &data[i]);
+        checksum += data[i];
+    }
+
+    // Sender side 1's complement representation
+    checksum = -checksum;
+
+    printf("\\n--- Sender Side ---\\n");
+    printf("Checksum generated: %d\\n", checksum);
+    printf("Transmitted frame: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", data[i]);
+    }
+    printf("%d\\n", checksum);
+
+    printf("\\n--- Receiver Side ---\\n");
+    printf("Enter the received checksum: ");
+    scanf("%d", &received_checksum);
+
+    for (i = 0; i < n; i++) {
+        total += data[i];
+    }
+    total += received_checksum;
+
+    if (total == 0) {
+        printf("No Error Detected: Data Accepted\\n");
+    } else {
+        printf("Error Detected: Data Rejected\\n");
+    }
+
+    return 0;
+}`
+      }
+    ],
+    outputDescription: 'Outputs generated checksum at sender. If receiver checksum matches, prints "No Error Detected: Data Accepted". If modified, outputs "Error Detected: Data Rejected".',
+    voiceExplanation: "This experiment demonstrates checksum computation using 1's complement arithmetic. The sender sums data items, negates the sum to generate the checksum, and transmits both. The receiver sums all received data plus the checksum; a zero sum confirms error-free reception."
+  },
+  {
+    id: 'cn-exp4',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 4',
+    category: 'Error Detection & Correction',
+    title: 'Hamming Code Generation, Error Detection, and Correction',
+    description: 'Write a program to generate Hamming Code for single-bit error detection and error correction at the receiver side.',
+    objectives: [
+      'Calculate required parity bits using 2^p >= n + p + 1',
+      'Construct codeword placing parity bits at powers of 2 (1, 2, 4, 8, ...)',
+      'Calculate even parity for respective bit positions',
+      'Locate corrupted bit position at receiver and perform single-bit correction'
+    ],
+    commands: [
+      'gcc hamming.c -lm -o hamming',
+      './hamming'
+    ],
+    files: [
+      {
+        filename: 'hamming.c',
+        language: 'c',
+        code: `#include <stdio.h>
+#include <math.h>
+
+int input[32];
+int code[32];
+
+int ham_calc(int position, int total_len);
+
+int main() {
+    int n, p_n = 0, c_l, i, j, k;
+    int error_pos = 0;
+
+    printf("Please enter the length of the Data word: ");
+    scanf("%d", &n);
+
+    printf("Please enter the Data word (bit by bit):\\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &input[i]);
+    }
+
+    // Calculate number of parity bits required: 2^p_n >= n + p_n + 1
+    while ((int)pow(2, p_n) < (n + p_n + 1)) {
+        p_n++;
+    }
+
+    c_l = p_n + n;
+    j = 0;
+    k = 0;
+
+    // Initialize code word (mark parity positions with 0)
+    for (i = 1; i <= c_l; i++) {
+        if (i == (int)pow(2, k)) {
+            code[i - 1] = 0;
+            k++;
+        } else {
+            code[i - 1] = input[j];
+            j++;
+        }
+    }
+
+    // Calculate parity bits
+    for (i = 0; i < p_n; i++) {
+        int position = (int)pow(2, i);
+        int value = ham_calc(position, c_l);
+        code[position - 1] = value;
+    }
+
+    printf("\\nThe Calculated Code word is: ");
+    for (i = 0; i < c_l; i++) {
+        printf("%d ", code[i]);
+    }
+    printf("\\n");
+
+    printf("Please enter the received Code word:\\n");
+    for (i = 0; i < c_l; i++) {
+        scanf("%d", &code[i]);
+    }
+
+    // Check for errors at the receiver side
+    for (i = 0; i < p_n; i++) {
+        int position = (int)pow(2, i);
+        int value = ham_calc(position, c_l);
+        if (value != 0) {
+            error_pos += position;
+        }
+    }
+
+    if (error_pos == 0) {
+        printf("The received Code word is Correct\\n");
+    } else {
+        printf("Error at bit position: %d\\n", error_pos);
+    }
+
+    return 0;
+}
+
+int ham_calc(int position, int total_len) {
+    int count = 0, i, j;
+    i = position - 1;
+
+    while (i < total_len) {
+        for (j = i; j < i + position && j < total_len; j++) {
+            if (code[j] == 1) {
+                count++;
+            }
+        }
+        i = i + 2 * position;
+    }
+
+    if (count % 2 == 0)
+        return 0;
+    else
+        return 1;
+}`
+      }
+    ],
+    outputDescription: 'Computes parity bits and shows calculated codeword. At receiver, verifies codeword and identifies exact error bit position if corrupted.',
+    voiceExplanation: 'Hamming code adds redundant parity bits at positions that are powers of 2. At the receiver, recalculating parity syndromes pinpoint the exact erroneous bit position for single-bit correction.'
+  },
+  {
+    id: 'cn-exp5',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 5',
+    category: 'Error Detection & Correction',
+    title: 'Cyclic Redundancy Check (CRC-12, CRC-16, CRC-CCITT)',
+    description: 'Write a program to implement CRC computation over standard polynomials (CRC-12, CRC-16, CRC-CCITT) or arbitrary user polynomials.',
+    commands: [
+      'gcc crc.c -o crc',
+      './crc'
+    ],
+    files: [
+      {
+        filename: 'crc.c',
+        language: 'c',
+        code: `#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int i, j, keylen, msglen, ch;
+char input[100], key[30], temp[30], quot[30], rem[30], key1[30];
+
+void crc();
+
+int main() {
+    do {
+        printf("\\n--- MENU ---");
+        printf("\\n1. CRC-12\\n2. CRC-16\\n3. Any Polynomial\\n4. Exit\\nEnter your option: ");
+        scanf("%d", &ch);
+
+        switch (ch) {
+            case 1:
+                printf("\\nPolynomial data for CRC-12: ");
+                strcpy(input, "110000000111");
+                printf("%s\\n", input);
+                crc();
+                break;
+            case 2:
+                printf("\\nPolynomial data for CRC-16: ");
+                strcpy(input, "11000000000000101");
+                printf("%s\\n", input);
+                crc();
+                break;
+            case 3:
+                printf("\\nEnter any polynomial data for CRC: ");
+                scanf("%s", input);
+                printf("%s\\n", input);
+                crc();
+                break;
+            case 4:
+                exit(0);
+        }
+    } while (1);
+
+    return 0;
+}
+
+void crc() {
+    printf("Enter the value of key (Divisor polynomial): ");
+    scanf("%s", key);
+
+    keylen = strlen(key);
+    msglen = strlen(input);
+
+    printf("Length of key: %d, Length of message: %d\\n", keylen, msglen);
+    printf("Appending initial redundancy bits (zeros) based on the divisor length...\\n");
+
+    for (i = 0; i < keylen - 1; i++) {
+        input[msglen + i] = '0';
+    }
+    input[msglen + keylen - 1] = '\\0';
+
+    for (i = 0; i < keylen; i++) {
+        temp[i] = input[i];
+    }
+    temp[keylen] = '\\0';
+    strcpy(key1, key);
+
+    for (i = 0; i < msglen; i++) {
+        quot[i] = temp[0];
+        if (quot[i] == '0') {
+            for (j = 0; j < keylen; j++)
+                key[j] = '0';
+        } else {
+            for (j = 0; j < keylen; j++)
+                key[j] = key1[j];
+        }
+
+        for (j = keylen - 1; j > 0; j--) {
+            if (temp[j] == key[j])
+                rem[j - 1] = '0';
+            else
+                rem[j - 1] = '1';
+        }
+        rem[keylen - 1] = input[i + keylen];
+        strcpy(temp, rem);
+    }
+
+    quot[msglen] = '\\0';
+    rem[keylen - 1] = '\\0';
+
+    printf("\\nQuotient is: %s", quot);
+    printf("\\nRemainder is: %s", rem);
+    printf("\\nFinal data (Transmitted Frame) is: ");
+    for (i = 0; i < msglen; i++)
+        printf("%c", input[i]);
+    for (i = 0; i < keylen - 1; i++)
+        printf("%c", rem[i]);
+    printf("\\n");
+}`
+      }
+    ],
+    outputDescription: 'Prompts menu for CRC-12, CRC-16, or user polynomial. Appends zeros, performs modulo-2 division, and displays quotient, remainder, and transmitted frame.',
+    voiceExplanation: 'Cyclic Redundancy Check treats bit strings as polynomials and performs modulo-2 binary division using XOR operations to generate an error-detecting FCS remainder.'
+  },
+  {
+    id: 'cn-exp6',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 6',
+    category: 'Flow Control Protocols',
+    title: 'Sliding Window Protocol – Go-Back-N (GBN)',
+    description: 'Write a program to implement the Go-Back-N sliding window flow control protocol with cumulative acknowledgement and window retransmission.',
+    commands: [
+      'gcc go_back_n.c -o go_back_n',
+      './go_back_n'
+    ],
+    files: [
+      {
+        filename: 'go_back_n.c',
+        language: 'c',
+        code: `#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int no_of_frames = 3, N = 2;
+    int count = 0;
+    int i = 1, j;
+
+    srand(time(NULL));
+
+    while (i <= no_of_frames) {
+        int x = 0;
+
+        // Transmit current window frames
+        for (j = i; j < i + N && j <= no_of_frames; j++) {
+            printf("\\nSending frame %d", j);
+            count++;
+        }
+
+        // Process ACKs
+        for (j = i; j < i + N && j <= no_of_frames; j++) {
+            int flag = rand() % 2;
+            if (flag) {
+                printf("\\nAcknowledgement for window frame %d received", j);
+                x++;
+            } else {
+                printf("\\nCumulative acknowledgement not received whose first packet is %d", j);
+                printf("\\nRetransmitting the same window...\\n");
+                break;
+            }
+        }
+        i += x;
+    }
+
+    printf("\\n\\nTotal number of transmissions: %d\\n", count);
+    return 0;
+}`
+      }
+    ],
+    outputDescription: 'Simulates transmitting frames within sender window N=2. If an acknowledgment is dropped, the entire window is retransmitted from the unacknowledged frame.',
+    voiceExplanation: 'In Go-Back-N, the sender can transmit multiple frames within window N before receiving an ACK. If a frame or ACK is lost, the sender retransmits all frames starting from the lost frame.'
+  },
+  {
+    id: 'cn-exp7',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 7',
+    category: 'Flow Control Protocols',
+    title: 'Sliding Window Protocol – Selective Repeat',
+    description: 'Write a program to implement the Selective Repeat sliding window protocol with individual frame acknowledgement and selective retransmission.',
+    commands: [
+      'gcc selective_repeat.c -o selective_repeat',
+      './selective_repeat'
+    ],
+    files: [
+      {
+        filename: 'selective_repeat.c',
+        language: 'c',
+        code: `#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int receiver(int);
+int simulate(int);
+int negack(int);
+
+int main() {
+    int windowsize = 4, noofpacket, morepacket;
+    int tmp1, tmp2, tmp3, tmp4, tmp5;
+    int i;
+
+    srand(time(NULL));
+    noofpacket = rand() % 10 + 1;
+    printf("Number of frames is %d\\n", noofpacket);
+    morepacket = noofpacket;
+
+    while (morepacket > 0) {
+        tmp1 = simulate(windowsize);
+        tmp4 = tmp1;
+        if (tmp4 > noofpacket)
+            tmp4 = noofpacket;
+
+        for (i = noofpacket - morepacket; i < tmp4; i++) {
+            printf("\\nSending frame %d", i + 1);
+        }
+
+        tmp2 = receiver(tmp1);
+        tmp3 = tmp2;
+        if (tmp3 > noofpacket)
+            tmp3 = noofpacket;
+
+        tmp2 = negack(tmp1);
+        tmp5 = tmp2;
+
+        if (tmp5 != 0) {
+            printf("\\nNo acknowledgement for the frame %d", tmp5);
+            printf("\\nRetransmitting frame %d", tmp5);
+        }
+
+        morepacket -= tmp1;
+    }
+
+    printf("\\n\\nSelective Repeat protocol ends. All packets are successfully transmitted.\\n");
+    return 0;
+}
+
+int receiver(int tmp1) {
+    return (rand() % tmp1) + 1;
+}
+
+int negack(int tmp1) {
+    return (rand() % tmp1) + 1;
+}
+
+int simulate(int windowsize) {
+    int tmp1 = rand() % (windowsize + 1);
+    if (tmp1 == 0)
+        return windowsize;
+    return tmp1;
+}`
+      }
+    ],
+    outputDescription: 'Simulates Selective Repeat sliding window. Sender transmits window frames and selectively retransmits only corrupted/lost frames indicated by negative acknowledgements.',
+    voiceExplanation: 'Unlike Go-Back-N, Selective Repeat only retransmits the specific frames that were lost or received with errors, buffering out-of-order packets at the receiver.'
+  },
+  {
+    id: 'cn-exp8',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 8',
+    category: 'Flow Control Protocols',
+    title: 'Stop-and-Wait Protocol with Packet & Acknowledgement Loss Simulation',
+    description: 'Write a program to implement the Stop-and-Wait protocol with simulated packet drop and acknowledgement loss handling.',
+    commands: [
+      'gcc stop_and_wait.c -o stop_and_wait',
+      './stop_and_wait'
+    ],
+    files: [
+      {
+        filename: 'stop_and_wait.c',
+        language: 'c',
+        code: `#include <stdio.h>
+
+struct Sender {
+    int packetNo;
+    int sent;
+    int acknowledged;
+} S[10];
+
+struct Receiver {
+    int AcknowledgementNo;
+    int received;
+    int AcknowledgementsSent;
+} R[10];
+
+int main() {
+    int i = 0;
+    int check4 = 0;
+    int check6 = 0;
+
+    for (i = 0; i < 6; i++) {
+        S[i].sent = 0;
+        S[i].acknowledged = 0;
+        S[i].packetNo = i + 1;
+    }
+
+    for (i = 0; i < 6; i++) {
+        R[i].AcknowledgementsSent = 0;
+        R[i].received = 0;
+        R[i].AcknowledgementNo = i + 1;
+    }
+
+    for (i = 0; i < 6; i++) {
+        printf("\\n\\nNext Frame:");
+        printf("\\nSending packet %d from Sender", i + 1);
+        S[i].sent = 1;
+        printf("\\nPropagation Delay...");
+
+        // Simulate lost packet at i == 3
+        if (i == 3 && check4 == 0) {
+            R[i].received = 0;
+            check4 = 1;
+            printf("\\nData packet No %d not received.", i + 1);
+            i--; // Retransmit
+            continue;
+        } else {
+            R[i].received = 1;
+            R[i].AcknowledgementsSent = 1;
+            printf("\\nSending Acknowledgement No %d to sender", i + 1);
+            printf("\\nPropagation Delay...");
+
+            // Simulate lost acknowledgement at i == 4
+            if (i == 4 && check6 == 0) {
+                S[i].acknowledged = 0;
+                check6 = 1;
+                printf("\\nAcknowledgement for Data Packet No %d not received", i + 1);
+                i--; // Retransmit
+                continue;
+            } else {
+                S[i].acknowledged = 1;
+                printf("\\nAcknowledgement for packet No %d Received", i + 1);
+            }
+        }
+    }
+
+    return 0;
+}`
+      }
+    ],
+    outputDescription: 'Simulates transmitting 6 frames in Stop-and-Wait fashion. Demonstrates packet retransmission when packet 4 is dropped and when ACK 5 is lost in transit.',
+    voiceExplanation: 'Stop-and-Wait protocol requires the sender to wait for an acknowledgment after each individual frame before transmitting the next. Timeouts trigger retransmissions if packets or ACKs are lost.'
+  },
+  {
+    id: 'cn-exp9',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 9',
+    category: 'Congestion Control',
+    title: 'Congestion Control using Leaky Bucket Algorithm',
+    description: 'Write a program to implement traffic shaping and congestion control using the Leaky Bucket algorithm with fixed output rate and buffer overflow handling.',
+    commands: [
+      'gcc leaky_bucket.c -o leaky_bucket',
+      './leaky_bucket'
+    ],
+    files: [
+      {
+        filename: 'leaky_bucket.c',
+        language: 'c',
+        code: `#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define bucketSize 512
+
+void bktInput(int a, int b) {
+    if (a > bucketSize) {
+        printf("\\n\\tBucket overflow! Packet dropped.");
+    } else {
+        sleep(1);
+        while (a > b) {
+            printf("\\n\\t%d bytes outputted", b);
+            a -= b;
+            sleep(1);
+        }
+        if (a > 0) {
+            printf("\\n\\tLast %d bytes sent", a);
+        }
+        printf("\\n\\tBucket output successful.\\n");
+    }
+}
+
+int main() {
+    int op, pktsize;
+
+    printf("Enter output rate: ");
+    scanf("%d", &op);
+
+    for (int i = 1; i <= 5; i++) {
+        sleep((rand() % 2) + 1);
+        pktsize = rand() % 1000;
+        printf("\\nPacket no: %d, Packet size: %d", i, pktsize);
+        bktInput(pktsize, op);
+    }
+
+    return 0;
+}`
+      }
+    ],
+    outputDescription: 'Takes constant output leak rate, simulates arrival of random-sized bursty packets, drains at steady rate, and drops packets exceeding bucket size 512 bytes.',
+    voiceExplanation: 'The Leaky Bucket algorithm shapes bursty network traffic into a smooth, steady stream by storing incoming packets in a finite buffer and releasing them at a constant rate.'
+  },
+  {
+    id: 'cn-exp10',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 10',
+    category: 'Routing Algorithms',
+    title: "Shortest Path Routing using Dijkstra's Algorithm",
+    description: "Write a program to find shortest paths from a single source to all vertices in a weighted graph using Dijkstra's algorithm.",
+    commands: [
+      'gcc dijkstra.c -o dijkstra',
+      './dijkstra'
+    ],
+    files: [
+      {
+        filename: 'dijkstra.c',
+        language: 'c',
+        code: `#include <stdio.h>
+#include <stdbool.h>
+#include <limits.h>
+
+#define V 9
+
+int minDistance(int dist[], bool sptSet[]) {
+    int min = INT_MAX, min_index = -1;
+
+    for (int v = 0; v < V; v++) {
+        if (!sptSet[v] && dist[v] <= min) {
+            min = dist[v];
+            min_index = v;
+        }
+    }
+    return min_index;
+}
+
+void printSolution(int dist[], int n) {
+    printf("Vertex \\t Distance from Source\\n");
+    for (int i = 0; i < V; i++) {
+        printf("%d \\t %d\\n", i, dist[i]);
+    }
+}
+
+void dijkstra(int graph[V][V], int src) {
+    int dist[V];
+    bool sptSet[V];
+
+    for (int i = 0; i < V; i++) {
+        dist[i] = INT_MAX;
+        sptSet[i] = false;
+    }
+
+    dist[src] = 0;
+
+    for (int count = 0; count < V - 1; count++) {
+        int u = minDistance(dist, sptSet);
+        sptSet[u] = true;
+
+        for (int v = 0; v < V; v++) {
+            if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX
+                && dist[u] + graph[u][v] < dist[v]) {
+                dist[v] = dist[u] + graph[u][v];
+            }
+        }
+    }
+
+    printSolution(dist, V);
+}
+
+int main() {
+    int graph[V][V] = {
+        {0, 4, 0, 0, 0, 0, 0, 8, 0},
+        {4, 0, 8, 0, 0, 0, 0, 11, 0},
+        {0, 8, 0, 7, 0, 4, 0, 0, 2},
+        {0, 0, 7, 0, 9, 14, 0, 0, 0},
+        {0, 0, 0, 9, 0, 10, 0, 0, 0},
+        {0, 0, 4, 14, 10, 0, 2, 0, 0},
+        {0, 0, 0, 0, 0, 2, 0, 1, 6},
+        {8, 11, 0, 0, 0, 0, 1, 0, 7},
+        {0, 0, 2, 0, 0, 0, 6, 7, 0}
+    };
+
+    dijkstra(graph, 0);
+
+    return 0;
+}`
+      }
+    ],
+    outputDescription: 'Computes the shortest path from vertex 0 to all 9 vertices in the network graph and outputs the distance table.',
+    voiceExplanation: "Dijkstra's greedy algorithm finds the shortest path tree from a single source node to all other nodes in a network with non-negative edge costs."
+  },
+  {
+    id: 'cn-exp11',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 11',
+    category: 'Routing Algorithms',
+    title: 'Distance Vector Routing (Floyd-Warshall / All-Pairs Shortest Path)',
+    description: 'Write a program to implement routing table calculation using the Distance Vector routing algorithm based on dynamic programming.',
+    commands: [
+      'gcc distance_vector.c -o distance_vector',
+      './distance_vector'
+    ],
+    files: [
+      {
+        filename: 'distance_vector.c',
+        language: 'c',
+        code: `#include <stdio.h>
+
+#define INF 999
+#define N 6
+
+void printTable(int dist[N][N], int nodes) {
+    printf("\\nRouting Table:\\n");
+    printf("Node | ");
+    for (int i = 0; i < nodes; i++) {
+        printf("%c\\t", 'A' + i);
+    }
+    printf("\\n--------------------------------------------------\\n");
+
+    for (int i = 0; i < nodes; i++) {
+        printf("%c    | ", 'A' + i);
+        for (int j = 0; j < nodes; j++) {
+            if (dist[i][j] == INF)
+                printf("INF\\t");
+            else
+                printf("%d\\t", dist[i][j]);
+        }
+        printf("\\n");
+    }
+}
+
+int main() {
+    int graph[N][N] = {
+        {0,   1,   INF, INF, INF, INF},
+        {1,   0,   2,   INF, 1,   INF},
+        {INF, 2,   0,   3,   INF, INF},
+        {INF, INF, 3,   0,   2,   INF},
+        {INF, 1,   INF, 2,   0,   3  },
+        {INF, INF, INF, INF, 3,   0  }
+    };
+
+    int dist[N][N];
+    int nodes = N;
+
+    for (int i = 0; i < nodes; i++) {
+        for (int j = 0; j < nodes; j++) {
+            dist[i][j] = graph[i][j];
+        }
+    }
+
+    // Dynamic programming (Distance Vector update)
+    for (int k = 0; k < nodes; k++) {
+        for (int i = 0; i < nodes; i++) {
+            for (int j = 0; j < nodes; j++) {
+                if (dist[i][k] + dist[k][j] < dist[i][j]) {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+
+    printTable(dist, nodes);
+    return 0;
+}`
+      }
+    ],
+    outputDescription: 'Computes and prints dynamic routing matrix across all 6 nodes (A through F), updating lowest costs iteratively.',
+    voiceExplanation: 'Distance Vector routing allows each router to exchange cost vectors with neighbors, applying the Bellman-Ford principle to compute lowest cost paths across the entire subnet.'
+  },
+  {
+    id: 'cn-exp12',
+    subject: 'cn',
+    subjectTitle: 'Computer Networks',
+    labNumber: 'Exp 12',
+    category: 'Network Spanning Trees',
+    title: "Broadcast Tree Construction using Prim's Minimum Spanning Tree (MST)",
+    description: "Write a program to compute and display a Broadcast Tree from a designated source node using a Minimum Spanning Tree (MST) approach.",
+    commands: [
+      'gcc broadcast_tree.c -o broadcast_tree',
+      './broadcast_tree'
+    ],
+    files: [
+      {
+        filename: 'broadcast_tree.c',
+        language: 'c',
+        code: `#include <stdio.h>
+#include <limits.h>
+
+#define N 5
+#define INF INT_MAX
+
+int minDistance(int dist[], int visited[]) {
+    int min = INF, min_index = -1;
+
+    for (int v = 0; v < N; v++) {
+        if (visited[v] == 0 && dist[v] < min) {
+            min = dist[v];
+            min_index = v;
+        }
+    }
+    return min_index;
+}
+
+void printBroadcastTree(int parent[], int graph[N][N]) {
+    printf("Edge \\tWeight\\n");
+    for (int i = 1; i < N; i++) {
+        printf("%c - %c \\t%d\\n", 'A' + parent[i], 'A' + i, graph[i][parent[i]]);
+    }
+}
+
+void broadcastTree(int graph[N][N], int src) {
+    int dist[N];
+    int parent[N];
+    int visited[N];
+
+    for (int i = 0; i < N; i++) {
+        dist[i] = INF;
+        visited[i] = 0;
+    }
+
+    dist[src] = 0;
+    parent[src] = -1;
+
+    for (int count = 0; count < N - 1; count++) {
+        int u = minDistance(dist, visited);
+        visited[u] = 1;
+
+        for (int v = 0; v < N; v++) {
+            if (graph[u][v] && visited[v] == 0 && graph[u][v] < dist[v]) {
+                parent[v] = u;
+                dist[v] = graph[u][v];
+            }
+        }
+    }
+
+    printBroadcastTree(parent, graph);
+}
+
+int main() {
+    int graph[N][N] = {
+        {0, 2, 0, 6, 0},
+        {2, 0, 3, 8, 5},
+        {0, 3, 0, 0, 7},
+        {6, 8, 0, 0, 9},
+        {0, 5, 7, 9, 0}
+    };
+
+    int source = 0;
+    printf("Broadcast Tree from Source node '%c':\\n", 'A' + source);
+    broadcastTree(graph, source);
+
+    return 0;
+}`
+      }
+    ],
+    outputDescription: "Constructs a broadcast tree starting from Source node 'A', computing minimum spanning tree edges (e.g., A-B, B-C, B-E, A-D) without creating routing loops.",
+    voiceExplanation: "Broadcast tree construction using Prim's algorithm forms a loop-free minimum spanning tree connecting all nodes from a source router, ensuring broadcast packets reach every host with minimum link overhead."
   }
 ];
 
 export const RAW_MANUAL_FILES = [
+  {
+    id: 'raw-cn',
+    title: 'Computer Networks Lab Manual (Full Source)',
+    filename: 'yyyy_16c977e0.txt',
+    path: '/assets/aistudio/yyyy_16c977e0.txt',
+    subject: 'Computer Networks',
+    size: '11.8 KB',
+    description: 'Complete unedited laboratory experiments manual for Computer Networks covering Framing, Checksum, Hamming Code, CRC, Flow Control Protocols, Congestion Control, and Routing Algorithms in C.'
+  },
   {
     id: 'raw-fsd',
     title: 'FSD-2 Lab Manual (Full Source)',

@@ -51,6 +51,7 @@ export const AddCustomExperimentModal: React.FC<AddCustomExperimentModalProps> =
 
     setFilename(file.name);
     if (file.name.endsWith('.dart')) setLanguage('dart');
+    else if (file.name.endsWith('.c') || file.name.endsWith('.cpp') || file.name.endsWith('.h')) setLanguage('c' as any);
     else if (file.name.endsWith('.js') || file.name.endsWith('.jsx') || file.name.endsWith('.ts')) setLanguage('javascript');
     else if (file.name.endsWith('.html') || file.name.endsWith('.ejs')) setLanguage('html');
     else if (file.name.endsWith('.css') || file.name.endsWith('.scss')) setLanguage('css');
@@ -298,6 +299,7 @@ export const AddCustomExperimentModal: React.FC<AddCustomExperimentModalProps> =
                 onChange={(e) => setLanguage(e.target.value as any)}
                 className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 font-mono focus:outline-none focus:border-blue-500"
               >
+                <option value="c">C / C++</option>
                 <option value="javascript">JavaScript / TypeScript</option>
                 <option value="dart">Dart / Flutter</option>
                 <option value="html">HTML / EJS</option>

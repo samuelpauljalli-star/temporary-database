@@ -324,7 +324,7 @@ export default function App() {
                 </span>
               </div>
               <p className="text-[11px] text-slate-400">
-                Auto-Disappearing Text Files · FSD-2 &amp; Flutter Code · Voice in Text Format
+                Auto-Disappearing Text Files · FSD-2, Flutter &amp; CN Code · Voice in Text Format
               </p>
             </div>
           </div>
@@ -662,6 +662,8 @@ export default function App() {
                                   ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
                                   : exp.subject === 'flutter'
                                   ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
+                                  : exp.subject === 'cn'
+                                  ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20'
                                   : 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
                               }`}
                             >
