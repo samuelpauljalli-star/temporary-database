@@ -1,0 +1,195 @@
+Experiment 3 AIM Perform Data Preprocessing Tasks and Demonstrate
+Association Rule Mining on Datasets using WEKA. Introduction Before
+applying any Machine Learning algorithm, we must prepare the data.
+Imagine you are cooking rice.
+
+ First, you remove stones.
+
+ Then wash the rice.
+
+ Then cook it. Similarly, in Machine Learning, Raw Data → Clean Data →
+Apply Algorithm → Get Results This cleaning process is called Data
+Preprocessing. After preprocessing, we apply Association Rule Mining to
+discover hidden relationships among data. Data Preprocessing: Data
+preprocessing means cleaning and transforming the data before analysis.
+It improves
+
+ Accuracy
+
+ Performance
+
+ Quality of prediction Why preprocessing? Suppose a student database
+contains
+
+Nam Mark e s
+
+Ram 85
+
+Ravi ?
+
+Sita 90
+
+Here one value is missing. Machine learning algorithms cannot easily
+work with incomplete data. Therefore preprocessing is necessary. Types
+of Preprocessing in WEKA WEKA provides many preprocessing filters. In
+this experiment we use 1. Resample Filter 2. Discretize Filter
+
+Dataset Used The document uses the IRIS.arff dataset for preprocessing.
+IRIS dataset contains
+
+ Sepal Length
+
+ Sepal Width
+
+ Petal Length
+
+ Petal Width
+
+ Flower Species There are three flower classes
+
+ Iris Setosa
+
+ Iris Versicolor
+
+ Iris Virginica
+
+       
+
+It is one of the most famous datasets in Machine Learning.
+
+PART 1 – Resample Filter Resampling Resampling means Selecting some
+instances randomly from the dataset. Think of a class with 100 students.
+Instead of checking all 100 answer papers, the teacher randomly checks
+only 30 papers. That is resampling.
+
+Why Resampling?
+
+       Reduce dataset size
+
+       Randomize records
+
+       Create training datasets
+
+       Avoid bias
+
+Procedure According to the experiment: 1. Open WEKA. 2. Open Explorer.
+3. Load IRIS.arff. 4. Click Preprocess. 5. Select Filter. 6. Choose
+Resample. 7. Apply.
+
+WEKA randomly rearranges or selects records. The number of instances may
+change depending on settings. Example Original 1 2 3 4 5 6 7 8 9 10
+After Resampling 2 5 8 9 3 1 Only selected records are used.
+
+PART 2 – Discretization Filter Discretization Discretization converts
+Continuous numerical values into Categorical values.
+
+Example Age 21 25 29 32 45 After discretization Young Young Adult Adult
+Senior
+
+Another example Marks 95 80 70 45 becomes Excellent Good Average Poor
+This makes data easier for many algorithms.
+
+Why Discretization? Some algorithms work better with categories rather
+than numbers. It
+
+        simplifies data
+
+        reduces complexity
+
+        improves rule generation
+
+Procedure The experiment instructs students to apply the Discretize
+filter after loading the dataset.
+
+Association Rule Mining After preprocessing, the next step is
+Association Rule Mining Association Rule Mining: Association Rule Mining
+finds relationships between items. It answers “If one thing happens,
+what is likely to happen next?”
+
+Real-life Example Suppose a supermarket observes Many customers buying
+
+ Bread also buy
+
+ Butter Then the rule becomes Bread → Butter This helps supermarkets
+arrange products together.
+
+More examples People buying
+
+ Laptop also buy
+
+ Mouse Students buying
+
+ Notebook also buy
+
+ Pen These are association rules.
+
+Apriori Algorithm The experiment uses the Apriori Algorithm in WEKA.
+
+Apriori: Apriori is the most popular algorithm for finding association
+rules. It discovers
+
+ Frequent itemsets
+
+ Strong relationships
+
+Example Transactions Milk Bread Milk Bread Butter Bread Butter Milk
+Butter Apriori counts Milk appears 3 times Bread appears 3 times Butter
+appears 3 times Then it finds Milk → Bread Bread → Butter
+
+Milk → Butter
+
+Important Terms 1. Support Support tells How frequently a rule occurs in
+the dataset. Formula Support =Number of transactions containing A and B
+——————————————– Total transactions Example 100 customers 40 purchased
+Bread and Butter Support 40/100
+
+= 40% Higher support means the rule is common.
+
+2.  Confidence Confidence tells How reliable the rule is. Formula
+    Confidence =Transactions containing A and B ——————————– Transactions
+    containing A Example 60 customers purchased Bread. 40 also purchased
+    Butter. Confidence 40/60 = 66.7% Meaning If someone buys Bread,
+    there is a 66.7% chance they buy Butter.
+
+Procedure in WEKA As described in the experiment: 1. Load
+Breast-Cancer.arff dataset. 2. Select the Associate tab. 3. Choose the
+Apriori algorithm. 4. Run the algorithm. 5. Observe the generated rules
+with different support and confidence values. Output WEKA generates
+rules like Rule 1 Age=Young →Class=No Cancer Support = 40% Confidence =
+90% Another Tumor Size=Large →Cancer=Yes Each rule includes
+
+        Support
+
+        Confidence
+
+Part 3 – Effect of Discretization The experiment finally asks students
+to apply the Discretize filter on the Breast- Cancer dataset and run
+Apriori again to study how the generated rules change.
+
+Why do rules change? Before discretization Age 21 22 23 24 25 Many
+different values exist. After discretization Young Young Young Adult
+Adult Now similar records are grouped together. Therefore
+
+ More frequent patterns appear.
+
+ Association rules become easier to understand.
+
+ Rule quality often improves.
+
+Applications Association Rule Mining is widely used in:
+
+ Market Basket Analysis (shopping recommendations)
+
+ Amazon product recommendations
+
+ Medical diagnosis
+
+ Banking
+
+ Insurance
+
+ Fraud detection
+
+ E-commerce
+
+ Customer behavior analysis

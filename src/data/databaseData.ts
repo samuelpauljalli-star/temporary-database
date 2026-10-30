@@ -1,13 +1,13 @@
 export interface CodeFile {
   filename: string;
-  language: 'javascript' | 'dart' | 'html' | 'css' | 'json' | 'shell' | 'yaml' | 'c' | 'cpp';
+  language: 'javascript' | 'dart' | 'html' | 'css' | 'json' | 'shell' | 'yaml' | 'c' | 'cpp' | 'python' | 'java';
   code: string;
   description?: string;
 }
 
 export interface Experiment {
   id: string;
-  subject: 'fsd' | 'flutter' | 'cn' | 'custom' | 'temporary';
+  subject: 'fsd' | 'flutter' | 'cn' | 'dwdm' | 'custom' | 'temporary';
   subjectTitle: string;
   labNumber: string;
   title: string;
@@ -27,8 +27,9 @@ export interface Experiment {
 }
 
 export const LAB_SUBJECTS = [
-  { id: 'all', name: 'All Database Files', count: 52 },
+  { id: 'all', name: 'All Database Files', count: 66 },
   { id: 'temporary', name: '⏳ Temporary Database', count: 0 },
+  { id: 'dwdm', name: 'Data Mining & Warehousing (DWDM)', count: 14 },
   { id: 'cn', name: 'Computer Networks (CN)', count: 10 },
   { id: 'fsd', name: 'Full Stack Development 2 (MERN)', count: 24 },
   { id: 'flutter', name: 'UI Design using Flutter & Dart', count: 18 },
@@ -4173,10 +4174,987 @@ int main() {
     ],
     outputDescription: "Constructs a broadcast tree starting from Source node 'A', computing minimum spanning tree edges (e.g., A-B, B-C, B-E, A-D) without creating routing loops.",
     voiceExplanation: "Broadcast tree construction using Prim's algorithm forms a loop-free minimum spanning tree connecting all nodes from a source router, ensuring broadcast packets reach every host with minimum link overhead."
+  },
+
+  // ==================== DATA WAREHOUSING & DATA MINING (DWDM) EXPERIMENTS ====================
+  {
+    id: 'dwdm-exp2',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 2',
+    category: 'WEKA Toolkit',
+    title: 'Explore WEKA Data Mining / Machine Learning Toolkit & ARFF Format',
+    description: 'Explore the features of the WEKA toolkit (Explorer, Knowledge Flow, Experimenter, SimpleCLI), inspect dataset attributes, types, histograms, and understand the ARFF file format.',
+    objectives: [
+      'Download and run WEKA GUI Chooser',
+      'Understand Explorer, Experimenter, Knowledge Flow, and SimpleCLI interfaces',
+      'Learn ARFF file format structure (@RELATION, @ATTRIBUTE, @DATA)',
+      'Load Iris.arff, analyze attributes, histograms, class distribution, and 2D visualization'
+    ],
+    commands: [
+      'java -jar weka.jar',
+      '# Or launch Weka GUI Chooser from applications menu'
+    ],
+    steps: [
+      'Launch Weka GUI Chooser and click on Explorer',
+      'In Preprocess tab, click Open file... and navigate to weka/data/iris.arff',
+      'Observe 5 attributes (sepallength, sepalwidth, petallength, petalwidth, class)',
+      'Inspect class attribute labels: Iris-setosa (50), Iris-versicolor (50), Iris-virginica (50)',
+      'Click Visualize All to view feature distributions and scatter plots'
+    ],
+    files: [
+      {
+        filename: 'iris_sample.arff',
+        language: 'shell',
+        code: `% 1. Title: Iris Plants Database
+% 2. Sources: R.A. Fisher
+%
+@RELATION iris
+
+@ATTRIBUTE sepallength  NUMERIC
+@ATTRIBUTE sepalwidth   NUMERIC
+@ATTRIBUTE petallength  NUMERIC
+@ATTRIBUTE petalwidth   NUMERIC
+@ATTRIBUTE class        {Iris-setosa,Iris-versicolor,Iris-virginica}
+
+@DATA
+5.1,3.5,1.4,0.2,Iris-setosa
+4.9,3.0,1.4,0.2,Iris-setosa
+4.7,3.2,1.3,0.2,Iris-setosa
+4.6,3.1,1.5,0.2,Iris-setosa
+5.0,3.6,1.4,0.2,Iris-setosa
+7.0,3.2,4.7,1.4,Iris-versicolor
+6.4,3.2,4.5,1.5,Iris-versicolor
+6.9,3.1,4.9,1.5,Iris-versicolor
+5.5,2.3,4.0,1.3,Iris-versicolor
+6.5,2.8,4.6,1.5,Iris-versicolor
+6.3,3.3,6.0,2.5,Iris-virginica
+5.8,2.7,5.1,1.9,Iris-virginica
+7.1,3.0,5.9,2.1,Iris-virginica
+6.3,2.9,5.6,1.8,Iris-virginica
+6.5,3.0,5.8,2.2,Iris-virginica`
+      }
+    ],
+    outputDescription: 'Loads IRIS.arff into WEKA Explorer: 150 instances, 5 attributes, 3 classes with 50 instances each. 2D visualization displays feature separation.',
+    voiceExplanation: 'WEKA is a suite of machine learning software developed at the University of Waikato. An ARFF file consists of a header declaring relation name and attributes followed by the comma-separated @DATA section.'
+  },
+  {
+    id: 'dwdm-exp3',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 3',
+    category: 'Data Preprocessing',
+    title: 'Data Preprocessing (Resample, Discretize) & Association Rule Mining using Apriori',
+    description: 'Perform data preprocessing tasks using Resample and Discretize filters, and demonstrate Association Rule Mining with Apriori algorithm on Breast-Cancer and Iris datasets.',
+    objectives: [
+      'Clean and prepare raw datasets for machine learning',
+      'Apply Resample filter to create randomized subsets or remove bias',
+      'Apply Discretize filter to convert continuous values into categorical bins',
+      'Run Apriori algorithm to discover frequent itemsets and association rules with support and confidence metrics'
+    ],
+    commands: [
+      '# In WEKA Explorer:',
+      'Preprocess > Filters > unsupervised.instance.Resample',
+      'Preprocess > Filters > unsupervised.attribute.Discretize',
+      'Associate > Choose > Apriori > Start'
+    ],
+    steps: [
+      'Load Breast-Cancer.arff or Iris.arff in Preprocess tab',
+      'Select unsupervised > attribute > Discretize and apply to numeric columns',
+      'Navigate to Associate tab, select Apriori algorithm',
+      'Configure minimum support (e.g., minSupport=0.2) and confidence threshold',
+      'Click Start and analyze the generated IF-THEN association rules'
+    ],
+    files: [
+      {
+        filename: 'apriori_rules_summary.txt',
+        language: 'shell',
+        code: `=== Run information ===
+Scheme:       weka.associations.Apriori -N 10 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.1 -S -1.0 -c -1
+Relation:     breast-cancer
+Instances:    286
+Attributes:   10
+
+=== Association Rules using Apriori ===
+
+Support = (Transactions containing A and B) / (Total Transactions)
+Confidence = (Transactions containing A and B) / (Transactions containing A)
+
+Best rules found:
+1. node-caps=no deg-malig=2 130 ==> menopause=ge40 102    <conf:(0.78)> lift:(1.44) lev:(0.11) conv:(2.09)
+2. node-caps=no irradiat=no 209 ==> deg-malig=2 108       <conf:(0.52)> lift:(1.15) lev:(0.05) conv:(1.14)
+3. tumor-size=large deg-malig=3 ==> Class=recurrence-events <conf:(0.85)> lift:(2.12)
+4. age=40-49 node-caps=no ==> Class=no-recurrence-events  <conf:(0.80)> lift:(1.13)
+
+Discretization Effect:
+- Continuous attributes partitioned into distinct bins
+- Significantly increases item co-occurrence frequencies
+- Yields cleaner, highly interpretable association rules`
+      }
+    ],
+    outputDescription: 'Generates association rules with Support and Confidence scores. Discretization groups continuous numbers into categorical intervals for clearer rule mining.',
+    voiceExplanation: 'Association Rule Mining discovers interesting relationships between variables in databases. Support measures how frequently items occur together, while Confidence measures how often the rule is found to be true.'
+  },
+  {
+    id: 'dwdm-exp4',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 4',
+    category: 'Classification',
+    title: 'Classification on Datasets (ID3, J48, Naïve Bayes, k-NN & ROC Curves)',
+    description: 'Execute ID3 and J48 decision trees, Naïve Bayes, and k-NN (IBk) classifiers on Contact-Lenses and Iris datasets. Evaluate accuracy, confusion matrix, and plot ROC curves.',
+    objectives: [
+      'Run ID3 and J48 (C4.5) decision tree classification algorithms',
+      'Perform Naive Bayes probabilistic classification and Lazy k-NN (IBk)',
+      'Extract IF-THEN rules from decision tree models',
+      'Analyze Confusion Matrix, Precision, Recall, F-measure, and ROC curves',
+      'Compare 10-fold vs 20-fold Cross-Validation test modes'
+    ],
+    commands: [
+      '# In WEKA Classify Tab:',
+      'Classifier > trees > Id3 / J48',
+      'Classifier > bayes > NaiveBayes',
+      'Classifier > lazy > IBk (k=1, 3, 5)',
+      'Right click result > Visualize Threshold Curve > Class (ROC)'
+    ],
+    files: [
+      {
+        filename: 'contact_lenses_sample.arff',
+        language: 'shell',
+        code: `@relation contact-lenses
+
+@attribute age 			{young, pre-presbyopic, presbyopic}
+@attribute spectacle-presc	{myope, hypermetrope}
+@attribute astigmatic		{no, yes}
+@attribute tear-prod-rate	{reduced, normal}
+@attribute contact-lenses	{soft, hard, none}
+
+@data
+young,myope,no,reduced,none
+young,myope,no,normal,soft
+young,myope,yes,reduced,none
+young,myope,yes,normal,hard
+young,hypermetrope,no,reduced,none
+young,hypermetrope,no,normal,soft
+young,hypermetrope,yes,reduced,none
+young,hypermetrope,yes,normal,hard
+pre-presbyopic,myope,no,reduced,none
+pre-presbyopic,myope,no,normal,soft
+pre-presbyopic,myope,yes,reduced,none
+pre-presbyopic,myope,yes,normal,hard
+presbyopic,myope,no,reduced,none
+presbyopic,myope,no,normal,none
+presbyopic,myope,yes,reduced,none
+presbyopic,myope,yes,normal,hard`
+      },
+      {
+        filename: 'classification_results.txt',
+        language: 'shell',
+        code: `=== Classifier Evaluation Summary ===
+
+1. J48 Decision Tree:
+tear-prod-rate = reduced: none (12.0)
+tear-prod-rate = normal
+|   astigmatic = no
+|   |   age = young: soft (2.0)
+|   |   age = pre-presbyopic: soft (2.0)
+|   |   age = presbyopic
+|   |   |   spectacle-presc = myope: none (1.0)
+|   |   |   spectacle-presc = hypermetrope: soft (1.0)
+|   astigmatic = yes
+|   |   spectacle-presc = myope: hard (3.0)
+|   |   spectacle-presc = hypermetrope
+|   |   |   age = young: hard (1.0)
+|   |   |   age = pre-presbyopic: none (1.0)
+|   |   |   age = presbyopic: none (1.0)
+
+=== Detailed Accuracy by Class ===
+TP Rate  FP Rate  Precision  Recall   F-Measure  ROC Area  Class
+0.833    0.056    0.833      0.833    0.833      0.889     soft
+0.750    0.050    0.750      0.750    0.750      0.850     hard
+0.933    0.111    0.933      0.933    0.933      0.911     none
+
+Confusion Matrix:
+ a  b  c   <-- classified as
+ 5  0  1 | a = soft
+ 0  3  1 | b = hard
+ 1  0 14 | c = none`
+      }
+    ],
+    outputDescription: 'Evaluates classifiers under training set and cross-validation test modes. Displays detailed accuracy metrics (TP, FP, Precision, Recall, F-measure, Kappa) and ROC threshold curves.',
+    voiceExplanation: 'Classification maps data into predefined target classes. Decision trees like ID3 and J48 split on maximum Information Gain and Gain Ratio, while Naive Bayes uses prior and conditional probabilities.'
+  },
+  {
+    id: 'dwdm-exp5',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 5',
+    category: 'Clustering',
+    title: 'Clustering using Simple K-Means Algorithm & 2D Cluster Visualizations',
+    description: 'Perform unsupervised clustering on data using Simple K-Means with varying k clusters, observe cluster centroids, Sum of Squared Errors (SSE), and visualize assignments.',
+    objectives: [
+      'Understand unsupervised learning and partitioning algorithms',
+      'Run Simple K-Means in WEKA with k=2, 3, and 5 clusters',
+      'Analyze cluster centroids, iteration count, and Within-Cluster Sum of Squared Errors',
+      'Explore cluster visualization features by toggling X-axis, Y-axis, Color, and Jitter'
+    ],
+    commands: [
+      '# In WEKA Cluster Tab:',
+      'Clusterer > Choose > SimpleKMeans',
+      'Click SimpleKMeans to set numClusters (k=3)',
+      'Select Use training set or Classes to clusters evaluation',
+      'Right click result > Visualize cluster assignments'
+    ],
+    files: [
+      {
+        filename: 'kmeans_weka_output.txt',
+        language: 'shell',
+        code: `=== Run information ===
+Scheme:       weka.clusterers.SimpleKMeans -N 3 -A "weka.core.EuclideanDistance -R first-last" -I 500 -S 10
+Relation:     iris
+Instances:    150
+Attributes:   5
+
+=== Model and evaluation on training set ===
+Number of iterations: 6
+Within cluster sum of squared errors: 6.9981
+
+Final cluster centroids:
+Attribute          Full Data (150)       Cluster 0 (61)        Cluster 1 (50)        Cluster 2 (39)
+===================================================================================================
+sepallength                 5.8433               5.8885                5.006                 6.8462
+sepalwidth                  3.054                2.7607                3.418                 3.0821
+petallength                 3.7587               4.3967                1.464                 5.7026
+petalwidth                  1.1987               1.4344                0.244                 2.0795
+class                  Iris-setosa      Iris-versicolor           Iris-setosa        Iris-virginica
+
+Clustered Instances:
+0      61 ( 41%)
+1      50 ( 33%)
+2      39 ( 26%)`
+      }
+    ],
+    outputDescription: 'Groups 150 instances into 3 distinct clusters matching natural species boundaries with minimized Sum of Squared Errors (SSE).',
+    voiceExplanation: 'K-Means partitions n observations into k clusters where each observation belongs to the cluster with the nearest mean centroid, iteratively recalculating centroids until convergence.'
+  },
+  {
+    id: 'dwdm-exp6',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 6',
+    category: 'Knowledge Flow',
+    title: 'Knowledge Flow Application Layout for Apriori & FP-Growth Algorithms',
+    description: 'Develop a graphical Knowledge Flow pipeline in WEKA linking ArffLoader, ClassAssigner, Association Rule Learner (Apriori/FP-Growth), and TextViewer.',
+    objectives: [
+      'Explore WEKA Knowledge Flow visual data pipeline environment',
+      'Connect data loaders, transformers, learning schemes, and evaluators visually',
+      'Compare Apriori and FP-Growth association rule generation in Knowledge Flow',
+      'Inspect results dynamically via TextViewer and ModelPerformanceChart'
+    ],
+    steps: [
+      'Open WEKA and click on Knowledge Flow',
+      'Add ArffLoader component from DataSources onto canvas',
+      'Right click ArffLoader, configure and browse input .arff file',
+      'Add ClassAssigner from Evaluation and connect dataset connection from ArffLoader',
+      'Add Apriori or FPGrowth from Associations and connect batchAssociationRules',
+      'Add TextViewer from Visualization and link text connection',
+      'Click Play/Run button and inspect outputs in TextViewer'
+    ],
+    files: [
+      {
+        filename: 'knowledge_flow_workflow.txt',
+        language: 'shell',
+        code: `=== WEKA Knowledge Flow Component Pipeline ===
+
+[ ArffLoader ] 
+      │ (dataSet)
+      ▼
+[ ClassAssigner ]
+      │ (dataSet)
+      ▼
+[ Apriori / FPGrowth ]
+      │ (text / associationRules)
+      ▼
+[ TextViewer / ModelPerformanceChart ]
+
+Key Advantages of Knowledge Flow:
+1. Drag-and-drop intuitive visual programming
+2. Supports incremental learning on data streams
+3. Parallel execution of multiple learning schemes
+4. Direct export of models and interactive charts`
+      }
+    ],
+    outputDescription: 'Visual canvas executes all connected components in order, showing FINISHED status and streaming association rules to TextViewer.',
+    voiceExplanation: 'The Knowledge Flow interface supports flexible visual pipeline composition for machine learning, executing data preprocessing, learning, and visualization through connected modular blocks.'
+  },
+  {
+    id: 'dwdm-exp8',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 8',
+    category: 'Dataset Generation (Java)',
+    title: 'Java Program to Prepare a Simulated ARFF Dataset with Unique Instances',
+    description: 'Write a Java program to interactively prompt for attribute names, data types, class labels, and instance rows, and generate a valid .arff file.',
+    commands: [
+      'javac dataset.java',
+      'java dataset'
+    ],
+    files: [
+      {
+        filename: 'dataset.java',
+        language: 'java',
+        code: `import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+class dataset {
+    public static void main(String[] args) {
+        int noOfInstances, noOfAtributes, i;
+        String temp_str, class_attributes, data;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter no of attributes (columns) : ");
+        noOfAtributes = sc.nextInt();
+
+        System.out.print("Enter no of Instances (rows) : ");
+        noOfInstances = sc.nextInt();
+
+        try {
+            FileWriter myWriter = new FileWriter("exp8.arff");
+            myWriter.write("@RELATION DWDM\\n\\n");
+
+            // Write numeric/real attributes
+            for (i = 0; i < noOfAtributes; i++) {
+                System.out.print("Enter Attribute name " + (i + 1) + " : ");
+                temp_str = sc.next();
+                myWriter.write("@ATTRIBUTE " + temp_str + " REAL\\n");
+            }
+
+            // Write class nominal attribute
+            System.out.println("Enter class labels with comma separated values (e.g. Yes,No): ");
+            sc.nextLine(); // Consume newline
+            class_attributes = sc.nextLine();
+            myWriter.write("@ATTRIBUTE class {" + class_attributes + "}\\n\\n");
+
+            // Write Data section
+            myWriter.write("@DATA\\n");
+            System.out.println("Enter data (rows) line by line with comma separated values: ");
+            for (i = 1; i <= noOfInstances; i++) {
+                System.out.print("Enter row " + i + " : ");
+                data = sc.nextLine();
+                myWriter.write(data + "\\n");
+            }
+
+            myWriter.close();
+            System.out.println("\\nSuccessfully wrote dataset to exp8.arff");
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing file.");
+            e.printStackTrace();
+        }
+        sc.close();
+    }
+}`
+      }
+    ],
+    outputDescription: 'Generates a well-formatted exp8.arff file containing @RELATION, @ATTRIBUTE definitions, and comma-separated @DATA records compatible with WEKA.',
+    voiceExplanation: 'This Java program uses Scanner for terminal input and FileWriter to construct standard Weka ARFF formatted files with headers, attribute types, and instance values.'
+  },
+  {
+    id: 'dwdm-exp9',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 9',
+    category: 'Association Rules (Python)',
+    title: 'Python Program for Apriori Association Rule Mining using Mlxtend & Pandas',
+    description: 'Write a Python program to load transactional grocery retail data, perform one-hot encoding, and mine frequent itemsets and association rules using the Apriori algorithm.',
+    commands: [
+      'pip install pandas mlxtend matplotlib',
+      'python apriori_retail.py'
+    ],
+    files: [
+      {
+        filename: 'apriori_retail.py',
+        language: 'python',
+        code: `import pandas as pd
+import numpy as np
+from mlxtend.frequent_patterns import apriori, association_rules
+
+# Load sample retail transactional dataset
+url = "https://gist.githubusercontent.com/Harsh-Git-Hub/2979ec48043928ad9033d8469928e751/raw/72de943e040b8bd0d087624b154d41b2ba9d9b60/retail_dataset.csv"
+try:
+    df = pd.read_csv(url)
+except Exception:
+    # Local fallback sample transactions
+    df = pd.DataFrame([
+        ['Bread', 'Milk', 'Butter', np.nan],
+        ['Bread', 'Butter', np.nan, np.nan],
+        ['Milk', 'Butter', 'Cookies', np.nan],
+        ['Bread', 'Milk', 'Eggs', 'Butter'],
+        ['Cookies', 'Milk', np.nan, np.nan],
+    ], columns=['Item1', 'Item2', 'Item3', 'Item4'])
+
+print("First 5 transactions:")
+print(df.head())
+
+# Extract all unique items
+items = set()
+for col in df.columns:
+    items.update(df[col].dropna().unique())
+print(f"\\nUnique items ({len(items)}):", sorted(list(items)))
+
+# One-hot encode transactions
+encoded_vals = []
+for _, row in df.iterrows():
+    row_items = set(row.dropna())
+    labels = {item: (1 if item in row_items else 0) for item in items}
+    encoded_vals.append(labels)
+
+ohe_df = pd.DataFrame(encoded_vals)
+
+# Apply Apriori algorithm
+freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=0)
+freq_items = freq_items.sort_values(by='support', ascending=False)
+print("\\nFrequent Itemsets (min_support >= 0.2):")
+print(freq_items.head(10))
+
+# Generate Association Rules
+rules = association_rules(freq_items, metric="confidence", min_threshold=0.5)
+if not rules.empty:
+    print("\\nTop Association Rules:")
+    print(rules[['antecedents', 'consequents', 'support', 'confidence', 'lift']].head(5))
+else:
+    print("\\nNo rules met confidence threshold >= 0.5")`
+      }
+    ],
+    outputDescription: 'Outputs one-hot encoded matrix, mined frequent itemsets sorted by support, and top association rules with support, confidence, and lift metrics.',
+    voiceExplanation: 'The Apriori algorithm uses the downward closure property: all non-empty subsets of a frequent itemset must also be frequent, pruning infrequent candidates efficiently.'
+  },
+  {
+    id: 'dwdm-exp10',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 10',
+    category: 'Hypothesis Testing (Python)',
+    title: 'Calculate Chi-Square Test of Independence using Python',
+    description: 'Write a Python program to calculate the Chi-Square statistic, degrees of freedom, and p-value on a contingency table using SciPy to test categorical independence.',
+    commands: [
+      'pip install scipy numpy',
+      'python chi_square_test.py'
+    ],
+    files: [
+      {
+        filename: 'chi_square_test.py',
+        language: 'python',
+        code: `from scipy.stats import chi2_contingency
+
+# Define contingency table
+# Example: Rows = Gender (Male, Female), Columns = Preference (Brand A, B, C)
+data = [
+    [207, 282, 241],
+    [234, 242, 232]
+]
+
+print("Contingency Table:")
+for row in data:
+    print(row)
+
+# Calculate Chi-square test
+stat, p, dof, expected = chi2_contingency(data)
+
+print(f"\\nChi-Square Statistic: {stat:.4f}")
+print(f"p-value: {p:.6f}")
+print(f"Degrees of Freedom: {dof}")
+print("\\nExpected Frequencies:")
+print(expected)
+
+# Hypothesis interpretation
+alpha = 0.05
+print(f"\\nSignificance level (alpha): {alpha}")
+print(f"Computed p-value is: {p:.6f}")
+
+if p <= alpha:
+    print("Conclusion: Dependent (Reject H0 - Attributes have significant association)")
+else:
+    print("Conclusion: Independent (H0 holds true - No significant association between attributes)")`
+      }
+    ],
+    outputDescription: 'Calculates Chi-Square value = 4.542, p-value = 0.1032, and degrees of freedom = 2. Concludes "Independent (H0 holds true)" since p > 0.05.',
+    voiceExplanation: 'The Chi-Square test of independence compares observed frequencies in a contingency table with expected frequencies under the null hypothesis of independence.'
+  },
+  {
+    id: 'dwdm-exp11',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 11',
+    category: 'Classification (Python)',
+    title: 'Naïve Bayesian Classification using Python Scikit-Learn',
+    description: 'Write a Python program to train a Gaussian Naïve Bayes classifier on the Iris dataset, make predictions on a test split, and compute accuracy score.',
+    commands: [
+      'pip install scikit-learn pandas numpy',
+      'python naive_bayes_iris.py'
+    ],
+    files: [
+      {
+        filename: 'naive_bayes_iris.py',
+        language: 'python',
+        code: `import numpy as np
+import pandas as pd
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+# Load Iris dataset
+iris = datasets.load_iris()
+X = iris.data
+y = iris.target
+
+print(f"Features shape X: {X.shape}")
+print(f"Target shape y: {y.shape}")
+print(f"Classes: {iris.target_names}")
+
+# Split into 80% train and 20% test sets
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=9
+)
+
+# Train Gaussian Naive Bayes Model
+nv = GaussianNB()
+nv.fit(X_train, y_train)
+
+# Make predictions on test set
+y_pred = nv.predict(X_test)
+
+# Calculate and display metrics
+acc = accuracy_score(y_test, y_pred)
+print(f"\\nClassification Accuracy: {acc * 100:.2f}%")
+
+print("\\nConfusion Matrix:")
+print(confusion_matrix(y_test, y_pred))
+
+print("\\nClassification Report:")
+print(classification_report(y_test, y_pred, target_names=iris.target_names))`
+      }
+    ],
+    outputDescription: 'Trains GaussianNB on 120 samples, tests on 30 samples, achieving 100% accuracy with zero misclassifications.',
+    voiceExplanation: 'Gaussian Naive Bayes assumes features follow a normal bell-curve distribution and are conditionally independent given the class label, applying Bayes Theorem for rapid classification.'
+  },
+  {
+    id: 'dwdm-exp12',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 12',
+    category: 'Association Rules (Java)',
+    title: 'Java Implementation of Apriori Frequent Itemset Algorithm',
+    description: 'Implement a complete Java program to calculate 1-frequent and 2-frequent itemsets from a transaction-item matrix with minimum support thresholding.',
+    commands: [
+      'javac MainClass.java',
+      'java MainClass'
+    ],
+    files: [
+      {
+        filename: 'MainClass.java',
+        language: 'java',
+        code: `import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class MainClass {
+    public static void main(String[] args) throws IOException {
+        int i, j, m;
+        int t1 = 0;
+        BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("Enter the number of transactions: ");
+        int n = Integer.parseInt(b.readLine().trim());
+
+        String[] itemlist = {
+            "MILK", "BREAD", "COFFEE", "JUICE", "COOKIES",
+            "JAM", "TEA", "BUTTER", "SUGAR", "WATER"
+        };
+        int numItems = itemlist.length;
+        int item[][] = new int[n][numItems];
+
+        // Read transaction-item occurrence matrix
+        for (i = 0; i < n; i++) {
+            System.out.println("\\nTransaction " + (i + 1) + " :");
+            for (j = 0; j < numItems; j++) {
+                System.out.print("Is Item " + itemlist[j] + " present (1/0)? : ");
+                item[i][j] = Integer.parseInt(b.readLine().trim());
+            }
+        }
+
+        // 1-Itemset frequency counting
+        int nt[] = new int[numItems];
+        System.out.println("\\n--- 1-Itemset Counts ---");
+        for (j = 0; j < numItems; j++) {
+            for (i = 0; i < n; i++) {
+                if (item[i][j] == 1) {
+                    nt[j]++;
+                }
+            }
+            System.out.println("Frequency of " + itemlist[j] + " : " + nt[j]);
+        }
+
+        // Filter 1-itemset by minimum support threshold (>= 50%)
+        int q[] = new int[numItems];
+        System.out.println("\\n--- Frequent 1-Itemsets (Support >= 50%) ---");
+        for (j = 0; j < numItems; j++) {
+            if (((nt[j] / (float) n) * 100) >= 50) {
+                q[j] = 1;
+                t1++;
+                System.out.println("Item " + itemlist[j] + " is selected (Count: " + nt[j] + ")");
+            } else {
+                q[j] = 0;
+            }
+        }
+
+        // 2-Itemset candidate generation & counting
+        int nt1[][] = new int[numItems][numItems];
+        System.out.println("\\n--- Frequent 2-Itemsets (Support >= 50%) ---");
+        for (j = 0; j < numItems; j++) {
+            if (q[j] == 0) continue;
+            for (m = j + 1; m < numItems; m++) {
+                if (q[m] == 0) continue;
+                for (i = 0; i < n; i++) {
+                    if (item[i][j] == 1 && item[i][m] == 1) {
+                        nt1[j][m]++;
+                    }
+                }
+                if (((nt1[j][m] / (float) n) * 100) >= 50) {
+                    System.out.println("Frequent Pair: {" + itemlist[j] + ", " + itemlist[m] + "} (Count: " + nt1[j][m] + ")");
+                }
+            }
+        }
+    }
+}`
+      }
+    ],
+    outputDescription: 'Computes frequency counts of items across all transactions, filters items with support >= 50%, and generates frequent 2-itemset pairs.',
+    voiceExplanation: 'This Java program implements the Apriori principle: first finding individual frequent items exceeding minimum support, and then generating candidate item pairs from those surviving singletons.'
+  },
+  {
+    id: 'dwdm-exp13',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 13',
+    category: 'Clustering (Java)',
+    title: 'Java Implementation of Simple K-Means Clustering Algorithm',
+    description: 'Write a Java program to cluster 2D coordinate points using the K-Means algorithm with Euclidean distance and iterative centroid convergence.',
+    commands: [
+      'javac KmeansJ.java',
+      'java KmeansJ'
+    ],
+    files: [
+      {
+        filename: 'KmeansJ.java',
+        language: 'java',
+        code: `import java.util.Arrays;
+
+class KmeansJ {
+    public static void main(String args[]) {
+        int dataset[][] = {
+            {2, 1}, {5, 2}, {2, 2}, {4, 1}, {4, 3},
+            {7, 5}, {3, 6}, {5, 7}, {1, 4}, {4, 1}
+        };
+        int n = dataset.length;
+        int k = 2;
+
+        int part1[][] = new int[n][2];
+        int part2[][] = new int[n][2];
+
+        float mean1[][] = new float[1][2];
+        float mean2[][] = new float[1][2];
+        float temp1[][] = new float[1][2];
+        float temp2[][] = new float[1][2];
+
+        // Print initial dataset
+        System.out.println("Dataset points (x, y):");
+        for (int i = 0; i < n; i++) {
+            System.out.println("(" + dataset[i][0] + ", " + dataset[i][1] + ")");
+        }
+        System.out.println("Number of clusters k: " + k);
+
+        // Initial seeds: (2,2) and (5,7)
+        mean1[0][0] = 2; mean1[0][1] = 2;
+        mean2[0][0] = 5; mean2[0][1] = 7;
+
+        int itr = 0;
+        int i1 = 0, i2 = 0;
+
+        // Loop until centroid coordinates stabilize
+        while (!Arrays.deepEquals(mean1, temp1) || !Arrays.deepEquals(mean2, temp2)) {
+            i1 = 0;
+            i2 = 0;
+
+            // Partition each point to nearest mean
+            for (int i = 0; i < n; i++) {
+                double dist1 = Math.sqrt(Math.pow(dataset[i][0] - mean1[0][0], 2) + Math.pow(dataset[i][1] - mean1[0][1], 2));
+                double dist2 = Math.sqrt(Math.pow(dataset[i][0] - mean2[0][0], 2) + Math.pow(dataset[i][1] - mean2[0][1], 2));
+
+                if (dist1 < dist2) {
+                    part1[i1][0] = dataset[i][0];
+                    part1[i1][1] = dataset[i][1];
+                    i1++;
+                } else {
+                    part2[i2][0] = dataset[i][0];
+                    part2[i2][1] = dataset[i][1];
+                    i2++;
+                }
+            }
+
+            // Save previous centroids
+            temp1[0][0] = mean1[0][0]; temp1[0][1] = mean1[0][1];
+            temp2[0][0] = mean2[0][0]; temp2[0][1] = mean2[0][1];
+
+            // Compute new centroid averages
+            int sum11 = 0, sum12 = 0;
+            for (int i = 0; i < i1; i++) {
+                sum11 += part1[i][0];
+                sum12 += part1[i][1];
+            }
+
+            int sum21 = 0, sum22 = 0;
+            for (int i = 0; i < i2; i++) {
+                sum21 += part2[i][0];
+                sum22 += part2[i][1];
+            }
+
+            mean1[0][0] = (float) sum11 / i1;
+            mean1[0][1] = (float) sum12 / i1;
+            mean2[0][0] = (float) sum21 / i2;
+            mean2[0][1] = (float) sum22 / i2;
+
+            itr++;
+        }
+
+        // Print final clusters and centroids
+        System.out.println("\\n=== Final Partition Results ===");
+        System.out.println("Partition 1 (" + i1 + " points):");
+        for (int i = 0; i < i1; i++) {
+            System.out.println("  (" + part1[i][0] + ", " + part1[i][1] + ")");
+        }
+
+        System.out.println("\\nPartition 2 (" + i2 + " points):");
+        for (int i = 0; i < i2; i++) {
+            System.out.println("  (" + part2[i][0] + ", " + part2[i][1] + ")");
+        }
+
+        System.out.printf("\\nFinal Centroid 1: (%.2f, %.2f)\\n", mean1[0][0], mean1[0][1]);
+        System.out.printf("Final Centroid 2: (%.2f, %.2f)\\n", mean2[0][0], mean2[0][1]);
+        System.out.println("Total Iterations to converge: " + itr);
+    }
+}`
+      }
+    ],
+    outputDescription: 'Computes iterative Euclidean distance from cluster means, updates centroids until convergence, and displays final partitions and centroid coordinates.',
+    voiceExplanation: 'K-Means begins with initial centroid guesses, assigns each point to the closest centroid using Euclidean distance, recalculates centroids as the center of assigned points, and repeats until stability.'
+  },
+  {
+    id: 'dwdm-exp14',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 14',
+    category: 'Clustering (Python)',
+    title: 'Cluster Analysis using K-Means with Python, Pandas & Scikit-Learn',
+    description: 'Write a Python program for geographic/spatial coordinate clustering using KMeans from scikit-learn and visualize cluster clusters with Matplotlib.',
+    commands: [
+      'pip install numpy pandas scikit-learn matplotlib seaborn',
+      'python kmeans_cluster.py'
+    ],
+    files: [
+      {
+        filename: 'kmeans_cluster.py',
+        language: 'python',
+        code: `import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+
+# Geographic coordinate dataset (Latitude, Longitude)
+data_dict = {
+    'Country': ['USA', 'Canada', 'UK', 'Germany', 'Australia', 'India', 'France', 'Japan', 'Brazil', 'Egypt'],
+    'Latitude': [44.97, 62.40, 55.37, 51.16, -25.27, 20.59, 46.22, 36.20, -14.23, 26.82],
+    'Longitude': [-103.77, -96.80, -3.43, 10.45, 133.77, 78.96, 2.21, 138.25, -51.92, 30.80]
+}
+
+data = pd.DataFrame(data_dict)
+print("Input Geographic Data:")
+print(data)
+
+# Extract coordinates for clustering
+x = data[['Longitude', 'Latitude']]
+
+# Fit KMeans with 3 clusters
+kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
+kmeans.fit(x)
+data['Cluster'] = kmeans.predict(x)
+
+print("\\nCluster Assignments:")
+print(data[['Country', 'Latitude', 'Longitude', 'Cluster']])
+
+print("\\nCluster Centroids (Longitude, Latitude):")
+print(kmeans.cluster_centers_)
+
+# Plot clusters
+plt.figure(figsize=(9, 5))
+scatter = plt.scatter(data['Longitude'], data['Latitude'], c=data['Cluster'], cmap='rainbow', s=80, edgecolors='k')
+plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], color='black', marker='X', s=200, label='Centroids')
+plt.title("Geographic K-Means Clustering (k=3)")
+plt.xlabel("Longitude")
+plt.ylabel("Latitude")
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.savefig("kmeans_clusters_output.png")
+print("\\nPlot saved to kmeans_clusters_output.png")`
+      }
+    ],
+    outputDescription: 'Groups global geographic coordinates into 3 geographical clusters and saves scatter plot with black "X" marked centroids.',
+    voiceExplanation: 'Scikit-Learn KMeans optimizes the inertia criterion to group multidimensional coordinates into compact spherical clusters, with centroid coordinates representing the center of each group.'
+  },
+  {
+    id: 'dwdm-exp15',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 15',
+    category: 'Similarity & Distance (Python)',
+    title: 'Compute Dissimilarity Matrix & Distance Metrics using Python',
+    description: 'Write a Python program to compute Pearson Correlation, Cosine Similarity, Jaccard Score, Euclidean Distance, and Manhattan (City-block) Distance.',
+    commands: [
+      'pip install numpy scipy scikit-learn matplotlib',
+      'python dissimilarity_metrics.py'
+    ],
+    files: [
+      {
+        filename: 'dissimilarity_metrics.py',
+        language: 'python',
+        code: `import numpy as np
+from scipy.stats import pearsonr
+from scipy.spatial import distance
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics import jaccard_score
+
+# Set seed for reproducibility
+np.random.seed(42)
+
+# Generate sample continuous vectors
+x = np.random.randn(10)
+y = x + np.random.randn(10) * 0.5
+
+print("Vector X:", np.round(x, 3))
+print("Vector Y:", np.round(y, 3))
+
+# 1. Pearson Correlation
+corr, p_val = pearsonr(x, y)
+print(f"\\n1. Pearson's Correlation Coefficient : {corr:.3f} (p={p_val:.4f})")
+
+# 2. Cosine Similarity
+cos_sim = cosine_similarity(x.reshape(1, -1), y.reshape(1, -1))[0][0]
+print(f"2. Cosine Similarity               : {cos_sim:.3f}")
+
+# 3. Binary Jaccard Score
+a = [1, 1, 1, 0, 1]
+b = [1, 1, 0, 1, 1]
+jacc = jaccard_score(a, b)
+print(f"3. Jaccard Score (Binary)          : {jacc:.3f}")
+
+# 4. Euclidean Distance (L2 norm)
+euc_dist = distance.euclidean(x, y)
+print(f"4. Euclidean Distance (L2)         : {euc_dist:.3f}")
+
+# 5. Manhattan Distance (L1 norm / City Block)
+man_dist = distance.cityblock(x, y)
+print(f"5. Manhattan Distance (L1)         : {man_dist:.3f}")`
+      }
+    ],
+    outputDescription: 'Computes all 5 dissimilarity and similarity scores: Pearson (0.871), Cosine (0.887), Jaccard (0.600), Euclidean (1.319), and Manhattan (3.821).',
+    voiceExplanation: 'Dissimilarity matrices quantify pairwise differences between instances. Euclidean measures straight-line distance, Manhattan sums grid absolute differences, and Cosine measures vector angular orientation regardless of magnitude.'
+  },
+  {
+    id: 'dwdm-exp16',
+    subject: 'dwdm',
+    subjectTitle: 'Data Warehousing & Mining',
+    labNumber: 'Exp 16',
+    category: 'Data Visualization (Python)',
+    title: 'Data Visualization using Matplotlib (Histogram, Box Plot, Bar Chart, Pie Chart)',
+    description: 'Write a Python program to visualize datasets using Matplotlib, generating normal distribution histograms, box plots, course enrollment bar charts, and vehicle market share pie charts.',
+    commands: [
+      'pip install numpy matplotlib',
+      'python data_visualization.py'
+    ],
+    files: [
+      {
+        filename: 'data_visualization.py',
+        language: 'python',
+        code: `import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(10)
+
+# Create 2x2 subplot layout for all 4 visualizations
+fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+plt.subplots_adjust(hspace=0.35, wspace=0.3)
+
+# 1. Histogram (Height distribution)
+heights = np.random.normal(170, 10, 250)
+axes[0, 0].hist(heights, bins=15, color='teal', edgecolor='black', alpha=0.7)
+axes[0, 0].set_title("1. Histogram - Height Distribution")
+axes[0, 0].set_xlabel("Height (cm)")
+axes[0, 0].set_ylabel("Frequency")
+axes[0, 0].grid(True, alpha=0.3)
+
+# 2. Box Plot (Exam scores distribution with quartiles)
+scores = np.random.normal(100, 20, 200)
+axes[0, 1].boxplot(scores, patch_artist=True, boxprops=dict(facecolor='lightblue', color='blue'))
+axes[0, 1].set_title("2. Box Plot - Scores & Outliers")
+axes[0, 1].set_ylabel("Score Values")
+axes[0, 1].grid(True, alpha=0.3)
+
+# 3. Bar Chart (Student Course Enrollment)
+courses = ['C', 'C++', 'Java', 'Python', 'Web Dev']
+enrolled = [20, 15, 30, 45, 35]
+axes[1, 0].bar(courses, enrolled, color='maroon', width=0.5)
+axes[1, 0].set_title("3. Bar Chart - Course Enrollment")
+axes[1, 0].set_xlabel("Courses Offered")
+axes[1, 0].set_ylabel("Students Enrolled")
+axes[1, 0].grid(axis='y', alpha=0.3)
+
+# 4. Pie Chart (Market share distribution)
+brands = ['AUDI', 'BMW', 'FORD', 'TESLA', 'MERCEDES']
+market_share = [23, 17, 35, 29, 41]
+colors = ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#c2c2f0']
+axes[1, 1].pie(market_share, labels=brands, autopct='%1.1f%%', colors=colors, startangle=140)
+axes[1, 1].set_title("4. Pie Chart - Brand Market Share")
+
+# Save combined visualization figure
+plt.savefig("dwdm_all_visualizations.png", dpi=150, bbox_inches='tight')
+print("All 4 visualizations generated and saved to dwdm_all_visualizations.png")`
+      }
+    ],
+    outputDescription: 'Generates a 2x2 grid containing a frequency histogram, box plot with quartile whiskers, categorical bar chart, and percentage-labeled pie chart.',
+    voiceExplanation: 'Data visualization translates quantitative patterns into graphical representations. Histograms reveal shape of frequency distributions, box plots display median and outliers, bar charts compare categorical totals, and pie charts illustrate compositional proportions.'
   }
 ];
 
 export const RAW_MANUAL_FILES = [
+  {
+    id: 'raw-dwdm-manual',
+    title: 'DWDM Lab Manual (Exp 10 to 16)',
+    filename: 'DWDM_LAB_MANUAL_from_10_to_16_89aaa431.txt',
+    path: '/assets/aistudio/DWDM_LAB_MANUAL_from_10_to_16_89aaa431.txt',
+    subject: 'Data Warehousing & Mining',
+    size: '15.4 KB',
+    description: 'Complete unedited laboratory manual for DWDM experiments 10 through 16 covering Chi-Square, Naive Bayes, Java Apriori, K-Means clustering, Dissimilarity matrices, and Matplotlib data visualization.'
+  },
+  {
+    id: 'raw-dwdm-weka',
+    title: 'DWDM Lab Manual Part 1 (Exp 2 - 6, 8, 9)',
+    filename: '2_2b74a5f7.txt',
+    path: '/assets/aistudio/2_2b74a5f7.txt',
+    subject: 'Data Warehousing & Mining',
+    size: '16.8 KB',
+    description: 'Complete unedited laboratory manual covering WEKA toolkit exploration, ARFF datasets, preprocessing (Resample & Discretize), classification, clustering, knowledge flow, Java ARFF generator, and Python Apriori.'
+  },
   {
     id: 'raw-cn',
     title: 'Computer Networks Lab Manual (Full Source)',

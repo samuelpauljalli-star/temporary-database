@@ -1,0 +1,72 @@
+EXPERIMENT - 5 AIM: Demonstrate performing clustering on data sets
+
+ Load each dataset into Weka and run simple k-means clustering
+algorithm with different values of k (number of desired clusters). Study
+the clusters formed. Observe the sum of squared errors and centroids,
+and derive insights.
+
+Procedure:
+
+1.  Load the dataset (Iris.arff) into weka tool
+
+2.  Go to classify option & in left-hand navigation bar we can see
+    different clustering algorithms under lazy section.
+
+3.  In which we selected Simple K-Means algorithm & click on start
+    option with ―use training setǁ test option enabled.
+
+4.  Then we will get the sum of squared errors, centroids, No. of
+    iterations & clustered instances as represented below.
+
+5.  If we right click on simple k means, we will get more options in
+    which ―Visualize cluster assignmentsǁ should be selected for getting
+    cluster visualization as shown below.  Explore other clustering
+    techniques available in Weka.
+
+Clustering: Selecting a Clusterer: By now you will be familiar with the
+process of selecting and configuring objects . Clicking on the
+clustering scheme listed in the Clusterer box at the top of the window
+brings up aGenericObjectEditor dialog with which to choose a new
+clustering scheme. Cluster Modes: The Cluster mode box is used to choose
+what to cluster and how to evaluate the results. The first three options
+are the same as for classification: Use training set, supplied test set
+and Percentage split, now the data is assigned to clusters instead of
+trying to predict a specific class.The fourth mode, Classes to clusters
+evaluation, compares how well the chosen clusters match up with a pre-
+assigned class in the data. The drop-down box below this option selects
+the class, just as in the Classify panel. An additional option in the
+Cluster mode box, the Store clusters for visualization tick box,
+determines whether or not it will be possible to visualize the clusters
+once training is complete. When dealing with datasets that are so large
+that memory becomes a problem it may be helpful to disable this option.
+Ignoring Attributes: Often, some attributes in the data should be
+ignored when clustering. The Ignore attributes button brings up a small
+window that allows you to select which attributes are ignored. Clicking
+on an attribute in the window highlight sit, holding down the SHIFT key
+selects a range of consecutive attributes, and holding down CTRL toggles
+individual attributes on and off. To cancel the selection, back out with
+the Cancel button. To activate it, click the Select button. The next
+time clustering is invoked, the selected attributes are ignored.
+
+There are 12 clustering algorithms available in weka tool. They are
+shown below.
+
+Through visualize cluster assignments, we can clearly see the clusters
+in graphical visualization.  5.3 Explore visualization features of Weka
+to visualize the clusters. Derive interesting insights and explain.
+
+       If we right click on simple k means, we will get more options in which ―Visualize
+        cluster assignmentsǁ should be selected for getting cluster visualization as shown below.
+       In that cluster visualization we are having different features to explore by changing the
+        X-axis, Y-axis, Color, Jitter& Select instance (Rectangle, Polygon & Polyline) for getting
+        different sets of cluster outputs.
+
+ As shown in above screenshot, all the dataset (Iris.arff) tuples are
+represented in X-axis &in similar way it will represented for y-axis
+also. For each cluster, the color will be different. In the above
+figure, there are two clusters which are represented in blue & red
+colors.  In the select instance we can select different shapes for
+choosing clustered area as shownin below screenshot, rectangle shape is
+selected. By this visualization feature we can observe different
+clustering outputs for an dataset bychanging those X-axis, Y-axis, Color
+& Jitter options.

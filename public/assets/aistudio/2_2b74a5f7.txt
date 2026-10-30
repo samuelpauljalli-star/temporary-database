@@ -1,0 +1,216 @@
+EXPERIMENT – 2
+
+AIM: To explore WEKA Data Mining/Machine Learning Toolkit
+
+2.1 Downloading and/or installation of WEKA data
+
+mining toolkitProcedure:
+
+1.  Go to the Weka website, http://www.cs.waikato.ac.nz/ml/weka/, and
+    download the software.On the left-hand side, click on the link that
+    says download.
+2.  Running Weka from the start menu select Programs, then Weka.You will
+    see the Weka GUI Chooser. Select Explorer. The Weka Explorer will
+    then launch
+
+2.2 Understand the features of WEKA toolkit such as Explorer, Knowledge
+Flow interface, Experimenter, command-line interface.
+
+The Weka GUI Chooser (class weka.gui.GUIChooser) provides a starting
+pointfor launching Weka‘s main GUI applications and supporting tools. If
+one prefersa MDI (―multiple document interfaceǁ) appearance, then this
+is provided by analternative launcher called ―Mainǁ (class
+weka.gui.Main). The GUI Chooser consists of four buttons—one for each of
+the four majorWeka applications— and four menus.
+
+The buttons can be used to start the following applications: Explorer-
+An environment for exploring data with WEKA a) Click on ―explorerǁ
+button to bring up the explorer window. b) Make sure the ―preprocessǁ
+tab is highlighted. c) Open a new file by clicking on ―Open New fileǁ
+and choosing a file with ―.arffǁ extension from the ―Dataǁ directory. d)
+Attributes appear in the window below. e) Click on the attributes to see
+the visualization on the right. f) Click ―visualize allǁ to see them all
+Experimenter- An environment for performing experiments and conducting
+statistical tests between learning schemes. a) Experimenter is for
+comparing results. b) Under the ―set upǁ tab click ―Newǁ. c) Click on
+―Add Newǁ under ―Dataǁ frame. Choose a couple of arff format files from
+―Dataǁ directory one at a time. d) Click on ―Add Newǁ under ―Algorithmǁ
+frame. Choose several algorithms, one at a time by clicking ―OKǁ in the
+window and ―Add Newǁ. e) Under the ―Runǁ tab click ―Startǁ. f) Wait for
+WEKA to finish. g) Under ―Analysesǁ tab click on ―Experimentǁ to see
+results.
+
+Knowledge Flow- This environment supports essentially the same functions
+as the Explorer butwith a drag-and-drop interface. One advantageis that
+it supports incremental learning. SimpleCLI - Provides a simple
+command-line interface that allows directexecution of WEKAcommands for
+operating systems that do not provide their own command line interface.
+2.3 Navigate the options available in the WEKA (ex. Select attributes
+panel, Preprocesspanel, classify panel, Cluster panel, Associate panel
+and Visualize panel)
+
+When the Explorer is first started only the first tab is active; the
+others are greyed out. This is because it is necessary to open (and
+potentially pre-process) a data set before starting to explorethe data.
+The tabs are as follows: 1. Preprocess. Choose and modify the data being
+acted on. 2. Classify. Train and test learning schemes that classify or
+perform regression. 3. Cluster. Learn clusters for the data. 4.
+Associate. Learn association rules for the data. 5. Select attributes.
+Select the most relevant attributes in the data. 6. Visualize. View an
+interactive 2D plot of the data.
+
+Once the tabs are active, clicking on them flicks between different
+screens, on which the respective actions can be performed. The bottom
+area of the window (including the status box,the log button, and the
+Weka bird) stays visible regardless of which section you are in.
+
+1.  Preprocessing: Loading Data: The first four buttons at the top of
+    the preprocess section enable you to load data into WEKA:
+
+2.  Open file…. Brings up a dialog box allowing you to browse for the
+    data file on the local filesystem.
+
+3.  Open URL Asks for a Uniform Resource Locator address for where the
+    data is stored.
+
+4.  Open DB Reads data from a database. (Note that to make this work you
+    might have to edit the file in weka/experiment/DatabaseUtils.props.)
+
+5.  Generate. Enables you to generate artificial data from a variety of
+    DataGenerators. Using the Open file button you can read files in a
+    variety of formats: WEKA‘s ARFF format, CSV format, C4.5 format, or
+    serialized Instances format. ARFF files typically have a .arff
+    extension, CSV files a .csv extension,C4.5 files a .data and .names
+    extension, and serialized Instances objects a bsi extension.
+
+6.  Classification: Selecting a Classifier At the top of the classify
+    section is the Classifier box. This box has a text field that gives
+    the name of the currently selected classifier, and its options.
+    Clicking on the text box with the left mouse button brings up a
+    Generic Object Editor dialog box, just the same as for filters that
+    you can use to configure the options of the current classifier. With
+    a right click (or Alt+Shift+left click) you can once again copy the
+    setup string to the clipboard or display the properties in a Generic
+    Objec tEditor dialog box. The Choose button allows you to choose
+    on4eof the classifiers that are available in WEKA. Test Options The
+    result of applying the chosen classifier will be tested according to
+    the options that are set byclicking in the Test options box. There
+    are four test modes:
+
+7.  Use training set: The classifier is evaluated on how well it
+    predicts the class of the instances itwas trained on.
+
+8.  Supplied test set: The classifier is evaluated on how well it
+    predicts the class of a set of instances loaded from a file.
+    Clicking the Set… button brings up a dialog allowing you to
+    choosethe file to test on.
+
+9.  Cross-validation: The classifier is evaluated by cross-validation,
+    using the number of foldsthat are entered in the Folds text field.
+
+10. Percentage split: The classifier is evaluated on how well it
+    predicts a certain percentage of thedata which is held out for
+    testing. The amount of data held out depends on the value entered in
+    the % field.
+
+11. Clustering: Cluster Modes: The Cluster mode box is used to choose
+    what to cluster and how to evaluate the results. The first three
+    options are the same as for classification: Use training set,
+    Supplied test set and Percentagesplit.
+
+12. Associating:
+
+Setting Up This panel contains schemes for learning association rules,
+and the learners are chosen andconfigured in the same way as the
+clusters, filters, and classifiers in the other panels. 5. Selecting
+Attributes: Searching and Evaluating Attribute selection involves
+searching through all possible combinations of attributes in the datato
+find which subset of attributes works best for prediction. To do this,
+two objects must be set up: an attribute evaluator and a search method.
+The evaluator determines what method is used to assign a worth to each
+subset of attributes. The search method determines what style of search
+isperformed. 6. Visualizing:
+
+WEKA‘s visualization section allows you to visualize 2D plots of the
+current relation. 2.4 Study the arff file format
+
+       An ARFF (Attribute-Relation File Format) file is an ASCII text file that
+
+describes a list of instances sharing a set of attributes. ARFF files
+were developed by the Machine Learning Project at the Department of
+Computer Science of The University of Waikato for use withthe Weka
+machine learning software.
+
+Overview
+
+ARFF files have two distinct sections. The first section is the Header
+information, which isfollowed the Data information.
+
+The Header of the ARFF file contains the name of the relation, a list of
+the attributes (the columns in the data), and their types. An example
+header on the standard IRIS dataset looks likethis:
+
+% 1. Title: Iris Plants Database % % 2. Sources: % (a) Creator: R.A.
+Fisher % (b) Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov) %
+(c) Date: July, 1988 % @RELATION iris
+
+@ATTRIBUTE sepallength NUMERIC @ATTRIBUTE sepalwidth NUMERIC @ATTRIBUTE
+petallength NUMERIC @ATTRIBUTE petalwidth NUMERIC @ATTRIBUTE class
+{Iris-setosa,Iris-
+
+versicolor,Iris-virginica}The Data of the ARFF file looks
+
+like the following:
+
+@DATA 5.1,3.5,1.4,0.2,Iris-setosa 4.9,3.0,1.4,0.2,Iris-setosa
+4.7,3.2,1.3,0.2,Iris-setosa 4.6,3.1,1.5,0.2,Iris-setosa
+5.0,3.6,1.4,0.2,Iris-setosa 5.4,3.9,1.7,0.4,Iris-setosa
+4.6,3.4,1.4,0.3,Iris-setosa 5.0,3.4,1.5,0.2,Iris-setosa
+4.4,2.9,1.4,0.2,Iris-setosa 4.9,3.1,1.5,0.1,Iris-setosa Lines that begin
+with a % are comments. The @RELATION, @ATTRIBUTE and @DATA declarations
+are case insensitive.  2.5 Explore the available data sets in WEKA
+
+There are 23 different datasets are available in weka (C:Files-6) by
+default fortesting purpose. All the datasets are available in. arff
+format. Those datasets are listed below.
+
+     2.6 Load each dataset and observe the following:
+
+     Load a data set (ex. Weather dataset, Iris dataset, etc.)
+
+    Procedure:
+    1. Open the weka tool and select the explorer option.
+    2. New window will be opened which consists of different options (Preprocess,
+       Association etc.)
+    3. In the preprocess, click the ―open fileǁ option.
+    4. Go to C:\Program Files\Weka-3-6\data for finding different existing. arff datasets.
+    5. Click on any dataset for loading the data then the data will be displayed as shown
+
+below. Here we have taken IRIS.arff dataset as sample for observing all
+the below things.
+
+i.List the attribute names and they types
+
+There are 5 attributes& its datatype present in the above loaded dataset
+(IRIS.arff)sepallength – Numeric sepalwidth – Numeric petallengt h–
+Numeric petallengt h– Numeric Class – Nominal
+
+ii. Number of records in each dataset
+
+      There are total 150 records (Instances) in dataset (IRIS.arff).
+
+iii. Identify the class attribute (if any)  There is one class attribute
+     which consists of 3 labels. They are:
+
+1.  Iris-setosa
+2.  Iris-versicolor
+3.  Iris-virginica
+
+iv. Plot Histogram:
+
+v.  Determine the number of records for each class.
+
+There is one class attribute (150 records) which consists of 3 labels.
+They are shown below 1. Iris-setosa - 50 records 2. Iris-versicolor – 50
+records 3. Iris-virginica – 50 records vi. Visualize the data in various
+dimensions

@@ -1,0 +1,20 @@
+EXPERIMENT - 9 AIM : Write a Python program to generate frequent item
+sets / association rules using Apriori algorithm.
+
+Source code :
+
+from mlxtend.frequent_patterns import apriori, association_rules import
+matplotlib.pyplot as plt import pandas as pd import numpy as np df =
+pd.read_csv(“https://gist.githubusercontent.com/Harsh-Git-
+Hub/2979ec48043928ad9033d8469928e751/raw/72de943e040b8bd0d087624b1
+54d41b2ba9d9b60/retail_dataset.csv”) ## Print first 10 rows df.head(10)
+items = set() for col in df: items.update(df[col].unique()) print(items)
+itemset = set(items) encoded_vals = [] for index, row in df.iterrows():
+rowset = set(row) labels = {} uncommons = list(itemset - rowset) commons
+= list(itemset.intersection(rowset)) for uc in uncommons: labels[uc] = 0
+for com in commons: labels[com] = 1 encoded_vals.append(labels)
+#encoded_vals[0] ohe_df = pd.DataFrame(encoded_vals) freq_items =
+apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
+freq_items.head(7)
+
+Output:

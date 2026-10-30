@@ -1,0 +1,95 @@
+EXPERIMENT:6
+
+AIM: Demonstrate knowledge flow application on data sets 6.1 Develop a
+knowledge flow layout for finding strong association rules by using
+Apriori, FP Growth algorithms
+
+PROCEDURE:
+
+1.  Open Weka and select knowledge flow.
+
+2.  A window with layout canvas for work and navigational panel aligned
+    on left side will be displayed.
+
+3.  From the search bar above left panel, search for the components
+    required for knowledge flow.
+
+4.  Click on the component required and give a click on empty space to
+    bring the component to layout canvas.
+
+5.  Bring all the components to the layout space.
+
+6.  Right click on the component and select the required connection to
+    be made between the components.
+
+7.  Give all connections like below.
+
+8.  Right click on ArffLoader, select configure and browse the file name
+    for input .arff file.
+
+9.  Run the knowledge flow by clicking on run button on left top of
+    window.
+
+10. When it shows all components as FINISHED and knowledge flow as OK,
+    then right click on visualisation component ,here TextViewer, and
+    select show result.
+
+The Results are: Procedure:
+
+1.  Open Weka and select knowledge flow.
+
+2.  A window with layout canvas for work and navigational panel aligned
+    on left side will be displayed.
+
+3.  From the search bar above left panel, search for the components
+    required for knowledge flow.
+
+4.  Click on the component required and give a click on empty space to
+    bring the component to layout canvas.
+
+5.  Bring all the components to the layout space.
+
+6.  Right click on the component and select the required connection to
+    be made between the components.
+
+7.  Give all connections like below.
+
+8.  Right click on ArffLoader, select configure and browse the file name
+    for input .arff file.
+
+9.  Run the knowledge flow by clicking on run button on left top of
+    window.
+
+10. When it shows all components as FINISHED and knowledge flow as OK,
+    then right click on visualisation component ,here TextViewer, and
+    select show result. The Results are:
+
+Procedure:
+
+1.  Open Weka and select knowledge flow.
+
+2.  A window with layout canvas for work and navigational panel aligned
+    on left side will be displayed.
+
+3.  From the search bar above left panel, search for the components
+    required for knowledge flow.
+
+4.  Click on the component required and give a click on empty space to
+    bring the component to layout canvas.
+
+5.  Bring all the components to the layout space.
+
+6.  Right click on the component and select the required connection to
+    be made between the components.
+
+7.  Give all connections like below.
+
+8.  Right click on ArffLoader, select configure and browse the file name
+    for input .arff file.
+
+9.  Run the knowledge flow by clicking on run button on left top of
+    window. 10. When it shows all components as FINISHED and knowledge
+    flow as OK, then right click on visualisation component ,here
+    ModelPerformanceChart, and select show result.
+
+The Results are:

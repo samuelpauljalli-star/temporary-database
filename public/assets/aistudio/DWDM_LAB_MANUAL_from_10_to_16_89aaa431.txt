@@ -1,0 +1,393 @@
+EXPERIMENT - 10 AIM: Write a program to calculate chi-square value using
+Python. Report your observation.
+
+SOURCE CODE:
+
+from scipy. stats import chi2_contingency
+
+Defining the table
+
+data = [[207, 282, 241], [234, 242, 232]]
+
+stat, p, dof, expected = chi2_contingency(data)
+
+Interpret p-value
+
+alpha = 0.05
+
+print (“p value is” + str(p))
+
+if p <= alpha:
+
+print (‘Dependent (reject H0)’)
+
+else:
+
+print (‘Independent (H0 holds true)’)
+
+OUTPUT:
+
+p value is 0.1031971404730939 Independent (H0 holds true)  EXPERIMENT-11
+
+AIM : Write a program of Naive Bayesian classification using Python
+programming language.
+
+SOURCE CODE:
+
+import pandas as pd import numpy as np from sklearn import datasets iris
+= datasets.load_iris() # importing the dataset iris.data # showing the
+iris data X=iris.data #assign the data to the X y=iris.target #assign
+the target/flower type to the y print (X.shape) print (y.shape)
+
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=9)
+
+from sklearn.naive_bayes import GaussianNB nv = GaussianNB() # create a
+classifier nv.fit(X_train,y_train) # fitting the data
+
+from sklearn.metrics import accuracy_score y_pred = nv.predict(X_test) #
+store the prediction data accuracy_score(y_test,y_pred) # calculate the
+accuracy
+
+OUTPUT:
+
+(150,4) (150,)
+
+1.0  EXPERIMENT – 12
+
+AIM : Implement a Java program to perform Apriori algorithm.
+
+Source code:
+
+import java.io.*; import java.io.BufferedReader; import
+java.io.IOException;
+
+public class MainClass {
+
+       public static void main(String[] args)throws IOException
+       {
+               int i,j,m=0;      //initalize variables
+               int t1=0;
+               BufferedReader b=new BufferedReader(new InputStreamReader(System.in));
+               //Java BufferedReader class is used to read the text from a character-based input
+                             stream.
+               //It can be used to read data line by line by readLine() method.
+               System.out.println("Enter the number of transaction :");
+               int n=Integer.parseInt(b.readLine()); //here n is the number of transactions
+               System.out.println("items :1--Milk 2--Bread 3--Coffee 4--Juice 5--Cookies 6--Jam
+                                   7--Tea 8--Butter 9--Sugar 10--Water");
+               int item[][]=new int[n][10];               //cresting array of 10 items.
+               for(i=0;i<n;i++)           //loop generating for number of transactions
+                        for(j=0;j<10;j++)         //loop generating for items array
+                                 item[i][j]=0; //initailizing unique items with their frequency as 0.
+               String[]itemlist = {"MILK", "BREAD", "COFFEE", "JUICE", "COOKIES",
+                        "JAM", "TEA", "BUTTER", "SUGAR", "WATER" };
+               //getting 10 items into array called itemlist.
+               int nt[]=new int[10];
+               int q[]=new int[10];
+               for(i=0;i<n;i++)
+               {
+                        //incrementing for each items in 'n' transactions.
+                        System.out.println("Transaction "+(i+1)+" :");
+                        for(j=0;j<10;j++)
+                        {
+                                 //System.out.println(itemlist[j]);
+                                 System.out.println("Is Item "+itemlist[j]+" present in this
+                                          transaction(1/0)? :");
+
+//checking whether items from itemlistis present in transaction or not
+where 0- not present,1-present.
+item[i][j]=Integer.parseInt(b.readLine()); //reading for each items from
+itemlist in n transaction. }  } for(j=0;j<10;j++) { for(i=0;i<n;i++) {
+if(item[i][j]==1) //checking whether atleast there would be multiple
+items repeated at each n transaction. nt[j]=nt[j]+1; //if condition is
+satisfied then we increment for all n transaction of items. }
+System.out.println(“Number of Item”+itemlist[j]+” :“+nt[j]);
+//generating number of multiple items repeated at their transaction with
+frequency number. }
+
+               for(j=0;j<10;j++)
+               {
+                        if(((nt[j]/(float)n)*100)>=50) //calculating items with their threshold values.
+                                 q[j]=1;
+
+//segregating present items left after removal of items which is below
+threshold into array else q[j]=0; //segregating not present items
+removed as items are below the threshold values
+
+                       if(q[j]==1)
+                       {
+                               t1++; //getting the count of repetitions of same items
+                               System.out.println("Item "+itemlist[j]+" is selected ");
+                       //generating particular item which is selected after threshold calculating.
+
+                       }
+               }
+               for(j=0;j<10;j++)
+               {
+                       for(i=0;i<n;i++)
+                       {
+                               if(q[j]==0)
+                                       item[i][j]=0;
+               }
+               }
+               int nt1[][]=new int[10][10]; //creating array for 2-frequency itemset
+               for(j=0;j<10;j++)
+               {
+                       for(m=j+1;m<10;m++)             //generating unique items for 2-frequency itemlist
+                       {
+                               for(i=0;i<n;i++)
+                               {
+                                        if(item[i][j]==1 &&item[i][m]==1)
+
+//checking there would atleast 1 itemset in 1-frequency itemset and
+2-frequency itemlist. { nt1[j][m]=nt1[j][m]+1; //incrementing for each
+items with all other items in 2-frequency itemset } }
+if(nt1[j][m]!=0)//if 2-frequency itemlist is present
+System.out.println(“Number of Items of”+itemlist[j]+“&”+itemlist[m]+”
+:“+nt1[j][m]); //printing number of items of each items with other items
+with their frequency. } } for(j=0;j<10;j++) { for(m=j+1;m<10;m++) {
+if(((nt1[j][m]/(float)n)*100)>=50) q[j]=1; else q[j]=0;
+
+                             if(q[j]==1)
+                       System.out.println("Item "+itemlist[j]+"& "+itemlist[m]+" is selected ");
+                      }
+               }
+       }
+
+}
+
+Output :  EXPERIMENT - 13 AIM : Write a program to cluster your choice
+of data using simple k-means algorithm using JDK.
+
+SOURCE CODE:
+
+import java.util.*; class KmeansJ { public static void main(String
+args[]) { int dataset[][] = { {2,1}, {5,2}, {2,2}, {4,1}, {4,3}, {7,5},
+{3,6}, {5,7}, {1,4}, {4,1} }; int i,j,k=2; int part1[][] = new
+int[10][2]; int part2[][] = new int[10][2]; float mean1[][] = new
+float[1][2]; float mean2[][] = new float[1][2]; float temp1[][] = new
+float[1][2], temp2[][] = new float[1][2]; int sum11 = 0, sum12 = 0,
+sum21 = 0, sum22 = 0; double dist1, dist2; int i1 = 0, i2 = 0, itr = 0;
+// Printing the dataset System.out.println(“Dataset:”);
+for(i=0;i<10;i++) { System.out.println(dataset[i][0]+” “+dataset[i][1]);
+} System.out.println(”of partitions: “+k); // Assuming (2,2) and (5,7)
+are random means mean1[0][0] = 2; mean1[0][1] = 2; mean2[0][0] = 5;
+mean2[0][1] = 7; // Loop till the new mean and previous mean are same 
+while(!Arrays.deepEquals(mean1, temp1) || !Arrays.deepEquals(mean2,
+temp2)) {
+
+                    //Empting the partitions
+                    for(i=0;i<10;i++) {
+                            part1[i][0] = 0;
+                            part1[i][1] = 0;
+                            part2[i][0] = 0;
+                            part2[i][1] = 0;
+                    }
+                    i1 = 0; i2 = 0;
+                    //Finding distance between mean and data point and store the data point in
+
+the corresponding partition for(i=0;i<10;i++) { dist1 =
+Math.sqrt(Math.pow(dataset[i][0] - mean1[0][0],2) +
+Math.pow(dataset[i][1] - mean1[0][1],2)); dist2 =
+Math.sqrt(Math.pow(dataset[i][0] - mean2[0][0],2) +
+Math.pow(dataset[i][1] - mean2[0][1],2)); if(dist1 < dist2) {
+part1[i1][0] = dataset[i][0]; part1[i1][1] = dataset[i][1]; i1++; } else
+{ part2[i2][0] = dataset[i][0]; part2[i2][1] = dataset[i][1]; i2++; } }
+//Storing the previous mean temp1[0][0] = mean1[0][0]; temp1[0][1] =
+mean1[0][1]; temp2[0][0] = mean2[0][0]; temp2[0][1] = mean2[0][1];
+//Finding new mean for new partitions sum11 = 0; sum12 = 0; sum21 = 0;
+sum22 = 0; for(i=0;i<i1;i++) { sum11 += part1[i][0]; sum12 +=
+part1[i][1]; } for(i=0;i<i2;i++) { sum21 += part2[i][0]; sum22 +=
+part2[i][1]; } mean1[0][0] = (float)sum11/i1;  mean1[0][1] =
+(float)sum12/i1; mean2[0][0] = (float)sum21/i2; mean2[0][1] =
+(float)sum22/i2; itr++; }
+
+          System.out.println("\nFinal Partition: ");
+          System.out.println("Part1:");
+          for(i=0;i<i1;i++) {
+                 System.out.println(part1[i][0]+" "+part1[i][1]);
+          }
+          System.out.println("\nPart2:");
+          for(i=0;i<i2;i++) {
+                 System.out.println(part2[i][0]+" "+part2[i][1]);
+          }
+          System.out.println("\nFinal Mean: ");
+          System.out.println("Mean1 : "+mean1[0][0]+" "+mean1[0][1]);
+          System.out.println("Mean2 : "+mean2[0][0]+" "+mean2[0][1]);
+          System.out.println("\nTotal Iteration: "+itr);
+    }
+
+}
+
+OUTPUT:
+
+                             EXPERIMENT – 14
+
+AIM :Write a program of cluster analysis using simple k-means algorithm
+Python programming language.
+
+SOURCE CODE:
+
+import numpy as np import pandas as pd import statsmodels.api as sm
+import matplotlib.pyplot as plt import seaborn as sns sns.set() from
+sklearn.cluster import KMeans data =
+pd.read_csv(‘C:\Users\aliet\Downloads\cluster.csv’) data
+plt.scatter(data[‘Longitude’],data[‘Latitude’]) plt.xlim(-180,180)
+plt.ylim(-90,90) plt.show() x = data.iloc[:,1:3] # 1t for rows and
+second for columns x kmeans = KMeans(3) kmeans.fit(x)
+identified_clusters = kmeans.fit_predict(x) identified_clusters
+data_with_clusters = data.copy() data_with_clusters[‘Clusters’] =
+identified_clusters
+plt.scatter(data_with_clusters[‘Longitude’],data_with_clusters[‘Latitude’],c=data_with_clu
+sters[‘Clusters’],cmap=‘rainbow’) print(data_with_clusters)
+
+Output: ontent/kmeans.csv.docx Latitude Longitude LANGUAGE Clusters 0
+USA 44.97 -103.77 ENGLISH NaN 2 1 CANADA 62.40 -96.80 ENGLISH NaN 2 2 UK
+66.25 2.40 FRENCH NaN 1 3 GERMANY 96.88 -2.53 ENGLISH NaN 1 4 AUSTRALIA
+33.74 10.40 GERMAN NaN 1 5 INDIA 22.36 133.11 ENGLISH NaN 0 6 EUROPE
+66.44 2.40 FRENCH NaN 1 7 IRAN 72.66 -96.80 ENGLISH NaN 2 8 IRAQ 46.75
+54.07 ENGLISH NaN 1 9 SRILANA 22.58 22.77 FRENCH NaN 1 10 USA 44.97
+-103.77 ENGLISH NaN 2 11 CANADA 62.40 -96.80 ENGLISH NaN 2 12 UK 66.25
+2.40 FRENCH NaN 1 13 GERMANY 96.88 -2.53 ENGLISH NaN 1 14 AUSTRALIA
+33.74 10.40 GERMAN NaN 1 15 INDIA 22.36 133.11 ENGLISH NaN 0 16 EUROPE
+66.44 2.40 FRENCH NaN 1 17 IRAN 72.66 -96.80 ENGLISH NaN 2 18 IRAQ 46.75
+54.07 ENGLISH NaN 1 19 SRILANA 22.58 22.77 FRENCH NaN 1 20 USA 44.97
+-103.77 ENGLISH NaN 2 21 CANADA 62.40 -96.80 ENGLISH NaN 2 22 UK 66.25
+2.40 FRENCH NaN 1 23 GERMANY 96.88 -2.53 ENGLISH NaN 1 24 AUSTRALIA
+33.74 10.40 GERMAN NaN 1 25 INDIA 22.36 133.11 ENGLISH NaN 0 26 EUROPE
+66.44 2.40 FRENCH NaN 1 27 IRAN 72.66 -96.80 ENGLISH NaN 2 28 IRAQ 46.75
+54.07 ENGLISH NaN 1 29 SRILANA 22.58 22.77 FRENCH NaN 1 30 USA 44.97
+-103.77 ENGLISH NaN 2 31 CANADA 62.40 -96.80 ENGLISH NaN 2 32 UK 66.25
+2.40 FRENCH NaN 1 33 GERMANY 96.88 -2.53 ENGLISH NaN 1 34 AUSTRALIA
+33.74 10.40 GERMAN NaN 1 35 INDIA 22.36 133.11 ENGLISH NaN 0 36 EUROPE
+66.44 2.40 FRENCH NaN 1 37 IRAN 72.66 -96.80 ENGLISH NaN 2 38 IRAQ 46.75
+54.07 ENGLISH NaN 1 39 SRILANA 22.58 22.77 FRENCH NaN 1 40 USA 44.97
+-103.77 ENGLISH NaN 2 41 CANADA 62.40 -96.80 ENGLISH NaN 2 42 UK 66.25
+2.40 FRENCH NaN 1 43 GERMANY 96.88 -2.53 ENGLISH NaN 1 44 AUSTRALIA
+33.74 10.40 GERMAN NaN 1 45 INDIA 22.36 133.11 ENGLISH NaN 0 46 EUROPE
+66.44 2.40 FRENCH NaN 1 47 IRAN 72.66 -96.80 ENGLISH NaN 2 48 IRAQ 46.75
+54.07 ENGLISH NaN 1 49 SRILANA 22.58 22.77 FRENCH NaN 1 50 USA 44.97
+-103.77 ENGLISH NaN 2 51 CANADA 62.40 -96.80 ENGLISH NaN 2 52 UK 66.25
+2.40 FRENCH NaN 1 53 GERMANY 96.88 -2.53 ENGLISH NaN 1 54 AUSTRALIA
+33.74 10.40 GERMAN NaN 1 55 INDIA 22.36 133.11 ENGLISH NaN 0 56 EUROPE
+66.44 2.40 FRENCH NaN 1 57 IRAN 72.66 -96.80 ENGLISH NaN 2 58 IRAQ 46.75
+54.07 ENGLISH NaN 1 59 SRILANA 22.58 22.77 FRENCH NaN 1
+
+                             EXPERIMENT – 15
+
+AIM : Write a program to compute/display dissimilarity matrix (for your
+own dataset containing at least four instances with two attributes)
+using Python.
+
+SOURCE CODE:
+
+#Pearson’s Correlation
+
+import numpy as np import matplotlib.pyplot as plt from scipy.stats
+import pearsonr np.random.seed(42) x=np.random.randn(15)
+y=x+np.random.randn(15) plt.scatter(x,y)
+plt.plot(np.unique(x),np.poly1d(np.polyfit(x,y,1))(np.unique(x)))
+plt.xlabel(‘x’) plt.ylabel(‘y’) plt.show() corr,_=pearsonr(x,y)
+print(‘pearsons correlation:%.3f’%corr)
+
+OUTPUT:
+
+#Cosine_similarity from sklearn.metrics.pairwise import
+cosine_similarity
+cos_sin=cosine_similarity(x.reshape(1,-1),y.reshape(1,-1)) print(‘cosine
+similarity:%.3f’%cos_sin)
+
+OUTPUT: cosine similarity:0.773
+
+#jaccard_score from sklearn.metrics import Jaccard score a=[1,1,1,0]
+b=[1,1,0,1] jacc=Jaccard score(a,b) print(“Jaccard score:%.3f”%jacc)
+
+OUTPUT: Jaccard_score:0.500
+
+#Euclidean Distance from scipy.spatial import distance
+dat=distance.euclidean(x,y) print(“Euclidean distance:%.3f”%dat)
+
+OUTPUT: Euclidean distance:3.273
+
+#manhattan Distance
+
+dst=distance.cityblock(x,y) print(“Manhattan Distance:%.3f”%dst)
+
+OUTPUT: Manhattan Distance:10.468  EXPERIMENT - 16
+
+AIM : Visualize the datasets using matplotlib in python.(Histogram, Box
+plot, Bar chart, Pie chart etc.,)
+
+SOURCE CODE:
+
+import NumPy as np x = np.random.normal(170, 10, 250) print(x) import
+matplotlib.pyplot as plt import numpy as np x = np.random.normal(170,
+10, 250) plt.hist(x) plt.show() import matplotlib.pyplot as plt import
+numpy as np # Creating dataset np.random.seed(10) data =
+np.random.normal(100, 20, 200) fig = plt.figure(figsize =(10, 7)) #
+Creating plot plt.boxplot(data) import numpy as np import
+matplotlib.pyplot as plt # creating the dataset data = {‘C’:20,
+‘C++’:15, ‘Java’:30, ‘Python’:35} courses = list(data.keys()) values =
+list(data.values()) fig = plt.figure(figsize = (10, 5)) # creating the
+bar plot plt.bar(courses, values, color =‘maroon’, width = 0.4)
+plt.xlabel(“Courses offered”) plt.ylabel(“No. of students enrolled”)
+plt.title(“Students enrolled in different courses”) plt.show() # Import
+libraries from matplotlib import pyplot as plt import numpy as np #
+Creating dataset cars = [‘AUDI’, ‘BMW’, ‘FORD’, ‘TESLA’, ‘JAGUAR’,
+‘MERCEDES’] data = [23, 17, 35, 29, 12, 41] # Creating plot fig =
+plt.figure(figsize =(10, 7)) plt.pie(data, labels = cars) # show plot
+plt.show() # show plot plt.show()
+
+OUTPUT:
+
+[171.13517345 176.62130675 185.86016816 157.62184501 191.33033375
+150.479122 168.48214905 175.88317206 172.80991868 163.7730048
+167.9187775 165.06999065 164.10635243 178.49602097 173.57015486
+163.07090405 178.99599875 173.07299521 178.12862119 176.29628842
+161.71004989 164.3981896 177.47293605 176.10370265 169.79098406
+171.17327383 182.77664896 164.08428611 175.47097381 167.97807348
+167.82318797 180.98776852 178.25416349 178.13509636 183.05478807
+170.21003842 176.81952971 166.89733243 173.24166352 168.69856946
+170.96995965 175.95157025 161.81779317 190.92387276 159.93982619
+157.85811387 181.58110874 177.91662694 176.24119817 176.28345509
+169.87753227 161.02745629 170.75804558 163.22838288 179.75119733
+168.52942618 161.74502803 166.78614158 174.12931454 164.36275447
+161.77779604 172.43687211 172.44966571 164.93056825 165.28961694
+172.32049937 155.51915659 155.92536226 162.81555779 167.86552848
+173.10907566 184.75356217 178.57659623 168.4006147 169.80983792
+159.97470635 169.81486864 167.11341361 173.2271856 161.72769056
+175.19346514 185.32738913 168.91239852 174.01711722 176.90143992
+165.98779528 172.24092482 170.12592401 170.97676099 162.26990216
+170.24510174 174.97998291 184.51143608 179.59270826 191.53182458
+162.32652437 178.72320637 171.83342006 191.89802933 161.91701715
+161.60278158 164.00607355 148.76104276 164.74244978 162.40867338
+171.50393786 173.41755976 188.76170839 179.50423838 164.23096344
+161.01585329 174.91919172 156.79766793 188.31458766 181.79440121
+165.30824348 152.86865471 183.53872374 168.85460155 182.37816312
+154.05572341 164.00624977 170.052437 170.46980594 165.49934529
+176.22849932 159.32379571 168.57620515 171.20295632 175.14438834
+177.11614878 158.75357908 154.65885829 182.77676822 173.32314012
+162.51513463 185.51151976 171.15674634 181.79297184 170.67518481
+190.60747925 187.55340842 167.51035852 179.71570951 176.4537595
+183.68631558 160.35076539 176.8605146 180.58424487 152.41260514
+158.16741487 149.60767822 167.30593166 177.17542256 185.02357052
+170.7409478 186.28615546 156.19898542 152.96617561 169.44452301
+173.84065449 169.67305252 149.325579 169.1087996 156.95530499
+176.69672549 173.66598246 160.60120214 164.86133083 159.40786478
+169.37320903 179.55142321 160.14273954 175.04046516 164.69742382
+162.07127168 168.9296964 159.64757678 164.46350695 158.02122107
+189.64725133 170.35263552 163.00274492 172.13979911 168.8767195
+167.790304 176.141667 177.5750771 164.69498852 164.24181759 167.24948303
+146.98078835 154.84808938 183.66874267 186.44967714 167.5096396
+175.76556963 173.11250155 200.78880808 181.19574911 168.72082409
+160.44459559 153.9355368 172.03463636 162.43649255 155.7774629
+163.53427116 159.18451996 186.87141635 178.81639757 169.92027359
+184.79944139 170.77368308 161.38715799 185.23124077 175.38910044
+159.62753846 168.09661322 161.24381747 156.17200269 179.26177548
+189.0941664 156.01432426 175.62969237 163.49357431 165.12874616
+164.07606076 161.3600923 170.48521628 161.69049884 172.70456826
+169.49761891 167.61051953 160.92436338 164.23228669 177.55391226
+175.00917188 160.22444755 170.99332305 177.51387123 153.30594719
+175.43360192 163.37376241 175.70598669 162.36740843 151.95117899
+153.72457562 170.48084947 172.59722502 160.95683375]

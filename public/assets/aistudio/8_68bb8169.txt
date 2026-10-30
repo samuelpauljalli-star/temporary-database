@@ -1,0 +1,38 @@
+EXPERIMENT – 8
+
+AIM: Write a java program to prepare a simulated data set with unique
+instances.
+
+SOURCE CODE:
+
+import java.io.FileWriter; // Import the FileWriter class import
+java.io.IOException; // Import the IOException class to handle errors
+import java.util.*;
+
+class dataset { public static void main(String[] args) { int
+noOfInstances, noOfAtributes, i; String temp_str, class_attributes,
+data; System.out.print(“Enter no of attributes (columns) :”); Scanner sc
+= new Scanner(System.in); noOfAtributes = sc.nextInt();
+System.out.print(“Enter no of Instances (rows) :”); noOfInstances =
+sc.nextInt(); try { FileWriter myWriter = new FileWriter(“exp8.arff”);
+myWriter.write(“@RELATION DWDM ”);
+
+       for(i=0; i < noOfAtributes; i++){
+             System.out.println("Enter Attribute name " + (i+1) + " : ");
+             temp_str = sc.next();
+             myWriter.write("@ATTRIBUTE " + temp_str + " REAL \n");
+       }
+       System.out.println("Enter class labels with comma separated values");
+       sc.nextLine();
+       class_attributes = sc.nextLine();
+       myWriter.write("@ATTRIBUTE class            {" +class_attributes + "}\n");
+       myWriter.write("@DATA\n");
+       System.out.println("Enter data (rows) line by line with comma separated
+
+values”); for(i=1; i <= noOfInstances; i++){ System.out.println(“Enter
+row” + i + ” : “); data = sc.nextLine(); myWriter.write(data +”“); }
+myWriter.close();  System.out.println(”Successfully wrote to the
+file.”); } catch (IOException e) { System.out.println(“An error
+occurred.”); e.printStackTrace(); } } }
+
+OUTPUT:
